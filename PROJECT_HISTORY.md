@@ -19,6 +19,8 @@ This file records the meaningful changes made to the site so we can look back la
 - Added advisor confidence scoring so recommendations show whether they are strongly supported by direct matchup rules, exact combo rules, trait matches, selected-synergy coverage, and stage fit.
 - Added seven more sourced counter builds from recent/community meta signals: `God Thunder Mage`, `Insectoid Doom Arbiter`, `Watcher Sand Doom`, `6 Glacier 4 Warlock`, `Goblin Ancestor Warlock`, `Dragon Witcher Rogue`, and `Marine Assassin`.
 - Expanded Counter Advisor direct synergy scores and exact combo rules so the new builds appear for matchups such as `Mage + Divinity`, `Dragon + Mage`, `Insectoid + Civet`, `Goblin + Warlock`, `Glacier + Warlock`, and `Dragon + Witcher`.
+- Added another seven sourced counter templates: `9 Feathered Wizard`, `9 Assassin Horn`, `9 Warrior Rogue Guard`, `Divinity Warlock`, `9 Egersis Pact`, `Shaman Mage Horn`, and `Human Knight Marine`.
+- Added advisor support for those builds, including exact rules for `Human + Mage`, `Feathered + Wizard`, `Greater + Warrior`, `Shaman + Mage`, and `Warrior + Horn`.
 
 ### Patch review dashboard
 
