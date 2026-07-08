@@ -21,6 +21,7 @@
     searchInput: document.getElementById("searchInput"),
     viewTabs: document.querySelectorAll(".view-tab"),
     buildsView: document.getElementById("buildsView"),
+    patchDashboardView: document.getElementById("patchDashboardView"),
     referenceView: document.getElementById("referenceView"),
     tierFilters: document.getElementById("tierFilters"),
     styleFilter: document.getElementById("styleFilter"),
@@ -33,6 +34,14 @@
     patchTitle: document.getElementById("patchTitle"),
     patchSourceLink: document.getElementById("patchSourceLink"),
     patchHighlights: document.getElementById("patchHighlights"),
+    dashboardPatchTitle: document.getElementById("dashboardPatchTitle"),
+    dashboardPatchSourceLink: document.getElementById("dashboardPatchSourceLink"),
+    patchDashboardSummary: document.getElementById("patchDashboardSummary"),
+    patchReviewCount: document.getElementById("patchReviewCount"),
+    patchReviewQueue: document.getElementById("patchReviewQueue"),
+    patchAffectedCount: document.getElementById("patchAffectedCount"),
+    patchAffectedList: document.getElementById("patchAffectedList"),
+    patchSectionList: document.getElementById("patchSectionList"),
     footerSourceNote: document.getElementById("footerSourceNote"),
     statBuilds: document.getElementById("stat-builds"),
     statPieces: document.getElementById("stat-pieces"),
@@ -200,15 +209,19 @@
       button.setAttribute("aria-current", active ? "page" : "false");
     });
 
+    const buildsActive = state.activeView === "builds";
+    const patchActive = state.activeView === "patch";
     const referenceActive = state.activeView === "reference";
-    elements.buildsView.hidden = referenceActive;
+    elements.buildsView.hidden = !buildsActive;
+    elements.patchDashboardView.hidden = !patchActive;
     elements.referenceView.hidden = !referenceActive;
-    elements.buildsView.classList.toggle("active", !referenceActive);
+    elements.buildsView.classList.toggle("active", buildsActive);
+    elements.patchDashboardView.classList.toggle("active", patchActive);
     elements.referenceView.classList.toggle("active", referenceActive);
   }
 
   function renderPatchNotes() {
-    const notes = patchData || data.meta.patchNotes;
+    const notes = activePatchNotes();
     if (!notes) {
       return;
     }
@@ -225,6 +238,307 @@
         </section>
       `)
       .join("");
+  }
+
+  function activePatchNotes() {
+    return patchData || data.meta.patchNotes;
+  }
+
+  function normalizeForMatch(value) {
+    return String(value || "")
+      .toLowerCase()
+      .replace(/[^a-z0-9%]+/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  function cleanPatchLine(value) {
+    return String(value || "")
+      .replace(/^\s*\d+\.\s*/, "")
+      .trim();
+  }
+
+  function patchEntries() {
+    const notes = activePatchNotes();
+    if (!notes?.highlights) {
+      return [];
+    }
+
+    return notes.highlights.flatMap((section) =>
+      section.items.map((item) => ({
+        section: section.title,
+        text: cleanPatchLine(item)
+      }))
+    );
+  }
+
+  function referenceCollections() {
+    return [
+      { type: "pieces", label: "Piece", records: reference.pieces },
+      { type: "items", label: "Item", records: reference.items },
+      { type: "synergies", label: "Synergy", records: reference.synergies }
+    ];
+  }
+
+  function textMentionsName(text, name) {
+    const needle = normalizeForMatch(name);
+    const haystack = ` ${normalizeForMatch(text)} `;
+    return needle.length > 2 && haystack.includes(` ${needle} `);
+  }
+
+  function affectedReferences() {
+    const entries = patchEntries();
+    return referenceCollections()
+      .flatMap((collection) =>
+        collection.records.map((record) => {
+          const matches = entries.filter((entry) => {
+            const synergyContext = /synergy|race|class/i.test(`${entry.section} ${entry.text}`);
+            return textMentionsName(entry.text, record.name) && (collection.type !== "synergies" || synergyContext);
+          });
+          return matches.length ? { ...collection, record, matches } : null;
+        })
+      )
+      .filter(Boolean)
+      .sort((a, b) => a.label.localeCompare(b.label) || a.record.name.localeCompare(b.record.name));
+  }
+
+  function buildFieldGroups(build) {
+    return [
+      { label: "Tags", weight: 3, values: build.tags },
+      { label: "Core", weight: 3, values: build.core },
+      { label: "Items", weight: 3, values: build.items },
+      { label: "Counter Plan", weight: 2, values: build.counterPlan },
+      { label: "Strong Into", weight: 1, values: build.strongInto },
+      { label: "Weak Into", weight: 2, values: build.weakInto },
+      { label: "Pivots", weight: 1, values: build.pivots },
+      { label: "Notes", weight: 1, values: [build.note, build.winCondition, build.style, build.timing] }
+    ];
+  }
+
+  function directBuildMatch(build, name) {
+    return buildFieldGroups(build).find((group) => textMentionsName(flattenText(group.values), name));
+  }
+
+  function keywordImpacts(build) {
+    const searchText = normalizeForMatch(buildSearchText(build));
+    const entries = patchEntries();
+    const terms = ["Elite Forces", "Siphon", "Cocoon", "lifesteal", "ranged", "Crystal Sword", "Broken Sword"];
+    return terms
+      .map((term) => {
+        if (!searchText.includes(normalizeForMatch(term))) {
+          return null;
+        }
+
+        const entry = entries.find((patchEntry) => textMentionsName(patchEntry.text, term) || normalizeForMatch(patchEntry.section).includes(normalizeForMatch(term)));
+        if (!entry) {
+          return null;
+        }
+
+        return {
+          label: term,
+          type: "Rule",
+          field: "Patch Rule",
+          section: entry.section,
+          reason: entry.text,
+          weight: term === "ranged" || term === "lifesteal" ? 2 : 3
+        };
+      })
+      .filter(Boolean);
+  }
+
+  function buildReviewQueue() {
+    const affected = affectedReferences();
+    const queue = builds
+      .map((build) => {
+        const impacts = affected
+          .map((affectedRecord) => {
+            const match = directBuildMatch(build, affectedRecord.record.name);
+            if (!match) {
+              return null;
+            }
+
+            return {
+              label: affectedRecord.record.name,
+              type: affectedRecord.label,
+              field: match.label,
+              section: affectedRecord.matches[0].section,
+              reason: affectedRecord.matches[0].text,
+              weight: match.weight
+            };
+          })
+          .filter(Boolean)
+          .concat(keywordImpacts(build));
+
+        const deduped = [];
+        for (const impact of impacts) {
+          if (!deduped.some((item) => item.label === impact.label && item.section === impact.section)) {
+            deduped.push(impact);
+          }
+        }
+
+        if (!deduped.length) {
+          return null;
+        }
+
+        const topWeight = Math.max(...deduped.map((impact) => impact.weight));
+        const priority = topWeight >= 3 ? "High" : deduped.length > 1 ? "Medium" : "Watch";
+        return { build, impacts: deduped.sort((a, b) => b.weight - a.weight), priority };
+      })
+      .filter(Boolean);
+
+    const priorityOrder = { High: 0, Medium: 1, Watch: 2 };
+    const tierOrder = { S: 0, A: 1, B: 2 };
+    return queue.sort((a, b) =>
+      priorityOrder[a.priority] - priorityOrder[b.priority] ||
+      (tierOrder[a.build.tier] ?? 9) - (tierOrder[b.build.tier] ?? 9) ||
+      b.build.score - a.build.score
+    );
+  }
+
+  function sectionFocus(title) {
+    const focus = {
+      "Piece Adjustment": "Check affected cores, carry targeting, tempo breakpoints, and counter notes.",
+      "Item Adjustments": "Check item priorities, carrier recommendations, and anti-carry counters.",
+      "Talent Adjustments": "Check talent callouts in early plans, economy lines, and late-game pivots.",
+      "Battle Adjustments": "Check ranged boards, lifesteal assumptions, and positioning notes.",
+      "Item Alternation": "Check item availability, replacement items, and damage-item language.",
+      "Fixes": "Check counter text that depends on the fixed interaction.",
+      "Other": "Check only if a build note directly mentions the affected cast or unit."
+    };
+    return focus[title] || "Check any build, counter, or reference text that mentions this section.";
+  }
+
+  function renderDashboardSummary(notes, affected, queue) {
+    const sections = notes.highlights?.length || 0;
+    const entries = patchEntries().length;
+    const directBuilds = queue.filter((item) => item.priority === "High").length;
+    return `
+      <div class="dashboard-stat">
+        <span>Patch</span>
+        <strong>${escapeHtml(notes.date || "Unknown")}</strong>
+      </div>
+      <div class="dashboard-stat">
+        <span>Sections</span>
+        <strong>${sections}</strong>
+      </div>
+      <div class="dashboard-stat">
+        <span>Patch Lines</span>
+        <strong>${entries}</strong>
+      </div>
+      <div class="dashboard-stat">
+        <span>Affected Records</span>
+        <strong>${affected.length}</strong>
+      </div>
+      <div class="dashboard-stat">
+        <span>High Priority</span>
+        <strong>${directBuilds}</strong>
+      </div>
+    `;
+  }
+
+  function priorityTone(priority) {
+    if (priority === "High") {
+      return "bad";
+    }
+    if (priority === "Medium") {
+      return "warn";
+    }
+    return "good";
+  }
+
+  function renderPatchDashboard() {
+    const notes = activePatchNotes();
+    if (!notes) {
+      return;
+    }
+
+    const affected = affectedReferences();
+    const queue = buildReviewQueue();
+    elements.dashboardPatchTitle.textContent = `${notes.title} - ${notes.date}`;
+    elements.dashboardPatchSourceLink.href = notes.sourceUrl || "#";
+    elements.dashboardPatchSourceLink.textContent = notes.sourceLabel || "Patch source";
+    elements.patchDashboardSummary.innerHTML = renderDashboardSummary(notes, affected, queue);
+    elements.patchReviewCount.textContent = `${queue.length} builds`;
+    elements.patchAffectedCount.textContent = `${affected.length} records`;
+
+    elements.patchReviewQueue.innerHTML = queue.length
+      ? queue.map(({ build, impacts, priority }) => `
+        <article class="review-row">
+          <div class="review-row-main">
+            <div>
+              <p class="eyebrow">${escapeHtml(build.tier)} Tier - ${escapeHtml(build.style)}</p>
+              <h3>${escapeHtml(build.name)}</h3>
+            </div>
+            <span class="review-priority ${priorityTone(priority)}">${escapeHtml(priority)}</span>
+          </div>
+          <div class="chip-row">
+            ${impacts.slice(0, 5).map((impact) => chip(`${impact.label} / ${impact.field}`)).join("")}
+          </div>
+          <p>${escapeHtml(impacts[0].reason)}</p>
+          <button class="mini-action" type="button" data-dashboard-build="${escapeHtml(build.id)}">Open Build</button>
+        </article>
+      `).join("")
+      : `<div class="empty-state compact-empty">No builds matched the current patch text.</div>`;
+
+    elements.patchAffectedList.innerHTML = affected.length
+      ? affected.map((item) => `
+        <article class="affected-row">
+          <div>
+            <p class="eyebrow">${escapeHtml(item.label)} - ${escapeHtml(item.matches[0].section)}</p>
+            <h3>${escapeHtml(item.record.name)}</h3>
+          </div>
+          <p>${escapeHtml(item.matches[0].text)}</p>
+          <button class="mini-action ghost" type="button" data-dashboard-reference-type="${escapeHtml(item.type)}" data-dashboard-reference-name="${escapeHtml(item.record.name)}">Open Reference</button>
+        </article>
+      `).join("")
+      : `<div class="empty-state compact-empty">No reference records matched the current patch text.</div>`;
+
+    elements.patchSectionList.innerHTML = (notes.highlights || [])
+      .map((section) => {
+        const sectionAffected = affected.filter((item) => item.matches.some((match) => match.section === section.title));
+        const sectionBuilds = queue.filter((item) => item.impacts.some((impact) => impact.section === section.title));
+        return `
+          <article class="section-review-card">
+            <div class="section-review-top">
+              <h3>${escapeHtml(section.title)}</h3>
+              <span>${section.items.length} lines</span>
+            </div>
+            <p>${escapeHtml(sectionFocus(section.title))}</p>
+            <div class="chip-row">
+              ${chip(`${sectionAffected.length} records`, "good")}
+              ${chip(`${sectionBuilds.length} builds`, sectionBuilds.length ? "bad" : "good")}
+            </div>
+          </article>
+        `;
+      })
+      .join("");
+
+    elements.patchReviewQueue.querySelectorAll("[data-dashboard-build]").forEach((button) => {
+      button.addEventListener("click", () => {
+        state.activeView = "builds";
+        state.query = "";
+        state.tier = "All";
+        state.style = "All";
+        state.difficulty = "All";
+        state.selectedId = button.dataset.dashboardBuild;
+        elements.searchInput.value = "";
+        renderFilters();
+        render();
+      });
+    });
+
+    elements.patchAffectedList.querySelectorAll("[data-dashboard-reference-type]").forEach((button) => {
+      button.addEventListener("click", () => {
+        state.activeView = "reference";
+        state.referenceType = button.dataset.dashboardReferenceType;
+        state.referenceQuery = button.dataset.dashboardReferenceName;
+        state.referencePrimary = "All";
+        state.referenceSecondary = "All";
+        elements.referenceSearchInput.value = state.referenceQuery;
+        renderReferenceLibrary();
+        renderActiveView();
+      });
+    });
   }
 
   function renderTierFilters() {
@@ -660,6 +974,7 @@
   function init() {
     renderStats();
     renderPatchNotes();
+    renderPatchDashboard();
     renderFilters();
     renderReferenceLibrary();
     renderActiveView();

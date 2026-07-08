@@ -4,6 +4,16 @@ This file records the meaningful changes made to the site so we can look back la
 
 ## July 8, 2026
 
+### Patch review dashboard
+
+- Added a top-level `Patch Review` tab.
+- Added dashboard summary tiles for the active patch, section count, patch line count, affected reference records, and high-priority build reviews.
+- Added an affected-reference list generated from patch text matched against pieces, items, and synergies.
+- Added a build review queue generated from affected references and patch-rule keywords.
+- Added `Open Build` and `Open Reference` actions so patch review can jump directly into the existing build and reference views.
+- Added section-level checklist cards for Piece, Item, Talent, Battle, Item Alternation, Fixes, and Other patch sections.
+- Tightened patch matching to avoid false positives from partial words such as `Mage` inside `damage`.
+
 ### Patch update workflow
 
 - Added `package.json` scripts for repeatable updates:

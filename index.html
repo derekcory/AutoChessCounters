@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Auto Chess Builds and Counters</title>
-    <link rel="stylesheet" href="styles.css?v=updater-20260708">
+    <link rel="stylesheet" href="styles.css?v=dashboard-20260708">
   </head>
   <body>
     <div class="app-shell">
@@ -41,6 +41,7 @@
       <main class="main-layout">
         <nav class="view-tabs" aria-label="Main sections">
           <button class="view-tab active" type="button" data-view="builds">Builds & Counters</button>
+          <button class="view-tab" type="button" data-view="patch">Patch Review</button>
           <button class="view-tab" type="button" data-view="reference">Reference Library</button>
         </nav>
 
@@ -105,6 +106,54 @@
           </section>
         </section>
 
+        <section class="view-section" id="patchDashboardView" aria-label="Patch review dashboard" hidden>
+          <section class="dashboard-panel" aria-label="Patch review dashboard">
+            <div class="dashboard-heading">
+              <div>
+                <p class="eyebrow">Patch review</p>
+                <h2 id="dashboardPatchTitle">Patch Dashboard</h2>
+              </div>
+              <a class="source-link" id="dashboardPatchSourceLink" href="#" target="_blank" rel="noreferrer">Patch source</a>
+            </div>
+
+            <div class="dashboard-summary" id="patchDashboardSummary"></div>
+
+            <div class="dashboard-grid">
+              <section class="dashboard-card wide" aria-label="Build review queue">
+                <div class="dashboard-card-heading">
+                  <div>
+                    <p class="eyebrow">Build review queue</p>
+                    <h2>Comps to Recheck</h2>
+                  </div>
+                  <span id="patchReviewCount">0 builds</span>
+                </div>
+                <div class="review-list" id="patchReviewQueue"></div>
+              </section>
+
+              <section class="dashboard-card" aria-label="Affected reference records">
+                <div class="dashboard-card-heading">
+                  <div>
+                    <p class="eyebrow">Affected reference</p>
+                    <h2>Pieces, Items, Synergies</h2>
+                  </div>
+                  <span id="patchAffectedCount">0 records</span>
+                </div>
+                <div class="affected-list" id="patchAffectedList"></div>
+              </section>
+
+              <section class="dashboard-card wide" aria-label="Patch section checklist">
+                <div class="dashboard-card-heading">
+                  <div>
+                    <p class="eyebrow">Patch sections</p>
+                    <h2>Review Checklist</h2>
+                  </div>
+                </div>
+                <div class="section-review-grid" id="patchSectionList"></div>
+              </section>
+            </div>
+          </section>
+        </section>
+
         <section class="view-section" id="referenceView" aria-label="Reference library" hidden>
           <section class="reference-panel" aria-label="Reference library">
             <div class="reference-heading">
@@ -143,9 +192,9 @@
       </footer>
     </div>
 
-    <script src="data.js?v=updater-20260708"></script>
-    <script src="reference-data.js?v=updater-20260708"></script>
-    <script src="patch-data.js?v=updater-20260708"></script>
-    <script src="app.js?v=updater-20260708"></script>
+    <script src="data.js?v=dashboard-20260708"></script>
+    <script src="reference-data.js?v=dashboard-20260708"></script>
+    <script src="patch-data.js?v=dashboard-20260708"></script>
+    <script src="app.js?v=dashboard-20260708"></script>
   </body>
 </html>
