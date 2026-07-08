@@ -17,6 +17,8 @@ This file records the meaningful changes made to the site so we can look back la
 - Updated counter explanations to include the selected synergy breakpoint text and stage-specific reasoning.
 - Added rule-based positioning templates and piece buy plans to Counter Advisor recommendations, using selected enemy synergies, build cores, reference-piece costs, and matchup tech rules.
 - Added advisor confidence scoring so recommendations show whether they are strongly supported by direct matchup rules, exact combo rules, trait matches, selected-synergy coverage, and stage fit.
+- Added seven more sourced counter builds from recent/community meta signals: `God Thunder Mage`, `Insectoid Doom Arbiter`, `Watcher Sand Doom`, `6 Glacier 4 Warlock`, `Goblin Ancestor Warlock`, `Dragon Witcher Rogue`, and `Marine Assassin`.
+- Expanded Counter Advisor direct synergy scores and exact combo rules so the new builds appear for matchups such as `Mage + Divinity`, `Dragon + Mage`, `Insectoid + Civet`, `Goblin + Warlock`, `Glacier + Warlock`, and `Dragon + Witcher`.
 
 ### Patch review dashboard
 

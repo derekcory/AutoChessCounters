@@ -290,238 +290,238 @@
       threat: "Assassins skip normal front-to-back trading and try to erase carries before they cast.",
       answers: ["Use corner bait and sacrificial backliners", "Protect the carry with armor, links, or a second threat", "Punish the jump with control or AoE"],
       counterTraits: ["frontline-armor", "damage-sharing", "aoe-control", "summon-bait"],
-      buildScores: { "warrior-frontline": 9, "druid-super-egg": 8, "watcher-control": 5, "summon-war-horn": 5, "magicka-dragon": 3 }
+      buildScores: { "warrior-frontline": 9, "druid-super-egg": 8, "goblin-ancestor-warlock": 7, "watcher-control": 5, "summon-war-horn": 5, "magicka-dragon": 3 }
     },
     Druid: {
       profile: ["Fast upgrades", "Damage sharing", "Late scaling"],
       threat: "Druid boards hit upgraded front lines early and can become hard to burst once Strange Egg links are online.",
       answers: ["Pressure before the upgraded board stabilizes", "Use AoE so linked units take damage together", "Pick magic conversion or control instead of only attacking armor"],
       counterTraits: ["tempo-pressure", "aoe-control", "magic-damage", "backline-access"],
-      buildScores: { "magicka-dragon": 9, "watcher-assassin": 7, "egersis-hunter": 6, "ogre-rage-casters": 5, "limit-break-legendary": 4 }
+      buildScores: { "magicka-dragon": 9, "god-thunder-mage": 8, "watcher-assassin": 7, "egersis-hunter": 6, "dragon-witcher-rogue": 6, "ogre-rage-casters": 5, "limit-break-legendary": 4 }
     },
     Hunter: {
       profile: ["Ranged focus fire", "Physical tempo", "Backline carry"],
       threat: "Hunters convert stable front lines into fast ranged focus fire and can pierce evasion.",
       answers: ["Jump or disable the carry line", "Use damage sharing against focus fire", "Deny clean corners with bait"],
       counterTraits: ["backline-access", "damage-sharing", "summon-bait", "frontline-armor"],
-      buildScores: { "watcher-assassin": 9, "druid-super-egg": 7, "warrior-frontline": 5, "summon-war-horn": 5, "insect-midgame-swarm": 4 }
+      buildScores: { "watcher-assassin": 9, "watcher-sand-doom": 8, "druid-super-egg": 7, "insect-doom-arbiter": 7, "marine-assassin": 6, "warrior-frontline": 5, "summon-war-horn": 5, "goblin-ancestor-warlock": 5, "insect-midgame-swarm": 4 }
     },
     Knight: {
       profile: ["Shield windows", "Armor", "Magic resistance"],
       threat: "Knight shields make basic front-to-back damage inefficient while the carry keeps firing.",
       answers: ["Use armor reduction or magic conversion when shields are down", "Jump the carry before the shield cycle stabilizes", "Avoid slow fights into a protected ranged carry"],
       counterTraits: ["armor-shred", "backline-access", "magic-damage", "tempo-pressure"],
-      buildScores: { "egersis-hunter": 9, "watcher-assassin": 7, "magicka-dragon": 6, "ogre-rage-casters": 4, "limit-break-legendary": 4 }
+      buildScores: { "egersis-hunter": 9, "watcher-assassin": 7, "god-thunder-mage": 7, "dragon-witcher-rogue": 7, "watcher-sand-doom": 6, "magicka-dragon": 6, "ogre-rage-casters": 4, "limit-break-legendary": 4 }
     },
     Mage: {
       profile: ["Magic burst", "Resistance shred", "AoE punish"],
       threat: "Mage strips magic resistance and turns clumped boards into one-spell losses.",
       answers: ["Spread important units", "Jump or silence The Source and primary casters", "Win the first cast cycle with tempo or control"],
       counterTraits: ["backline-access", "silence-control", "tempo-pressure", "late-control"],
-      buildScores: { "watcher-assassin": 9, "egersis-hunter": 7, "limit-break-legendary": 6, "ogre-rage-casters": 4, "druid-super-egg": 3 }
+      buildScores: { "marine-assassin": 10, "watcher-assassin": 9, "egersis-hunter": 7, "limit-break-legendary": 6, "watcher-sand-doom": 6, "dragon-witcher-rogue": 4, "ogre-rage-casters": 4, "druid-super-egg": 3 }
     },
     Mech: {
       profile: ["Early armor", "Economy value", "Stabilizing front line"],
       threat: "Mech boards can survive early trades and convert wins into extra economy.",
       answers: ["Use magic or spell damage over armor checks", "Break the streak before the economy compounds", "Do not let low-health Mechs escape the round"],
       counterTraits: ["magic-damage", "tempo-pressure", "aoe-control"],
-      buildScores: { "magicka-dragon": 8, "ogre-rage-casters": 6, "egersis-hunter": 5, "watcher-assassin": 4 }
+      buildScores: { "magicka-dragon": 8, "god-thunder-mage": 7, "ogre-rage-casters": 6, "egersis-hunter": 5, "dragon-witcher-rogue": 5, "watcher-assassin": 4 }
     },
     Priest: {
       profile: ["Player damage reduction", "Loss streak value", "Greed window"],
       threat: "Priest reduces punishment while the player buys time for a greedier board.",
       answers: ["Pressure their board quality, not just their HP", "Deny streak setup with mid-game tempo", "Force spending before late talents matter"],
       counterTraits: ["tempo-pressure", "backline-access", "late-control"],
-      buildScores: { "egersis-hunter": 8, "watcher-assassin": 6, "magicka-dragon": 5, "limit-break-legendary": 4 }
+      buildScores: { "egersis-hunter": 8, "watcher-assassin": 6, "watcher-sand-doom": 5, "magicka-dragon": 5, "limit-break-legendary": 4 }
     },
     Shaman: {
       profile: ["Opening hex", "Random disable", "Disruption"],
       threat: "Shaman can remove one important unit from the fight before your first plan executes.",
       answers: ["Avoid relying on one solo carry", "Use summons or secondary threats to absorb random disable", "Win with board depth and control layering"],
       counterTraits: ["summon-bait", "late-control", "damage-sharing", "backline-access"],
-      buildScores: { "summon-war-horn": 7, "insect-midgame-swarm": 7, "limit-break-legendary": 6, "druid-super-egg": 5, "watcher-assassin": 4 }
+      buildScores: { "summon-war-horn": 7, "insect-midgame-swarm": 7, "glacier-warlock": 6, "limit-break-legendary": 6, "druid-super-egg": 5, "goblin-ancestor-warlock": 5, "watcher-assassin": 4 }
     },
     Warlock: {
       profile: ["Lifesteal", "Long fights", "Sustain"],
       threat: "Warlock turns chip damage into recovery and rewards fights that drag on.",
       answers: ["Burst or disable the healing core", "Focus damage so lifesteal cannot stabilize multiple units", "Use high damage tempo before sustain is assembled"],
       counterTraits: ["backline-access", "tempo-pressure", "magic-damage", "silence-control"],
-      buildScores: { "watcher-assassin": 8, "egersis-hunter": 7, "magicka-dragon": 6, "ogre-rage-casters": 5 }
+      buildScores: { "watcher-assassin": 8, "egersis-hunter": 7, "watcher-sand-doom": 7, "magicka-dragon": 6, "god-thunder-mage": 6, "ogre-rage-casters": 5 }
     },
     Warrior: {
       profile: ["Armor stacking", "Stable frontline", "Physical resistance"],
       threat: "Warrior armor blunts physical tempo and lets carries or control pieces play behind a durable wall.",
       answers: ["Bypass armor with magic conversion", "Shred armor with Egersis pressure", "Disable the carry instead of only attacking the tank line"],
       counterTraits: ["magic-damage", "armor-shred", "backline-access", "silence-control"],
-      buildScores: { "magicka-dragon": 9, "egersis-hunter": 8, "ogre-rage-casters": 6, "watcher-assassin": 5 }
+      buildScores: { "magicka-dragon": 9, "god-thunder-mage": 9, "egersis-hunter": 8, "dragon-witcher-rogue": 7, "ogre-rage-casters": 6, "watcher-assassin": 5 }
     },
     Witcher: {
       profile: ["Demon denial", "Carry disruption", "Pure-damage control"],
       threat: "Witcher turns Demon plans awkward and can convert a single carry into a liability.",
       answers: ["Do not rely on Demon value", "Use non-Demon ranged or spell damage", "Layer multiple threats so one counter piece does not decide the round"],
       counterTraits: ["ranged-carry", "magic-damage", "late-control", "summon-bait"],
-      buildScores: { "egersis-hunter": 7, "magicka-dragon": 6, "limit-break-legendary": 5, "summon-war-horn": 4 }
+      buildScores: { "egersis-hunter": 7, "magicka-dragon": 6, "god-thunder-mage": 5, "limit-break-legendary": 5, "summon-war-horn": 4 }
     },
     Wizard: {
       profile: ["Synergy shortcut", "High-tier breakpoint", "Flexible cap"],
       threat: "Wizard lets expensive synergies arrive early or hit maximum value with fewer pieces.",
       answers: ["Target the Wizard enabler", "Scout for the one synergy being amplified", "Pressure before the shortcut becomes a capped board"],
       counterTraits: ["backline-access", "tempo-pressure", "silence-control", "late-control"],
-      buildScores: { "watcher-assassin": 8, "egersis-hunter": 6, "ogre-rage-casters": 5, "limit-break-legendary": 5 }
+      buildScores: { "watcher-assassin": 8, "marine-assassin": 6, "egersis-hunter": 6, "ogre-rage-casters": 5, "watcher-sand-doom": 5, "limit-break-legendary": 5 }
     },
     Ancestor: {
       profile: ["Healing", "Pure damage", "Nearby punishment"],
       threat: "Ancestor rewards healing cycles and can turn repeated healing into nearby pure damage.",
       answers: ["Burst key units before healing thresholds repeat", "Spread to reduce nearby pure-damage value", "Disable healers and support pieces"],
       counterTraits: ["backline-access", "tempo-pressure", "silence-control", "aoe-control"],
-      buildScores: { "watcher-assassin": 7, "egersis-hunter": 6, "ogre-rage-casters": 5, "magicka-dragon": 5 }
+      buildScores: { "watcher-assassin": 7, "watcher-sand-doom": 6, "egersis-hunter": 6, "ogre-rage-casters": 5, "magicka-dragon": 5 }
     },
     Beast: {
       profile: ["Summons", "Physical scaling", "Board flood"],
       threat: "Beast increases team damage and often pairs with summons that clog targeting.",
       answers: ["Clear summons with AoE", "Armor up or damage-share through physical pressure", "Kill the real carry before Beast stacks matter"],
       counterTraits: ["aoe-control", "frontline-armor", "backline-access", "damage-sharing"],
-      buildScores: { "warrior-frontline": 8, "magicka-dragon": 7, "ogre-rage-casters": 6, "watcher-control": 5, "druid-super-egg": 4 }
+      buildScores: { "warrior-frontline": 8, "god-thunder-mage": 7, "magicka-dragon": 7, "goblin-ancestor-warlock": 6, "ogre-rage-casters": 6, "watcher-control": 5, "druid-super-egg": 4 }
     },
     Cave: {
       profile: ["Raw HP", "Durable frontline", "Comeback scaling"],
       threat: "Cave adds enough health that low-burst boards can run out of damage.",
       answers: ["Use magic conversion or armor shred instead of slow physical trades", "Pressure support pieces behind the HP wall", "Bring sustained damage rather than one small burst"],
       counterTraits: ["magic-damage", "armor-shred", "backline-access", "tempo-pressure"],
-      buildScores: { "magicka-dragon": 8, "egersis-hunter": 7, "watcher-assassin": 5, "ogre-rage-casters": 5 }
+      buildScores: { "magicka-dragon": 8, "god-thunder-mage": 8, "egersis-hunter": 7, "dragon-witcher-rogue": 5, "watcher-assassin": 5, "ogre-rage-casters": 5 }
     },
     Civet: {
       profile: ["Duplicate pieces", "Extra bodies", "Rank-up pressure"],
       threat: "Civet creates duplicate pressure that can make single-target damage waste time.",
       answers: ["Use AoE to clear copies", "Focus the surviving duplicate that enables repeated value", "Avoid overcommitting single-target disables into expendable bodies"],
       counterTraits: ["aoe-control", "magic-damage", "silence-control", "frontline-armor"],
-      buildScores: { "magicka-dragon": 8, "ogre-rage-casters": 7, "warrior-frontline": 5, "watcher-control": 4 }
+      buildScores: { "magicka-dragon": 8, "god-thunder-mage": 7, "ogre-rage-casters": 7, "warrior-frontline": 5, "watcher-control": 4 }
     },
     Demon: {
       profile: ["Pure damage", "Single carry spike", "Armor bypass"],
       threat: "Demon pure damage punishes boards that rely only on armor or one tank to survive.",
       answers: ["Disable or bait the Demon carry", "Use damage sharing instead of only armor", "Force the Demon player to split item value"],
       counterTraits: ["backline-access", "damage-sharing", "summon-bait", "silence-control"],
-      buildScores: { "watcher-assassin": 8, "druid-super-egg": 7, "summon-war-horn": 5, "warrior-frontline": 4 }
+      buildScores: { "dragon-witcher-rogue": 8, "watcher-assassin": 8, "watcher-sand-doom": 7, "druid-super-egg": 7, "summon-war-horn": 5, "warrior-frontline": 4 }
     },
     Divinity: {
       profile: ["Cooldown engine", "Repeated casts", "Control tempo"],
       threat: "Divinity shortens cooldowns and lets key spells repeat before ordinary boards can reset.",
       answers: ["Jump The Source and cooldown pieces", "Silence or stun the first cast cycle", "Pressure before the engine has enough front line"],
       counterTraits: ["backline-access", "silence-control", "tempo-pressure", "late-control"],
-      buildScores: { "watcher-assassin": 9, "egersis-hunter": 6, "ogre-rage-casters": 5, "limit-break-legendary": 5 }
+      buildScores: { "watcher-assassin": 9, "watcher-sand-doom": 7, "marine-assassin": 6, "egersis-hunter": 6, "ogre-rage-casters": 5, "limit-break-legendary": 5 }
     },
     Dragon: {
       profile: ["Instant mana", "First-cast burst", "Splash damage"],
       threat: "Dragon starts fights with mana, so the opening spell cycle arrives before slow boards are ready.",
       answers: ["Spread against first casts", "Jump or silence the caster receiving mana", "Use tempo to kill support before Dragon value repeats"],
       counterTraits: ["backline-access", "silence-control", "tempo-pressure", "late-control"],
-      buildScores: { "watcher-assassin": 8, "egersis-hunter": 6, "limit-break-legendary": 5, "ogre-rage-casters": 4 }
+      buildScores: { "marine-assassin": 8, "watcher-assassin": 8, "watcher-sand-doom": 7, "egersis-hunter": 6, "limit-break-legendary": 5, "ogre-rage-casters": 4 }
     },
     Dwarf: {
       profile: ["Long range", "Protected carry", "Backline damage"],
       threat: "Dwarf carries play from extreme range and can keep firing while the front line stalls.",
       answers: ["Use Assassin or Watcher access to reach the carry", "Place bait to pull targeting away", "Apply control before the ranged carry free-fires"],
       counterTraits: ["backline-access", "summon-bait", "silence-control", "frontline-armor"],
-      buildScores: { "watcher-assassin": 9, "watcher-control": 7, "warrior-frontline": 5, "feather-clover": 4 }
+      buildScores: { "watcher-assassin": 9, "watcher-sand-doom": 8, "watcher-control": 7, "marine-assassin": 5, "warrior-frontline": 5, "feather-clover": 4 }
     },
     Egersis: {
       profile: ["Armor reduction", "Physical burst", "Frontline shredding"],
       threat: "Egersis makes armor plans worse and lets physical carries cut through tanks.",
       answers: ["Use magic damage or damage sharing rather than pure armor", "Jump the Egersis damage source", "Do not let one tank absorb every hit"],
       counterTraits: ["magic-damage", "damage-sharing", "backline-access", "summon-bait"],
-      buildScores: { "magicka-dragon": 8, "druid-super-egg": 7, "watcher-assassin": 6, "ogre-rage-casters": 4 }
+      buildScores: { "magicka-dragon": 8, "druid-super-egg": 7, "watcher-assassin": 6, "god-thunder-mage": 5, "ogre-rage-casters": 4 }
     },
     Feathered: {
       profile: ["Evasion", "Physical dodge", "Stall"],
       threat: "Feathered dodges physical attacks and makes accuracy-dependent carries unreliable.",
       answers: ["Use magic damage, spells, or Hunter pierce", "Control the evasion carry", "Avoid relying on a single physical carry without answers"],
       counterTraits: ["magic-damage", "aoe-control", "ranged-carry", "silence-control"],
-      buildScores: { "magicka-dragon": 9, "ogre-rage-casters": 7, "egersis-hunter": 6, "watcher-control": 5 }
+      buildScores: { "magicka-dragon": 9, "god-thunder-mage": 9, "ogre-rage-casters": 7, "egersis-hunter": 6, "dragon-witcher-rogue": 5, "watcher-control": 5 }
     },
     Glacier: {
       profile: ["Attack speed", "Sustained DPS", "Carry ramp"],
       threat: "Glacier accelerates physical carries and can overwhelm boards that lack early control.",
       answers: ["Disable the main attack-speed carry", "Use armor or damage sharing during the ramp", "Burst support before lifesteal or attack speed stacks win"],
       counterTraits: ["silence-control", "frontline-armor", "damage-sharing", "backline-access"],
-      buildScores: { "watcher-assassin": 7, "warrior-frontline": 6, "druid-super-egg": 5, "ogre-rage-casters": 5 }
+      buildScores: { "watcher-assassin": 7, "watcher-sand-doom": 6, "warrior-frontline": 6, "dragon-witcher-rogue": 5, "druid-super-egg": 5, "ogre-rage-casters": 5 }
     },
     Goblin: {
       profile: ["Armor", "Regeneration", "Early tempo"],
       threat: "Goblin can overperform early with defensive stats and force you into bad HP trades.",
       answers: ["Use magic or spell damage", "Match tempo before the defensive rolls stack", "Do not feed streak economy"],
       counterTraits: ["magic-damage", "tempo-pressure", "armor-shred", "aoe-control"],
-      buildScores: { "magicka-dragon": 8, "egersis-hunter": 6, "ogre-rage-casters": 6, "watcher-assassin": 4 }
+      buildScores: { "god-thunder-mage": 8, "magicka-dragon": 8, "egersis-hunter": 6, "ogre-rage-casters": 6, "dragon-witcher-rogue": 5, "watcher-assassin": 4 }
     },
     Greater: {
       profile: ["Synergy disruption", "Unique pieces", "Board-control pressure"],
       threat: "Greater-style boards punish careless synergy planning and can turn a normal board into scattered value.",
       answers: ["Lean on raw upgraded units and flexible damage", "Target the piece enabling the disruption", "Keep pivots open instead of overcommitting one synergy"],
       counterTraits: ["tempo-pressure", "backline-access", "late-control", "ranged-carry"],
-      buildScores: { "egersis-hunter": 6, "watcher-assassin": 6, "limit-break-legendary": 5, "knight-cannon-granny": 4 }
+      buildScores: { "egersis-hunter": 6, "watcher-assassin": 6, "watcher-sand-doom": 6, "dragon-witcher-rogue": 5, "limit-break-legendary": 5, "knight-cannon-granny": 4 }
     },
     Horn: {
       profile: ["Damage reduction", "Durable carries", "Stall"],
       threat: "Horn-style mitigation makes shallow burst worse and gives carries more time to act.",
       answers: ["Use sustained damage or armor reduction", "Disable the protected carry", "Avoid dumping all damage into a shielded target"],
       counterTraits: ["armor-shred", "silence-control", "ranged-carry", "magic-damage"],
-      buildScores: { "egersis-hunter": 8, "watcher-assassin": 6, "magicka-dragon": 5, "knight-cannon-granny": 4 }
+      buildScores: { "egersis-hunter": 8, "dragon-witcher-rogue": 8, "watcher-assassin": 6, "magicka-dragon": 5, "god-thunder-mage": 5, "knight-cannon-granny": 4 }
     },
     Human: {
       profile: ["Silence", "Mana denial", "Caster disruption"],
       threat: "Human silence can stop your first cast and ruin single-caster plans.",
       answers: ["Use multiple threats instead of one caster", "Jump or disable Human supports", "Rely on attacks, summons, or board depth when silence is likely"],
       counterTraits: ["summon-bait", "ranged-carry", "backline-access", "late-control"],
-      buildScores: { "summon-war-horn": 7, "insect-midgame-swarm": 6, "watcher-assassin": 6, "egersis-hunter": 5, "limit-break-legendary": 4 }
+      buildScores: { "summon-war-horn": 7, "insect-midgame-swarm": 6, "watcher-assassin": 6, "glacier-warlock": 5, "egersis-hunter": 5, "marine-assassin": 5, "limit-break-legendary": 4 }
     },
     Insectoid: {
       profile: ["Swarm bodies", "Target dilution", "Mid-game pressure"],
       threat: "Insectoid floods the fight with bodies and makes single-target damage spend time on the wrong unit.",
       answers: ["Use AoE to clear spawned bodies", "Kill the surviving duplicate or real carry", "Bring sustain so chip damage becomes recovery"],
       counterTraits: ["aoe-control", "magic-damage", "frontline-armor", "sustain"],
-      buildScores: { "magicka-dragon": 9, "ogre-rage-casters": 8, "warrior-frontline": 5, "druid-super-egg": 4 }
+      buildScores: { "magicka-dragon": 9, "god-thunder-mage": 8, "ogre-rage-casters": 8, "knight-cannon-granny": 7, "goblin-ancestor-warlock": 6, "watcher-sand-doom": 5, "warrior-frontline": 5, "druid-super-egg": 4 }
     },
     Kira: {
       profile: ["Item scaling", "High HP", "Carry steroid"],
       threat: "Kira lines can turn one itemized unit into a huge stat problem.",
       answers: ["Disable or jump the item holder", "Shred or bypass the oversized health pool", "Use bait so the carry wastes time"],
       counterTraits: ["backline-access", "armor-shred", "magic-damage", "summon-bait"],
-      buildScores: { "watcher-assassin": 8, "egersis-hunter": 7, "magicka-dragon": 6, "watcher-control": 5 }
+      buildScores: { "watcher-assassin": 8, "watcher-sand-doom": 7, "egersis-hunter": 7, "magicka-dragon": 6, "dragon-witcher-rogue": 5, "watcher-control": 5 }
     },
     Marine: {
       profile: ["Magic resistance", "Anti-caster", "Durability"],
       threat: "Marine makes pure magic plans much less reliable.",
       answers: ["Switch to physical damage or armor reduction", "Jump key carries instead of racing spell damage", "Use control and ranged damage rather than only burst spells"],
       counterTraits: ["armor-shred", "backline-access", "ranged-carry", "frontline-armor"],
-      buildScores: { "egersis-hunter": 9, "watcher-assassin": 7, "knight-cannon-granny": 6, "beast-shining-assassin": 5, "warrior-frontline": 4 }
+      buildScores: { "egersis-hunter": 9, "watcher-assassin": 7, "dragon-witcher-rogue": 7, "knight-cannon-granny": 6, "beast-shining-assassin": 5, "warrior-frontline": 4 }
     },
     "Night Demon": {
       profile: ["Single threat", "Burst pressure", "Pure damage"],
       threat: "Night Demon pressure often concentrates value into a dangerous carry or burst unit.",
       answers: ["Bait and disable the carry", "Use damage sharing so one target is not deleted", "Keep a second damage source alive"],
       counterTraits: ["backline-access", "damage-sharing", "summon-bait", "silence-control"],
-      buildScores: { "watcher-assassin": 8, "druid-super-egg": 7, "summon-war-horn": 5, "warrior-frontline": 4 }
+      buildScores: { "watcher-assassin": 8, "watcher-sand-doom": 7, "druid-super-egg": 7, "dragon-witcher-rogue": 5, "summon-war-horn": 5, "warrior-frontline": 4 }
     },
     Pandaman: {
       profile: ["High-roll pieces", "Flexible splash", "Greed"],
       threat: "Pandaman boards can spike from unexpected units and punish slow scouting.",
       answers: ["Pressure before the high-roll board connects", "Scout every round for the real carry", "Use flexible counters instead of narrow tech"],
       counterTraits: ["tempo-pressure", "backline-access", "late-control"],
-      buildScores: { "egersis-hunter": 7, "watcher-assassin": 6, "limit-break-legendary": 5, "ogre-rage-casters": 4 }
+      buildScores: { "egersis-hunter": 7, "watcher-assassin": 6, "watcher-sand-doom": 6, "limit-break-legendary": 5, "ogre-rage-casters": 4 }
     },
     Spirits: {
       profile: ["Petrify", "Melee punishment", "Control"],
       threat: "Spirits punish melee-heavy boards and can freeze physical attackers in place.",
       answers: ["Use ranged or spell damage", "Spread melee units so petrify does not chain value", "Disable Spirit pieces before they control the fight"],
       counterTraits: ["ranged-carry", "magic-damage", "silence-control", "backline-access"],
-      buildScores: { "magicka-dragon": 8, "egersis-hunter": 7, "ogre-rage-casters": 6, "watcher-assassin": 5 }
+      buildScores: { "magicka-dragon": 8, "god-thunder-mage": 7, "egersis-hunter": 7, "ogre-rage-casters": 6, "watcher-assassin": 5 }
     },
     Watcher: {
       profile: ["Extra targets", "Targeted disables", "Carry pickoff"],
       threat: "Watcher turns unit-targeted effects into broader disruption and punishes boards with only one safe carry.",
       answers: ["Use expendable units to absorb targeted effects", "Spread important pieces", "Prefer summons, links, or wide boards over one protected carry"],
       counterTraits: ["summon-bait", "damage-sharing", "frontline-armor", "evasion"],
-      buildScores: { "druid-super-egg": 8, "summon-war-horn": 8, "insect-midgame-swarm": 6, "feather-clover": 5, "warrior-frontline": 4 }
+      buildScores: { "druid-super-egg": 8, "summon-war-horn": 8, "insect-doom-arbiter": 7, "insect-midgame-swarm": 6, "goblin-ancestor-warlock": 6, "feather-clover": 5, "warrior-frontline": 4 }
     }
   };
 
@@ -536,7 +536,7 @@
       label: "Dragon + Mage",
       matches: (names) => names.has("Dragon") && names.has("Mage"),
       explanation: "Dragon gives the Mage board an immediate first cast, so deny the opening cycle with jump, silence, or tempo pressure.",
-      buildScores: { "watcher-assassin": 8, "egersis-hunter": 6, "limit-break-legendary": 5 }
+      buildScores: { "marine-assassin": 9, "watcher-assassin": 8, "egersis-hunter": 6, "limit-break-legendary": 5 }
     },
     {
       label: "Hunter + Dwarf",
@@ -548,7 +548,7 @@
       label: "Insectoid + Civet",
       matches: (names) => names.has("Insectoid") && names.has("Civet"),
       explanation: "Both synergies add extra bodies, so single-target damage falls off unless you clear copies quickly.",
-      buildScores: { "magicka-dragon": 8, "ogre-rage-casters": 7, "warrior-frontline": 4 }
+      buildScores: { "god-thunder-mage": 9, "magicka-dragon": 8, "ogre-rage-casters": 7, "knight-cannon-granny": 6, "warrior-frontline": 4 }
     },
     {
       label: "Cave + Divinity",
@@ -566,7 +566,31 @@
       label: "Warrior + Beast",
       matches: (names) => names.has("Warrior") && names.has("Beast"),
       explanation: "Armor plus team damage creates a long physical fight; counter with magic conversion, armor shred, or strong AoE.",
-      buildScores: { "magicka-dragon": 8, "egersis-hunter": 7, "ogre-rage-casters": 5 }
+      buildScores: { "god-thunder-mage": 8, "magicka-dragon": 8, "egersis-hunter": 7, "ogre-rage-casters": 5 }
+    },
+    {
+      label: "Mage + Divinity",
+      matches: (names) => names.has("Mage") && names.has("Divinity"),
+      explanation: "Divinity gives Mage repeated spell cycles, so the counter needs either Marine resistance, direct backline access, or enough control to stop The Source and God of Thunder.",
+      buildScores: { "marine-assassin": 9, "watcher-assassin": 7, "watcher-sand-doom": 6, "egersis-hunter": 5 }
+    },
+    {
+      label: "Glacier + Warlock",
+      matches: (names) => names.has("Glacier") && names.has("Warlock"),
+      explanation: "Attack speed plus lifesteal rewards long fights, so burst the carry, reduce armor, or disable the first ramp window.",
+      buildScores: { "watcher-assassin": 8, "egersis-hunter": 7, "god-thunder-mage": 6, "watcher-sand-doom": 5 }
+    },
+    {
+      label: "Goblin + Warlock",
+      matches: (names) => names.has("Goblin") && names.has("Warlock"),
+      explanation: "Goblin durability plus Warlock sustain can waste physical tempo, so use spell burst, pure-damage pivots, or direct access to the real carry.",
+      buildScores: { "god-thunder-mage": 8, "dragon-witcher-rogue": 7, "watcher-assassin": 6, "magicka-dragon": 6 }
+    },
+    {
+      label: "Dragon + Witcher",
+      matches: (names) => names.has("Dragon") && names.has("Witcher"),
+      explanation: "Dragon Witcher pivots create late pure-damage pressure around one expensive carry, so summons, Insectoid bodies, and first-cycle control are the cleanest answers.",
+      buildScores: { "insect-doom-arbiter": 8, "summon-war-horn": 6, "watcher-sand-doom": 5, "god-thunder-mage": 5 }
     }
   ];
 
