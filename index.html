@@ -20,12 +20,20 @@
             <strong id="stat-builds">0</strong>
           </div>
           <div>
-            <span>Counters</span>
-            <strong id="stat-counters">0</strong>
+            <span>Pieces</span>
+            <strong id="stat-pieces">0</strong>
+          </div>
+          <div>
+            <span>Items</span>
+            <strong id="stat-items">0</strong>
+          </div>
+          <div>
+            <span>Synergies</span>
+            <strong id="stat-synergies">0</strong>
           </div>
           <div>
             <span>Data</span>
-            <strong id="stat-updated">2026-03-25</strong>
+            <strong id="stat-updated">2026-07-08</strong>
           </div>
         </div>
       </header>
@@ -89,6 +97,36 @@
           </div>
           <div class="counter-grid" id="counterResults"></div>
         </section>
+
+        <section class="reference-panel" aria-label="Reference library">
+          <div class="reference-heading">
+            <div>
+              <p class="eyebrow">Reference library</p>
+              <h2>Pieces, Items, and Synergies</h2>
+            </div>
+            <label class="search-field compact-search">
+              <span>Reference search</span>
+              <input id="referenceSearchInput" type="search" placeholder="Ronin, Mage, Pulse Staff..." autocomplete="off">
+            </label>
+          </div>
+
+          <div class="reference-tabs" id="referenceTabs" aria-label="Reference type"></div>
+
+          <div class="reference-toolbar">
+            <label class="select-field">
+              <span id="referencePrimaryLabel">Quality</span>
+              <select id="referencePrimaryFilter"></select>
+            </label>
+            <label class="select-field">
+              <span id="referenceSecondaryLabel">Race/Class</span>
+              <select id="referenceSecondaryFilter"></select>
+            </label>
+            <div class="reference-count" id="referenceSummary">0 shown</div>
+          </div>
+
+          <div class="reference-list" id="referenceList"></div>
+          <p class="reference-source" id="referenceSourceNote"></p>
+        </section>
       </main>
 
       <footer class="site-footer">
@@ -97,6 +135,7 @@
     </div>
 
     <script src="data.js"></script>
+    <script src="reference-data.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

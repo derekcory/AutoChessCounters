@@ -6,7 +6,9 @@ This is set up for GitHub Pages: no backend, no build step, and no monthly hosti
 
 ## Edit the Data
 
-All build and counter content lives in `data.js`.
+Build and counter content lives in `data.js`.
+
+Pieces, items, and synergies live in `reference-data.js`. That file is generated from the official Dragonest Chess Wiki and Item Effects pages, with explicit patch overrides from the March 2026 Steam update.
 
 The current patch data is based on the official Auto Chess Steam news post **MAINTENANCE on 26th March**, shown on Steam as the March 25, 2026 update:
 
@@ -30,6 +32,8 @@ Each build has:
 - `pivots`
 
 The included entries are patch-informed interpretations of official patch notes, not an official tier list. Entries tagged `Reddit` or `Community Meta` are recent community signals added from r/AutoChess posts and should be verified against your own lobby experience.
+
+For a running record of major project changes, see `PROJECT_HISTORY.md`.
 
 ## Preview Locally
 

@@ -113,9 +113,9 @@ h3 {
 
 .meta-strip {
   display: grid;
-  grid-template-columns: repeat(3, minmax(86px, 1fr));
+  grid-template-columns: repeat(5, minmax(76px, 1fr));
   gap: 8px;
-  min-width: 316px;
+  min-width: 480px;
 }
 
 .meta-strip div {
@@ -151,7 +151,8 @@ h3 {
 .patch-panel,
 .build-panel,
 .detail-panel,
-.counter-panel {
+.counter-panel,
+.reference-panel {
   border: 1px solid var(--border);
   border-radius: 8px;
   background: rgba(25, 28, 24, 0.92);
@@ -627,6 +628,182 @@ select:focus {
     var(--surface-2);
 }
 
+.reference-panel {
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+}
+
+.reference-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 380px);
+  gap: 16px;
+  align-items: end;
+}
+
+.compact-search {
+  justify-self: end;
+  width: min(380px, 100%);
+}
+
+.reference-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 4px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-2);
+}
+
+.reference-tabs button {
+  min-height: 36px;
+  border: 0;
+  border-radius: 6px;
+  padding: 0 13px;
+  color: var(--muted);
+  background: transparent;
+  font-weight: 850;
+}
+
+.reference-tabs button.active {
+  color: #11140f;
+  background: var(--cyan);
+}
+
+.reference-toolbar {
+  display: grid;
+  grid-template-columns: minmax(160px, 220px) minmax(180px, 260px) auto;
+  gap: 12px;
+  align-items: end;
+}
+
+.reference-count {
+  min-height: 42px;
+  display: grid;
+  align-items: center;
+  justify-content: end;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.reference-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+}
+
+.reference-card {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-2);
+}
+
+.reference-card-top {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.reference-card h3 {
+  color: var(--text);
+  font-size: 1.02rem;
+  text-transform: none;
+}
+
+.reference-card h4 {
+  color: var(--gold);
+  font-size: 0.74rem;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.reference-subtitle,
+.reference-copy p,
+.muted-text {
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.micro-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.micro-stat {
+  min-height: 56px;
+  padding: 9px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.micro-stat span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.66rem;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.micro-stat strong {
+  display: block;
+  margin-top: 6px;
+  color: var(--soft);
+  font-size: 0.84rem;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.reference-copy {
+  display: grid;
+  gap: 6px;
+}
+
+.compact-note {
+  font-size: 0.82rem;
+}
+
+.source-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.source-row a {
+  min-height: 30px;
+  display: inline-grid;
+  align-items: center;
+  border: 1px solid rgba(107, 185, 189, 0.38);
+  border-radius: 6px;
+  padding: 0 9px;
+  color: var(--cyan);
+  background: rgba(107, 185, 189, 0.07);
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.source-row a:hover {
+  border-color: var(--cyan);
+  background: rgba(107, 185, 189, 0.14);
+}
+
+.reference-source {
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
 .site-footer {
   padding: 18px 2px 8px;
   color: var(--muted);
@@ -654,7 +831,9 @@ code {
   .content-grid,
   .control-bar,
   .patch-grid,
-  .counter-grid {
+  .counter-grid,
+  .reference-heading,
+  .reference-toolbar {
     grid-template-columns: 1fr;
   }
 
@@ -676,6 +855,12 @@ code {
     max-width: none;
     justify-self: stretch;
   }
+
+  .compact-search,
+  .reference-count {
+    justify-self: stretch;
+    justify-content: start;
+  }
 }
 
 @media (max-width: 700px) {
@@ -690,7 +875,8 @@ code {
   .meta-strip,
   .detail-summary,
   .section-grid,
-  .counter-heading {
+  .counter-heading,
+  .micro-grid {
     grid-template-columns: 1fr;
   }
 
