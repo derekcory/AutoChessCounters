@@ -4,6 +4,7 @@ window.AUTO_CHESS_REFERENCE = {
     "sources": {
       "pieces": "https://ac.dragonest.com/en/charactor",
       "items": "https://ac.dragonest.com/en/equipment",
+      "appStore": "https://apps.apple.com/us/app/auto-chess-global-teamfights/id1464482102",
       "patch": "https://store.steampowered.com/news/app/1530300/view/496097685470709756",
       "latestPatch": "https://store.steampowered.com/news/app/1530300",
       "witcherPatch": "https://ac.dragonest.com/en/announcement/detail/efb400e8120"
@@ -262,31 +263,6 @@ window.AUTO_CHESS_REFERENCE = {
       "source": "Official Dragonest Chess Wiki",
       "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/ae5515538cbe596aaf869d908418658b.png",
       "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/3a5bbef36fa38b41a711e43fde89d4d4.png"
-    },
-    {
-      "id": "taboo-witcher",
-      "name": "Taboo Witcher",
-      "title": "Dee",
-      "cost": 1,
-      "quality": "Common",
-      "races": [
-        "Feathered"
-      ],
-      "classes": [
-        "Witcher"
-      ],
-      "hp": "550",
-      "attack": "50",
-      "armor": "5",
-      "attackSpeed": "1",
-      "range": "2",
-      "magicResist": "10",
-      "abilityName": "Soul Break",
-      "ability": "Burns an opponent's 30 magic on each attack, dealing 60% of magic burnt bonus physical damages to the target",
-      "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47acaf2",
-      "source": "Official Dragonest Chess Wiki",
-      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/c868d1b30f666106ea9ef1577ddbe5c8.png",
-      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/7eaff7e79742ef7e6b9bc700b222e33e.png"
     },
     {
       "id": "the-source",
@@ -1835,6 +1811,33 @@ window.AUTO_CHESS_REFERENCE = {
       "source": "Official Dragonest Chess Wiki",
       "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/edfdc3369b21db84b92ac2c48724c8b6.png",
       "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/318794b59868821fc08f2c1f92ac6894.png"
+    },
+    {
+      "id": "taboo-witcher",
+      "name": "Taboo Witcher",
+      "title": "Dee",
+      "cost": 4,
+      "quality": "Epic",
+      "races": [
+        "Feathered"
+      ],
+      "classes": [
+        "Witcher"
+      ],
+      "hp": "850 / 1700 / 3400",
+      "attack": "80-110 / 160-220 / 320-440",
+      "armor": "7",
+      "attackSpeed": "1",
+      "range": "2",
+      "magicResist": "30%",
+      "abilityName": "Soul Break / Mana Storm",
+      "ability": "Burns Mana on each attack and deals bonus physical damage based on the Mana burned. After enough Mana is burned, triggers Mana Storm, targeting a nearby low-Mana enemy and dealing magical damage plus a brief stun to enemies in range based on the target's lost Mana.",
+      "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47acaf2",
+      "source": "Official Dragonest Chess Wiki; Official App Store and local game data override",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/c868d1b30f666106ea9ef1577ddbe5c8.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/7eaff7e79742ef7e6b9bc700b222e33e.png",
+      "patchNote": "Official App Store v2.31.2 notes changed Taboo Witcher from Common to Epic and added Mana Storm. The local May 2026 asset table maps the piece to Epic stats, while the public Dragonest wiki still shows older Common/1 data.",
+      "patchSourceUrl": "https://apps.apple.com/us/app/auto-chess-global-teamfights/id1464482102"
     },
     {
       "id": "thorn-predator",

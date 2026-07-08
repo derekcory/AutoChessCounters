@@ -4,6 +4,7 @@ const vm = require("vm");
 const SOURCES = {
   pieces: "https://ac.dragonest.com/en/charactor",
   items: "https://ac.dragonest.com/en/equipment",
+  appStore: "https://apps.apple.com/us/app/auto-chess-global-teamfights/id1464482102",
   patch: "https://store.steampowered.com/news/app/1530300/view/496097685470709756",
   latestPatch: "https://store.steampowered.com/news/app/1530300",
   witcherPatch: "https://ac.dragonest.com/en/announcement/detail/efb400e8120"
@@ -170,6 +171,17 @@ async function main() {
     ability: "Battlecry: links with nearby allies, granting damage reduction. Linked units periodically share a percentage of their current HP. A new 3-star form was added in the March 2026 patch.",
     patchNote: "March 2026 patch added a 3-star form and damage-sharing Battlecry behavior."
   });
+  applyPieceOverride(pieces, "Taboo Witcher", {
+    cost: 4,
+    quality: "Epic",
+    hp: "850 / 1700 / 3400",
+    attack: "80-110 / 160-220 / 320-440",
+    armor: "7",
+    magicResist: "30%",
+    abilityName: "Soul Break / Mana Storm",
+    ability: "Burns Mana on each attack and deals bonus physical damage based on the Mana burned. After enough Mana is burned, triggers Mana Storm, targeting a nearby low-Mana enemy and dealing magical damage plus a brief stun to enemies in range based on the target's lost Mana.",
+    patchNote: "Official App Store v2.31.2 notes changed Taboo Witcher from Common to Epic and added Mana Storm. The local May 2026 asset table maps the piece to Epic stats, while the public Dragonest wiki still shows older Common/1 data."
+  }, { url: SOURCES.appStore, label: "Official App Store and local game data override" });
   for (const name of ["Dragon Knight", "Rogue Guard", "Shining Assassin"]) {
     applyPieceOverride(pieces, name, {
       patchNote: "March 2026 patch makes this piece's splash damage count as skill damage."
