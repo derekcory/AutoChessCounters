@@ -84,6 +84,18 @@
     return [...new Set(values.filter(Boolean))].sort((a, b) => a.localeCompare(b));
   }
 
+  function uniqueInOrder(values) {
+    const seen = new Set();
+    return values.filter((value) => {
+      const key = normalizeForMatch(value);
+      if (!key || seen.has(key)) {
+        return false;
+      }
+      seen.add(key);
+      return true;
+    });
+  }
+
   function asArray(value) {
     return Array.isArray(value) ? value.filter(Boolean) : [];
   }
@@ -141,6 +153,8 @@
 
     return links.length ? `<div class="source-row">${links.join("")}</div>` : "";
   }
+
+  const pieceByName = new Map(reference.pieces.map((piece) => [normalizeForMatch(piece.name), piece]));
 
   function initials(value) {
     return String(value || "?")
@@ -556,6 +570,109 @@
     }
   ];
 
+  const POSITION_ROLE_INFO = {
+    frontline: { short: "T", label: "Tank/frontline" },
+    carry: { short: "C", label: "Carry" },
+    utility: { short: "U", label: "Control/support" },
+    bait: { short: "B", label: "Bait" },
+    jumper: { short: "J", label: "Backline access" },
+    aoe: { short: "A", label: "AoE/control" },
+    avoid: { short: "X", label: "Avoid clumping" }
+  };
+
+  const POSITION_PRIORITY = {
+    avoid: 1,
+    bait: 2,
+    utility: 3,
+    aoe: 4,
+    frontline: 5,
+    jumper: 6,
+    carry: 7
+  };
+
+  const TECH_PIECES_BY_SYNERGY = {
+    Assassin: [
+      { name: "Warpwood Sage", reason: "Corner bait and durable body for jump protection." },
+      { name: "Pirate Captain", reason: "Frontline control can buy the carry time." }
+    ],
+    Beast: [
+      { name: "Devastator", reason: "AoE clears summons before Beast damage stacks." },
+      { name: "Storm Shaman", reason: "Opening control slows the Beast carry." }
+    ],
+    Cave: [
+      { name: "Soul Reaper", reason: "Sustain and magic pressure help against high-HP fronts." },
+      { name: "Egersis Ranger", reason: "Armor reduction makes the HP wall easier to finish." }
+    ],
+    Civet: [
+      { name: "Devastator", reason: "AoE punishes duplicate bodies." },
+      { name: "Thunder Spirit", reason: "Repeated splash helps clear copies." }
+    ],
+    Demon: [
+      { name: "Taboo Witcher", reason: "Mana burn and Witcher pressure disrupt Demon carries." },
+      { name: "Ronin-Nue", reason: "Targeted stun can stop the itemized Demon unit." }
+    ],
+    Divinity: [
+      { name: "Storm Shaman", reason: "Opening hex/control delays repeated casts." },
+      { name: "Ronin-Nue", reason: "Backline access can reach The Source or the cooldown piece." }
+    ],
+    Dragon: [
+      { name: "Storm Shaman", reason: "Control the first mana-loaded cast cycle." },
+      { name: "Abyssal Guard", reason: "Marine bridge when magic burst is the problem." }
+    ],
+    Dwarf: [
+      { name: "Ronin-Nue", reason: "Jump or stun the long-range carry." },
+      { name: "Warpwood Sage", reason: "Bait targeting and protect your own backline." }
+    ],
+    Feathered: [
+      { name: "Tortola Elder", reason: "Magic damage ignores evasion checks." },
+      { name: "Thunder Spirit", reason: "Spell damage pressures dodge-heavy boards." }
+    ],
+    Glacier: [
+      { name: "Storm Shaman", reason: "Opening control slows attack-speed ramp." },
+      { name: "Pirate Captain", reason: "Frontline stun buys time against sustained DPS." }
+    ],
+    Hunter: [
+      { name: "Ronin-Nue", reason: "Backline access can reach the Hunter carry." },
+      { name: "Tsunami Stalker", reason: "Wide control interrupts focus fire." }
+    ],
+    Insectoid: [
+      { name: "Devastator", reason: "AoE clears spawned bodies quickly." },
+      { name: "Tortola Elder", reason: "Burst damage prevents the swarm from stalling." }
+    ],
+    Kira: [
+      { name: "Ronin-Nue", reason: "Stun the oversized item holder." },
+      { name: "Egersis Ranger", reason: "Armor pressure helps cut through the stat stack." }
+    ],
+    Knight: [
+      { name: "Egersis Ranger", reason: "Armor reduction pressures shielded front lines." },
+      { name: "Soul Reaper", reason: "Sustain and magic pressure help through shield cycles." }
+    ],
+    Mage: [
+      { name: "Abyssal Guard", reason: "Marine bridge for magic resistance." },
+      { name: "Storm Shaman", reason: "Interrupt the first caster cycle." }
+    ],
+    Marine: [
+      { name: "Dwarf Sniper", reason: "Physical damage is safer into magic resistance." },
+      { name: "Egersis Ranger", reason: "Armor reduction supports physical pressure." }
+    ],
+    Shaman: [
+      { name: "Razorclaw", reason: "Summons and extra bodies reduce one-hex dependency." },
+      { name: "Pirate Captain", reason: "Secondary control gives you a backup plan." }
+    ],
+    Warrior: [
+      { name: "Tortola Elder", reason: "Magic burst bypasses armor stacking." },
+      { name: "Egersis Ranger", reason: "Armor reduction keeps sustained damage relevant." }
+    ],
+    Watcher: [
+      { name: "Razorclaw", reason: "Summons can absorb targeted effects." },
+      { name: "Warpwood Sage", reason: "Durable bait protects higher-value units." }
+    ],
+    Witcher: [
+      { name: "Dwarf Sniper", reason: "Non-Demon physical carry line stays reliable." },
+      { name: "Tortola Elder", reason: "Non-Demon spell pressure avoids Demon dependency." }
+    ]
+  };
+
   function traitLabel(trait) {
     return COUNTER_TRAIT_LABELS[trait] || trait;
   }
@@ -720,6 +837,222 @@
       return `${levelLabel(synergy)} is a meaningful mid-tier breakpoint, so the counter needs to answer the synergy directly.`;
     }
     return `${levelLabel(synergy)} is an early breakpoint, so tempo and clean positioning can still beat it before the board caps.`;
+  }
+
+  function selectedNames(selectedSynergies) {
+    return new Set(selectedSynergies.map((synergy) => synergy.name));
+  }
+
+  function hasAnyName(names, values) {
+    return values.some((value) => names.has(value));
+  }
+
+  function concreteCoreEntries(build) {
+    const genericPattern = /\b(flex|pair|pairs|identical|discovered|temporary|support|frontline|front line|any discovered|duplicate non-insect|insectoid pair)\b/i;
+    return build.core
+      .map((name, index) => {
+        const cleanName = displayValue(name, "").trim();
+        if (!cleanName || genericPattern.test(cleanName)) {
+          return null;
+        }
+
+        const piece = pieceByName.get(normalizeForMatch(cleanName));
+        return {
+          name: cleanName,
+          index,
+          piece,
+          cost: Number(piece?.cost) || 0
+        };
+      })
+      .filter(Boolean);
+  }
+
+  function uniquePieceEntries(entries) {
+    const seen = new Set();
+    return entries.filter((entry) => {
+      const key = normalizeForMatch(entry.name);
+      if (!key || seen.has(key)) {
+        return false;
+      }
+      seen.add(key);
+      return true;
+    });
+  }
+
+  function pieceSuggestion(name, reason) {
+    const piece = pieceByName.get(normalizeForMatch(name));
+    return {
+      name,
+      reason,
+      piece,
+      cost: Number(piece?.cost) || 0
+    };
+  }
+
+  function pieceMeta(entry) {
+    const piece = entry.piece || pieceByName.get(normalizeForMatch(entry.name));
+    if (!piece) {
+      return "Flexible slot";
+    }
+
+    const groups = [...asArray(piece.races), ...asArray(piece.classes)].slice(0, 2).join(" / ");
+    return `Cost ${displayValue(piece.cost, "?")}${groups ? ` - ${groups}` : ""}`;
+  }
+
+  function buildBuyPlan(build, selectedSynergies) {
+    const entries = concreteCoreEntries(build);
+    const stage = stageConfig().id;
+    const buyLimit = stage === "Early" ? 2 : stage === "Mid" ? 3 : 4;
+    const cheapCore = entries.filter((entry) => entry.cost && entry.cost <= buyLimit);
+    const buyNow = uniquePieceEntries([...cheapCore, ...entries.slice(0, 4)]).slice(0, 4);
+    const buyNowNames = new Set(buyNow.map((entry) => normalizeForMatch(entry.name)));
+    const later = uniquePieceEntries(
+      entries.filter((entry) => !buyNowNames.has(normalizeForMatch(entry.name)) && (entry.cost >= buyLimit || entry.index <= 6))
+    ).slice(0, 4);
+
+    const carryText = normalizeForMatch([build.winCondition, build.style, build.timing, ...build.items].join(" "));
+    const carryPattern = /sniper|cannon|mountain|berserker|shadowcrawler|shining assassin|dragon knight|tortola|storm shaman|devastator|ronin|soul reaper|ogre mage/i;
+    const holders = uniquePieceEntries(
+      entries.filter((entry) => carryText.includes(normalizeForMatch(entry.name)) || carryPattern.test(entry.name))
+    ).slice(0, 4);
+    const itemHolders = holders.length ? holders : entries.slice(0, 2);
+
+    const buildNames = new Set(entries.map((entry) => normalizeForMatch(entry.name)));
+    const tech = uniquePieceEntries(
+      selectedSynergies.flatMap((synergy) =>
+        asArray(TECH_PIECES_BY_SYNERGY[synergy.name]).map((item) => {
+          const alreadyCore = buildNames.has(normalizeForMatch(item.name));
+          return pieceSuggestion(item.name, alreadyCore ? `${item.reason} Already fits this build's core.` : item.reason);
+        })
+      )
+    ).slice(0, 4);
+
+    return {
+      buyNow: buyNow.map((entry) => ({ ...entry, reason: entry.cost ? `Core piece available by the ${stage.toLowerCase()} stage.` : "Core piece to hold when offered." })),
+      later: later.map((entry) => ({ ...entry, reason: entry.cost ? `Higher-cost core piece for the final shape.` : "Late or contested core slot." })),
+      itemHolders: itemHolders.map((entry) => ({ ...entry, reason: "Prioritize items here when this unit is upgraded or protected." })),
+      tech
+    };
+  }
+
+  function emptyPositionBoard() {
+    return Array.from({ length: 8 }, () => Array.from({ length: 8 }, () => ({ role: "", label: "" })));
+  }
+
+  function placePositionCell(board, row, column, role, label) {
+    if (!board[row]?.[column]) {
+      return;
+    }
+
+    const current = board[row][column];
+    if (!current.role || POSITION_PRIORITY[role] >= POSITION_PRIORITY[current.role]) {
+      board[row][column] = { role, label };
+    }
+  }
+
+  function placePositionCells(board, cells, role, label) {
+    cells.forEach(([row, column]) => placePositionCell(board, row, column, role, label));
+  }
+
+  function basePositionBoard(build) {
+    const board = emptyPositionBoard();
+    const searchText = normalizeForMatch(buildSearchText(build));
+
+    if (searchText.includes("assassin") || searchText.includes("watcher")) {
+      placePositionCells(board, [[7, 1], [7, 6]], "jumper", "Jumpers threaten the enemy carry side after scouting.");
+      placePositionCells(board, [[4, 2], [4, 5], [5, 3]], "frontline", "Front line buys jumpers time.");
+      placePositionCells(board, [[7, 3], [7, 4]], "carry", "Keep the real carry centered if enemy jumps are possible.");
+      placePositionCells(board, [[7, 0], [7, 7]], "bait", "Corner bait catches enemy jumps or targeted skills.");
+      placePositionCells(board, [[6, 2], [6, 5]], "utility", "Secondary control protects the carry.");
+      return board;
+    }
+
+    if (searchText.includes("mage") || searchText.includes("caster") || searchText.includes("dragon") || searchText.includes("ogre")) {
+      placePositionCells(board, [[4, 1], [4, 6]], "frontline", "Separated tanks limit splash value.");
+      placePositionCells(board, [[6, 2], [6, 5]], "utility", "Casters stay protected but not clumped.");
+      placePositionCells(board, [[7, 2], [7, 5]], "carry", "Split damage sources across the back row.");
+      placePositionCells(board, [[5, 3], [5, 4]], "aoe", "Aim control toward the enemy cluster.");
+      return board;
+    }
+
+    if (searchText.includes("hunter") || searchText.includes("dwarf") || searchText.includes("cannon") || searchText.includes("ranged")) {
+      placePositionCells(board, [[4, 2], [4, 3], [4, 4], [4, 5]], "frontline", "Compact front line protects ranged damage.");
+      placePositionCells(board, [[7, 1], [7, 6]], "carry", "Carry corners can swap based on Assassin scouting.");
+      placePositionCells(board, [[7, 0], [7, 7]], "bait", "Corner bait keeps the carry from taking first jump.");
+      placePositionCells(board, [[6, 3], [6, 4]], "utility", "Control sits one row ahead of carries.");
+      return board;
+    }
+
+    if (searchText.includes("summon") || searchText.includes("druid") || searchText.includes("warrior") || searchText.includes("knight")) {
+      placePositionCells(board, [[4, 1], [4, 2], [4, 5], [4, 6]], "frontline", "Wide front line creates time and space.");
+      placePositionCells(board, [[5, 3], [5, 4]], "utility", "Control anchors the center.");
+      placePositionCells(board, [[7, 3], [7, 4]], "carry", "Carry stays behind the strongest pocket.");
+      placePositionCells(board, [[6, 1], [6, 6]], "bait", "Side bodies pull targeting away from the carry.");
+      return board;
+    }
+
+    placePositionCells(board, [[4, 2], [4, 5]], "frontline", "Frontline pockets take first contact.");
+    placePositionCells(board, [[5, 3], [5, 4]], "utility", "Control protects the center.");
+    placePositionCells(board, [[7, 3], [7, 4]], "carry", "Carry stays protected in the back center.");
+    placePositionCells(board, [[7, 0], [7, 7]], "bait", "Corners are disposable bait slots.");
+    return board;
+  }
+
+  function buildPositioningPlan(build, selectedSynergies, recommendation) {
+    const names = selectedNames(selectedSynergies);
+    const traits = new Set(recommendation.traits || []);
+    const board = basePositionBoard(build);
+    const notes = [
+      "Template assumes your side is the bottom four rows; mirror left or right after scouting the next opponent."
+    ];
+
+    if (hasAnyName(names, ["Mage", "Dragon", "Spirits"]) || traits.has("magic-damage")) {
+      placePositionCells(board, [[5, 2], [5, 5]], "avoid", "Keep high-value units from forming one splash clump.");
+      placePositionCells(board, [[4, 0], [4, 7]], "frontline", "Spread tanks against opening AoE.");
+      notes.push("Against burst or first-cast boards, split carries and casters so one spell cannot hit the whole plan.");
+    }
+
+    if (hasAnyName(names, ["Assassin", "Watcher", "Demon", "Night Demon"]) || traits.has("summon-bait")) {
+      placePositionCells(board, [[7, 0], [7, 7]], "bait", "Use expendable corner bait against jumps and targeted effects.");
+      placePositionCells(board, [[7, 3], [7, 4]], "carry", "Keep the real carry off the corner when enemy jumps are live.");
+      notes.push("Against jump or targeted boards, corners should be bait, not your only carry.");
+    }
+
+    if (hasAnyName(names, ["Hunter", "Dwarf"])) {
+      placePositionCells(board, [[7, 0], [7, 7]], "jumper", "Move jumpers toward the scouted ranged carry side.");
+      placePositionCells(board, [[6, 0], [6, 7]], "bait", "Side bait pulls focus fire away from the carry.");
+      notes.push("Against long-range carries, swap your jumpers/control to the side where their carry is parked.");
+    }
+
+    if (hasAnyName(names, ["Insectoid", "Civet", "Beast"])) {
+      placePositionCells(board, [[5, 3], [5, 4], [6, 3], [6, 4]], "aoe", "Central AoE/control clears extra bodies.");
+      notes.push("Against swarm boards, keep AoE/control central and leave enough room so summons do not trap your carry.");
+    }
+
+    if (hasAnyName(names, ["Knight", "Warrior", "Cave", "Horn"])) {
+      placePositionCells(board, [[4, 1], [4, 2], [4, 5], [4, 6]], "frontline", "Two frontline pockets prevent one tank from eating every hit.");
+      placePositionCells(board, [[6, 3], [6, 4]], "carry", "Sustained damage should sit behind the stronger frontline pocket.");
+      notes.push("Against durable front lines, protect sustained DPS and avoid spending all damage into one shielded or armored unit.");
+    }
+
+    if (hasAnyName(names, ["Divinity", "Human", "Shaman"])) {
+      placePositionCells(board, [[6, 1], [6, 6]], "utility", "Split key casters so one disable cannot stop every cast.");
+      notes.push("Against silence or random disable, split critical casters and keep a second useful unit online.");
+    }
+
+    notes.push(...build.positioning.slice(0, 3));
+
+    const roles = uniqueInOrder(board.flat().map((cell) => cell.role)).filter((role) => role && role !== "avoid");
+    if (board.flat().some((cell) => cell.role === "avoid")) {
+      roles.push("avoid");
+    }
+
+    return {
+      title: `${build.name} placement`,
+      board,
+      roles,
+      notes: uniqueInOrder(notes).slice(0, 6)
+    };
   }
 
   function buildCounterRecommendations(selectedSynergies) {
@@ -911,7 +1244,98 @@
     `;
   }
 
-  function renderCounterRecommendationCard(item) {
+  function renderPieceSuggestionList(items, emptyText) {
+    if (!items.length) {
+      return `<p class="muted-text">${escapeHtml(emptyText)}</p>`;
+    }
+
+    return `
+      <div class="piece-suggestion-list">
+        ${items.map((item) => `
+          <article class="piece-suggestion">
+            <div>
+              <h5>${escapeHtml(item.name)}</h5>
+              <span>${escapeHtml(pieceMeta(item))}</span>
+            </div>
+            <p>${escapeHtml(item.reason)}</p>
+          </article>
+        `).join("")}
+      </div>
+    `;
+  }
+
+  function renderBuyPlan(plan) {
+    return `
+      <section class="advisor-explain buy-plan-module">
+        <div class="module-heading">
+          <h4>Piece Buy Plan</h4>
+          <span>Rule-based from core + matchup</span>
+        </div>
+        <div class="buy-plan-grid">
+          <div class="buy-plan-column">
+            <h5>Buy Now</h5>
+            ${renderPieceSuggestionList(plan.buyNow, "No concrete early core pieces found. Play strongest upgraded board.")}
+          </div>
+          <div class="buy-plan-column">
+            <h5>Look For Later</h5>
+            ${renderPieceSuggestionList(plan.later, "No separate late core pieces listed. Upgrade the current shell.")}
+          </div>
+          <div class="buy-plan-column">
+            <h5>Tech / Item Holders</h5>
+            ${renderPieceSuggestionList([...plan.itemHolders, ...plan.tech].slice(0, 5), "Use the build's listed item holders and scout the lobby.")}
+          </div>
+        </div>
+      </section>
+    `;
+  }
+
+  function renderPositioningBoard(plan) {
+    const cells = plan.board
+      .flatMap((row, rowIndex) =>
+        row.map((cell, columnIndex) => {
+          const info = POSITION_ROLE_INFO[cell.role];
+          const side = rowIndex < 4 ? "enemy-side" : "own-side";
+          const roleClass = cell.role ? `role-${cell.role}` : "";
+          const title = info ? `${info.label}: ${cell.label}` : rowIndex < 4 ? "Enemy side" : "Open square";
+          return `<span class="board-cell ${side} ${roleClass}" title="${escapeHtml(title)}" aria-label="${escapeHtml(title)}">${info ? escapeHtml(info.short) : ""}</span>`;
+        })
+      )
+      .join("");
+
+    return `<div class="positioning-board" role="img" aria-label="${escapeHtml(plan.title)}">${cells}</div>`;
+  }
+
+  function renderPositioningPlan(plan) {
+    const legend = plan.roles
+      .map((role) => {
+        const info = POSITION_ROLE_INFO[role];
+        return info ? `
+          <span class="legend-item role-${escapeHtml(role)}">
+            <strong>${escapeHtml(info.short)}</strong>
+            ${escapeHtml(info.label)}
+          </span>
+        ` : "";
+      })
+      .join("");
+
+    return `
+      <section class="advisor-explain positioning-module">
+        <div class="module-heading">
+          <h4>Positioning Template</h4>
+          <span>Bottom half is your board</span>
+        </div>
+        <div class="positioning-layout">
+          ${renderPositioningBoard(plan)}
+          <div class="positioning-guide">
+            <div class="positioning-legend">${legend}</div>
+            ${list(plan.notes, true)}
+          </div>
+        </div>
+      </section>
+    `;
+  }
+
+  function renderCounterRecommendationCard(item, selectedSynergies) {
     const build = item.build;
     const reasons = item.reasons.slice(0, 4);
     const playPattern = [...build.counterPlan, ...build.positioning].slice(0, 4);
@@ -920,6 +1344,8 @@
     const traits = item.traits.length ? item.traits.map(traitLabel) : ["direct rule match"];
     const stage = stageConfig();
     const stageTone = item.stageAdjustment >= 2 ? "good" : item.stageAdjustment <= -2 ? "warn" : "";
+    const buyPlan = buildBuyPlan(build, selectedSynergies);
+    const positioningPlan = buildPositioningPlan(build, selectedSynergies, item);
 
     return `
       <article class="advisor-recommendation">
@@ -941,6 +1367,9 @@
           <h4>Why It Counters This</h4>
           ${list(reasons.map((reason) => `${reason.title}: ${reason.text}`), true)}
         </section>
+
+        ${renderPositioningPlan(positioningPlan)}
+        ${renderBuyPlan(buyPlan)}
 
         <section class="advisor-explain two-column">
           <div>
@@ -977,7 +1406,7 @@
           <span>${recommendations.length} shown</span>
         </div>
         <div class="advisor-recommendation-list">
-          ${recommendations.map(renderCounterRecommendationCard).join("")}
+          ${recommendations.map((recommendation) => renderCounterRecommendationCard(recommendation, selectedSynergies)).join("")}
         </div>
       `
       : `<div class="empty-state compact-empty">No counter recommendations matched this selection.</div>`;

@@ -15,6 +15,7 @@ This file records the meaningful changes made to the site so we can look back la
 - Added per-synergy level selectors so checked synergies can be evaluated at their current breakpoint, such as `Knight 2/4/6` or `Mage 3/6/9`.
 - Added a game-stage toggle for `Early`, `Mid`, `Late`, and `Final` so recommendation scoring can favor tempo, stable mid-game counters, late-board tech, or final-opponent positioning.
 - Updated counter explanations to include the selected synergy breakpoint text and stage-specific reasoning.
+- Added rule-based positioning templates and piece buy plans to Counter Advisor recommendations, using selected enemy synergies, build cores, reference-piece costs, and matchup tech rules.
 
 ### Patch review dashboard
 
