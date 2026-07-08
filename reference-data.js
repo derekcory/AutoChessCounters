@@ -6,7 +6,7 @@ window.AUTO_CHESS_REFERENCE = {
       "items": "https://ac.dragonest.com/en/equipment",
       "patch": "https://store.steampowered.com/news/app/1530300/view/496097685470709756"
     },
-    "sourceNote": "Reference data is generated from the official Dragonest Chess Wiki and Item Effects pages, with March 2026 Steam patch overrides for newly changed pieces/items."
+    "sourceNote": "Reference data is generated from the official Dragonest Chess Wiki and Item Effects pages, including official piece, item, and synergy images where available, with March 2026 Steam patch overrides for newly changed entries."
   },
   "pieces": [
     {
@@ -30,7 +30,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Hex",
       "ability": "Transforms an enemy piece into a harmless penguin, disabling their attacks and abilities in 4 seconds.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad218",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/4445cc256e3d04f12e2fecd6518ed4e7.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/e528d849333ef37cdd3d4b4311474f0d.png"
     },
     {
       "id": "egersis-ranger",
@@ -53,7 +55,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Marksmanship",
       "ability": "Increases 25% attack speed and 25% ATK for itself.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad599",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/78e7907639f7430791061686d158142d.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/2614f52712931cfb51d31ca9824f24ca.png"
     },
     {
       "id": "frost-knight",
@@ -76,7 +80,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Snowbomb Blast",
       "ability": "Slow enemy units of 2-grid radius 1 seconds of their movement and taking bonus 50 magical damagess every time Frost Knight attacks. Get to at most 4 stacks and last 20 seconds",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad240",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/b2caa416d31bb78099aff579f58de687.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/4b865b1351ebd6b569f5238faafe48b1.png"
     },
     {
       "id": "hawk",
@@ -99,7 +105,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Eagle Eye",
       "ability": "Whenever an ally casts an active ability, Falcon instantly fires Arcane Missiles at enemies, dealing magical damage. Ability Type: Active Target: Single Impact: Enemy Damage Type: Magical Damage Magical Damage: 150 CD: 2",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/101855090d47",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/176966912486244.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/176966905082410.png"
     },
     {
       "id": "heaven-bomber",
@@ -122,7 +130,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Tracing Missile",
       "ability": "Launches 3 rockets to strike random enemy chess pieces, each missile deals 150 magical damage to a random enemy unit",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad780",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/698314cbc9d9535820e6fc8eb2460312.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/091afc886c8c8078f1f4e320222f2073.png"
     },
     {
       "id": "redaxe-chief",
@@ -145,7 +155,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Taunts",
       "ability": "Taunts enemies within 1 grids, forcing them to attack himself in 2.5 seconds, while he gains 10 bonus armor",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ac681",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/c38f60f01cc237b92697e71abf9e4a33.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/1d69bf9b0dd2ea5b73ce754ad9f8ea15.png"
     },
     {
       "id": "resentful-murk",
@@ -168,7 +180,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Apparition",
       "ability": "Take the mirror point symmetrical to the center of the chessboard as a reference, and target the enemy unit closest to that mirror point, swapping positions with the target, dealing 100 magical damage, and stunning it for 2 seconds. Ally normal attacks give priority to the target for 2 seconds. Pierces ability immunity.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/f0fc5fccbac",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/91d69fffa279783720d58b31aa7eb01a.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/2fc5f72948322870a992c0839783062b.png"
     },
     {
       "id": "sky-breaker",
@@ -191,7 +205,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Battery Assault",
       "ability": "Discharges magical damages at random nearby enemy chess pieces within 2 grids, dealing 50 magical damages and stunning for 0.1 seconds every 0.7 seconds up to 5 seconds.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ac658",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/46e0081df904ae7c47f256d2fa5e39bb.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/17c3db37469bd8dd5829329b05549f9b.png"
     },
     {
       "id": "soul-breaker",
@@ -214,7 +230,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Paralysis Shuriken",
       "ability": "Hurls a shuriken at a random enemy unit, dealing 300 magical damages and stunning for 0.1 seconds.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad7a7",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/cebd762fded03ffb8fd297c0bfc455d8.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/edb48454585d6bc01f97c238dcb8a100.png"
     },
     {
       "id": "stone-spirit",
@@ -237,7 +255,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Toss",
       "ability": "Grab a nearby enemy within 1 grids, and lunches it at the farthest grid, to deal 100 physical damages and stun for 1.5 seconds",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad730",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/ae5515538cbe596aaf869d908418658b.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/3a5bbef36fa38b41a711e43fde89d4d4.png"
     },
     {
       "id": "taboo-witcher",
@@ -260,7 +280,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Soul Break",
       "ability": "Burns an opponent's 30 magic on each attack, dealing 60% of magic burnt bonus physical damages to the target",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47acaf2",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/c868d1b30f666106ea9ef1577ddbe5c8.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/7eaff7e79742ef7e6b9bc700b222e33e.png"
     },
     {
       "id": "the-source",
@@ -283,7 +305,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Awaken",
       "ability": "Grants 10 magic regeneration for all allied chess pieces in every 2 seconds",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad454",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/300c45322e8ea80d4d25fe257d83ab4d.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/c1900d399e3d9f676608996c469b8210.png"
     },
     {
       "id": "tusk-champion",
@@ -306,7 +330,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Arctic Punch",
       "ability": "Next normal attack launches its target into air for 1 seconds and deals 3 times damages",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ac74b",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/64b9a49e51be8ebf65f6d235d3f39294.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/94c49366b24fc865b1fcf9431e8ca36b.png"
     },
     {
       "id": "unicorn",
@@ -329,7 +355,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Cure",
       "ability": "Passive: When Unicorn receives base attacks, reduces the attacker's ATK Speed by 5% for 5 seconds. Active: Heals 25 HP every 1.5 seconds to 3 random allies within 3 grids, lasting for 11 seconds.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/16eaba5e231",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/4780acea37a0d848d97dd54348e33db8.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/94d8e59bf7099af554719e0e2ab118bf.png"
     },
     {
       "id": "unknown-horror",
@@ -355,7 +383,9 @@ window.AUTO_CHESS_REFERENCE = {
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/100baa36cabb",
       "source": "Official Dragonest Chess Wiki; Steam March 2026 patch override",
       "patchNote": "March 2026 patch added the Greater synergy to Unknown Horror.",
-      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756"
+      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/176422850423440.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/176422837143317.png"
     },
     {
       "id": "winter-chiropteran",
@@ -379,7 +409,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Cool Healing",
       "ability": "Freezes an ally with HP that is lower than 50%, protecting them from losing HP and recovers their HP by 20+ 10%*HP for 2 seconds",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47b0144",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/c7db19e06dca4f824867cfc519678575.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/b61515d896647f16ff2a221dcb4afc57.png"
     },
     {
       "id": "abyssal-guard",
@@ -402,7 +434,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Corrosion",
       "ability": "Randomly reduces 15 armor to an enemy unit's for 20 seconds",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad2e9",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/cd9adb22e4cba0383af19d2d30445708.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/bf74a0d580dcec0ec1c4fb49c79ac061.png"
     },
     {
       "id": "abyssalcrawler",
@@ -425,7 +459,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Spiral Crawler",
       "ability": "Every Base attack will steal 3% ATK Speed from the enemy. Can stack up to 20 times.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad42b",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/06f7a844a7aa71e67ca50bc0a4e73818.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/710c1d5c2ff4dc1a3cea13ecd767e3cd.png"
     },
     {
       "id": "desperate-doctor",
@@ -448,7 +484,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Ricocheting Cask",
       "ability": "Launches a cask of paralyzing powder that ricochets between enemy chess pieces up to 4 times, dealing 60 damages and stunning those it hits for 1 seconds",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad291",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/ef9faf02429cd206d843ed553cd6a5ea.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/b8d4a061ec3a5547893d81942bd02c0d.png"
     },
     {
       "id": "dwarf-sniper",
@@ -471,7 +509,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Headshot",
       "ability": "Locks onto an target piece and, after 0.5 seconds of aiming, fire a shot that deals 400 magical damages to target.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47aca9f",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/4d79cf63bc3a13e271df1dd1fde67949.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/ba21ae5881970e8ddd3ea3523a90a6f0.png"
     },
     {
       "id": "flame-wizard",
@@ -494,7 +534,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Laguna Blade",
       "ability": "Deals 350 magical damages to 1 random enemy piece. After the launch of skill, attack speed increase by 40%, lasts 30 seconds, can be stacked 2 times",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad4f7",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/d0d1c89e7f9f94dbc7f8cc3ee5c576ed.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/aade777eda74fe813a2c0cca4f5d5d67.png"
     },
     {
       "id": "goddess-of-light",
@@ -517,7 +559,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Spiritbind",
       "ability": "Imprisons 1 enemy pieces for 5 seconds, disarms them and reduces their Magic Resistance by 20%, but the pieces imprisoned will be immune to Physical Damage.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e714b66f227",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/1107d95ad2322355b001b908617a3570.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/cc5749bf133c3ad01307e15fc5452bfd.png"
     },
     {
       "id": "hell-knight",
@@ -540,7 +584,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Helling Bolt",
       "ability": "Deals 50 to 200 damagess and stuns a random enemy piece for 1 to 2 seconds",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad708",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/b5a869d05bb80994739762ed6278c62f.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/a68f1ba7056e7a1df69314ac8dcd60c0.png"
     },
     {
       "id": "light-blade",
@@ -563,7 +609,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Moon Glaives",
       "ability": "Attacks bounce between enemy pieces for at most 3 times, reducing 30% damages for every time it bounces",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/16eaba5e1a3",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/7a7158f45aaeca94d3bd1ce6123c833f.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/facfeb04e2d22442c7852bb1eb5ffcfc.png"
     },
     {
       "id": "phantom-queen",
@@ -586,7 +634,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Scream of Devil",
       "ability": "Deals 200 magical damages to nearby enemy units within 3 grids",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad758",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/b09d238c03b0511e06923905cd858a98.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/c5b7f03dd639a3f6132090f6db14d77f.png"
     },
     {
       "id": "ripper",
@@ -609,7 +659,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Reaping Death",
       "ability": "Deals 150 pure damages to enemy units within 2 grids",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad81f",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/931cfca16ee6574973732fe03f7a804d.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/354b5bfcd7ca4c9ee3ede0e153ba02ee.png"
     },
     {
       "id": "shining-archer",
@@ -632,7 +684,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Shooting Star",
       "ability": "Deals 50 - 500 Magical Damage to the farthest piece, and stuns it for 1 - 5 seconds. The longer the distance, the greater the damage and the longer the stun duration.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47afcfe",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/a82b496832ef9ba79b9a236bf949bc1b.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/3e9bdda30211026d16748e18ec86a50f.png"
     },
     {
       "id": "skull-hunter",
@@ -655,7 +709,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Porcupette",
       "ability": "Summons a Porcupette, who deals physical damage with base attacks",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad548",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/b2af2f9b94e2cb48f2f762059726edb1.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/4a14298e46f408e6aa55e9e56852c940.png"
     },
     {
       "id": "soul-devourer",
@@ -678,7 +734,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Turning Tables",
       "ability": "Drains 15 mana from an enemy piece every second for 4 seconds. Then, transfers all his mana to 1 random allied piece, reducing their CD time by 2 second if their ability is on cooldown.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/174432540cf",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/95aa7f281583ae0eaf9cbf0d060887f3.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/532d539c170b95d887225b0206204f6d.png"
     },
     {
       "id": "swordman",
@@ -701,7 +759,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Blade Fury",
       "ability": "Deals 75 magical damages per second to enemy units within 1 grids in 5 seconds",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad571",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/ca2efcc731fb42886a74ad46cd63315a.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/4436864d5f90f82772566d70697301d3.png"
     },
     {
       "id": "water-spirit",
@@ -724,7 +784,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Wave Slash",
       "ability": "Charges to the farthest enemy piece, dealing 200 magical damages to enemies in his path.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad7cf",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/60bf3168894ab255c6ade6f569000b6b.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/5a65c8aa986d97e64a8c55ddc504db8a.png"
     },
     {
       "id": "wisper-seer",
@@ -747,7 +809,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Nature's Call",
       "ability": "Summons 1 Treant to random grids on the edge of the chessboard to assist in battle.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/16eaba5e1af",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/41dddb0b3a25f86b11f80c575bba0eff.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/3edde7a2ff79ade7f2c276d9ba0fedde.png"
     },
     {
       "id": "argali-knight",
@@ -770,7 +834,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Purification",
       "ability": "Deals 200 healing to a friendly chess and 250 pure damages to all nearby enemy within 2 grids,",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad4a5",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/6da86367a2f1ef4c8f73f8b7efdc811d.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/3e1241d8b10e26fee09865b68915e89d.png"
     },
     {
       "id": "berserker",
@@ -793,7 +859,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Wind Furyaxe",
       "ability": "Passive: When attacking enemies within 1 grids, there is a 25% chance to trigger the effect: Deals 250 physical damage to enemy pieces within 1 grids of Berserker, and has a 30% chance to dodge base attacks of enemy pieces being damaged, lasting for 5 seconds. (CD: 4 seconds)\\nPassive: When attacking enemies in 1 grids away, there is a 25% chance to trigger the effect: Deals 250 physical damage to enemy pieces in a sector area of Berserker, and the ATK Speed of enemy pieces being damaged will be reduced by 30%, lasting for 5 seconds. (CD: 4 seconds)",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/16eaba5e235",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/16f02a276901b837c05db2a26d003a8d.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/25308f2f63981e4fdcb884e1b19e3777.png"
     },
     {
       "id": "bobo",
@@ -816,7 +884,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Delicious Shell",
       "ability": "Passive: After the battle begins, any ally has a 50% chance to gain the Delicious Shell state for 5 seconds when they are born. Active: Gives random 2 allies Delicious Shell to eat (This effect will give priority to allies that have not eaten Delicious Shells.), lasting 5 seconds. Delicious Shell: When attacking, the enemy unit will get stackable Vulnerability effect (Increases damage received by 1%), and when the Vulnerability accumulates to 10 stacks, the target's recovery effect is additionally reduced by 50%.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/f105de1774a",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/0e29186052338bff7cef8a70f6ae677a.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/9ec08e319bff26440523c634b8594fac.png"
     },
     {
       "id": "eclipse-of-darkness",
@@ -839,7 +909,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Blood Surge",
       "ability": "Eclipse of Darkness allows the specified ally piece to absorb max HP from nearby enemies, dealing pure damage to heal the target.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/f7a6c42ce05",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/170184761761193.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/170184755674646.png"
     },
     {
       "id": "evil-knight",
@@ -862,7 +934,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Shield of Skeleton",
       "ability": "Creates a shield that absorbs 200 damages in 10 seconds for an allied piece. When the shield is destroyed it will burst and deal damages equal to the amount absorbed to an area of 3 radius around it.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ab96d",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/f9a82dabdf01429f63de03ea33372476.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/8f6da6aa93d3304e7e4c266a217fe6fe.png"
     },
     {
       "id": "fallen-witcher",
@@ -885,7 +959,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Metamorphism",
       "ability": "Transform to a piece with ranged attack and change HP with a random allied units, granting him bonus 50 % attack speed and 80 damages for 60 seconds. Upon transformation.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad690",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/b9fe89dcd4bf5c675b069ee4561a5798.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/b5102aed03597a0064558cb64c0fd284.png"
     },
     {
       "id": "fortune-teller",
@@ -908,7 +984,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Life Extension",
       "ability": "Prevents 1 allied piece from being eliminated within 5 seconds",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47afdcb",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/d00b52a2b8e614de3b61e9d82d96ad86.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/01702c2aa19a5bf8c389d080de754ec8.png"
     },
     {
       "id": "gem-artisan",
@@ -931,7 +1009,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Gemstone Wave",
       "ability": "Uses gemstone to teleport Gem Artisan (including itself and all pieces of the same name) to somewhere near a random enemy unit, dealing 200 pure damage to nearby enemies within 1 grid for every Gem Artisan that reaches the area.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/17acc21aa79",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/d3c6762e2f30d15cae8100fff2ecb88c.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/e0ee0ab793eea01424e1d8616307902b.png"
     },
     {
       "id": "ghost-kid",
@@ -954,7 +1034,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Chew Chew",
       "ability": "Anna throws the Big Head to the farthest enemy, dragging the target back to her and dealing 200 Physical Damage. If the target is dragged to be within 1 grid around Anna, deals a total of 150 Magical Damage over 3 times, and stuns the target for 4.5 seconds.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/1727d59a49c",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/2fc88ae6f60916f5d1c11303c908b13b.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/29718478979bda76009d05aa6806ba85.png"
     },
     {
       "id": "god-of-war",
@@ -977,7 +1059,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Shield Crash",
       "ability": "Reduces Physical Damage by 30% upon receiving attack from the front, and by 15% from the side. Meanwhile, deals 300 Physical Damage to enemies within 3 grids ahead every 8 seconds.Also knocks back enemies within range for 1 grid.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47aec6b",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/8ba4a8a8d4b09e540030056d621e3cf0.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/412728e871eb78110d4f9e2047cf38dc.png"
     },
     {
       "id": "goddess-of-war",
@@ -1000,7 +1084,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Shining Combo",
       "ability": "Ability: [Shining Combo] Rapidly swings a warhammer, dealing physical damage with base attacks to surrounding enemies. The final strike slams the hammer into the ground, dealing additional damage and stunning enemies. Swing/Slam Extra DMG: 15/30/45 Stun Duration: 0.5/0.5/1 Swing Range: 160 Slam Range: 160/160/234 CD: 10/8/6",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/1971fc43d24",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/174858459166912.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/174858453189165.png"
     },
     {
       "id": "grand-herald",
@@ -1023,7 +1109,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Take Control",
       "ability": "Passive: Reduces Skill CD by 10%. Active: Clones one skill of the nearest centrosymmetric enemy when the battle starts",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47b13a8",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/b99328961d0542bc0d9e2ce8540798fe.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/f14b2b5f38b6dc716de9fc006b90a6d7.png"
     },
     {
       "id": "khan",
@@ -1049,7 +1137,9 @@ window.AUTO_CHESS_REFERENCE = {
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/edde7225351",
       "source": "Official Dragonest Chess Wiki; Steam March 2026 patch override",
       "patchNote": "March 2026 patch changed Khan from Legendary to Rare and reduced its damage profile.",
-      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756"
+      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/8be8acbb0a4911c6ac9a3183b3ce6901.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/ffea72322f2c72908f4c6229979b1421.png"
     },
     {
       "id": "lord-of-sand",
@@ -1073,7 +1163,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Burrow Dash",
       "ability": "Burrows into the ground and tunnels to the farthest piece on the board, dealing 150 damages and stun enemy units in the path for 1.5 seconds",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad6e0",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/0a135f2b811b554f7dcfecabca735ba9.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/001de6d9fa1349927cb3fcfd07cb73ea.png"
     },
     {
       "id": "mist-phantom-king",
@@ -1096,7 +1188,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Smoke Trick",
       "ability": "Instantly deploys a smoke grenade. If there are enemy pieces nearby, the grenade will be deployed at the location of Wuril; otherwise, it will be deployed at the symmetric point on the board from Wuril's position. Enemies within the smoke grenade will be silenced and blinded (with a chance of missing attacks).",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/fdb57ef3521",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/174347469928933.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/174347464850277.png"
     },
     {
       "id": "ogre-mage",
@@ -1121,7 +1215,9 @@ window.AUTO_CHESS_REFERENCE = {
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ab944",
       "source": "Official Dragonest Chess Wiki; Steam March 2026 patch override",
       "patchNote": "March 2026 patch reworked Ogre Mage from Common filler into a Rare aura piece.",
-      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756"
+      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/23acae57369f6cdf9e2bd6fb5887d949.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/79aafb879dfc31e5344618021dc42675.png"
     },
     {
       "id": "penitent-bishop",
@@ -1145,7 +1241,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Ancestral Curse",
       "ability": "Penitent Bishop curses the enemy it attacks. When a cursed enemy is healed, Penitent Bishop heals allies around the target by a percentage. When a cursed enemy takes damage, Penitent Bishop deals the same type of damage, scaled by a percentage, to enemies around the target. Damage & Healing Share Percentage: 30% Effect Range: 27 CD: 5",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/fff98fc739e",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/175904382489231.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/175904361129704.png"
     },
     {
       "id": "penitent-bishop-mammon",
@@ -1167,7 +1265,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "11",
       "ability": "1",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/fff990c4266",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/175904581293961.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/175904575790277.png"
     },
     {
       "id": "poisonous-worm",
@@ -1191,7 +1291,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Plague Ward",
       "ability": "Summons an unmovable plague ward which slows 40% of target's attack speed in 5 seconds. Plague ward is immune to ability damage.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad63b",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/9023517682e18dc1ce9290424401153c.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/1c79422b8fe802c17ce340942e7b8317.png"
     },
     {
       "id": "qin-xuan",
@@ -1214,7 +1316,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Fist of Gale",
       "ability": "Plume Warrior wraps her fists with a gale for 10 seconds. She will take a short rest and attack again in 2 seconds after the gale effect disappears or she deals the last blow.\\nGale: Reach the upper limit of the ATK Speed within 2 seconds and release the Fist of Gale that can punch up to 3 times, and the last blow will deal 60 magical damage to enemy pieces within 2 grids around the target, and reduce their ATK Speed by 30% for 2 seconds.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/186c50163ff",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/167834240990849.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/167834232849975.png"
     },
     {
       "id": "ronin-nue",
@@ -1238,7 +1342,9 @@ window.AUTO_CHESS_REFERENCE = {
       "ability": "Attacks the target, stunning it and dealing base physical damage plus physical damage based on the target's max HP. Damage happens in two stages and applies a base attack each time.",
       "sourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756",
       "source": "Steam March 2026 patch",
-      "patchNote": "New Rare Watcher/Assassin piece added in the March 2026 patch."
+      "patchNote": "New Rare Watcher/Assassin piece added in the March 2026 patch.",
+      "imageUrl": "",
+      "thumbnailUrl": ""
     },
     {
       "id": "shadow-devil",
@@ -1261,7 +1367,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Requiem of Shadow",
       "ability": "After 1.7s delay, Shadow Devil releases 8 shockwaves around itself, each dealing 200 magical damage. For every piece in the lineup that activates a Demon Synergy, the number of shockwaves +1.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad6b9",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/ed5d4c4990f5a5877484b26f2598adab.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/7be73e8194d890b56e78ebcd27497225.png"
     },
     {
       "id": "shadowcrawler",
@@ -1284,7 +1392,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Coup de Ombre",
       "ability": "Has a 10% chance to deal 3 times damages on attack",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad1c8",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/155005b6fa6337a47de725bcb2316765.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/84b9b6e7ca62ff11757fa5c6b919207d.png"
     },
     {
       "id": "thunder-spirit",
@@ -1307,7 +1417,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Lightning Nova",
       "ability": "Release a wave of plasma that grows in power as it expands, dealing 100 damages in max radius of 3 and 10 as minimum damages.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad7f7",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/3d7b892270906f69c4a3139b9406a84e.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/c9984990b823eed509ec72699b12cedb.png"
     },
     {
       "id": "umbra",
@@ -1331,7 +1443,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Familiar",
       "ability": "Increases Umbra's current/max HP by 80% and summons 2 Familiars to battle. Familiars share HP with Umbra.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e5991cf27f5",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/c966385be7a81a7d71ca925fb6a1900e.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/57ca429cb46924a84aac4befd05a5202.png"
     },
     {
       "id": "venom",
@@ -1354,7 +1468,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Viper Strike",
       "ability": "Slows the targeted enemy unit's 40% attack speed and deals 150 magical damages per second in 5 seconds",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47aca4f",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/843993362ff06222fdb5089cdbbbb2c7.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/3fb86d2ab06599386d64a4a7044c79be.png"
     },
     {
       "id": "warpwood-sage",
@@ -1377,7 +1493,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Leech Seed",
       "ability": "Deals 12.5 Magical damage to a random enemy piece within 3 grids every 0.25 seconds, and recovers his own HP based on damage dealt for 5 seconds.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47acb1b",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/2cba23bd99eb66eda233e53b7dcd8045.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/30c16fb2354268c1304424e77ebd30f3.png"
     },
     {
       "id": "werewolf",
@@ -1401,7 +1519,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Shapeshift",
       "ability": "Transform into a wolf, granting him bonus 20 % maximum HP and summons 2 wolves to battle.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad47d",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/8ba7162817b80fbf7e59386d2c68fde5.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/919bb1320aa5b814bc666462a27ee1e0.png"
     },
     {
       "id": "wind-ranger",
@@ -1424,7 +1544,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Powershot",
       "ability": "Charges the bow for up to 2 seconds, dealing at most 400 damages to enemy units in the path. For each enemy that powershot hits, its damages is reduced by 10%",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad179",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/7fdd6c8d5b133b82b2cb2eba5a7b240d.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/aa52b082e36ce561633517f25a2e2da7.png"
     },
     {
       "id": "cave-prodigy",
@@ -1447,7 +1569,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Hero's Back",
       "ability": "Summons a unit of the highest cost that has been killed in this round, grants it with 100 initial mana. If it’s a chess piece or a summon, it will have the same star level as Cave Prodigy; if it’s a creep, then it will stay the same.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/ed1d548b4ea",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/0836f0714c1f57eaaa4d4306a0991e2a.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/75e689ad6d6b842f8a302e85db580c7d.png"
     },
     {
       "id": "doom-arbiter",
@@ -1470,7 +1594,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Doom Curse",
       "ability": "Silence an enemy piece, dealing 60 pure damages in 10 seconds",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad665",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/5305f2a51de151e5ac47ed649fefc15a.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/1affb6b2a724d0ee5a286c0d574e6ba1.png"
     },
     {
       "id": "dragon-knight",
@@ -1496,7 +1622,9 @@ window.AUTO_CHESS_REFERENCE = {
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad38a",
       "source": "Official Dragonest Chess Wiki; Steam March 2026 patch override",
       "patchNote": "March 2026 patch makes this piece's splash damage count as skill damage.",
-      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756"
+      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/ae69e8bb4d38ec60b1ee7337a95b59ee.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/e55240db0a72196ae8ba2720b5b4bdae.png"
     },
     {
       "id": "grimtouch",
@@ -1519,7 +1647,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Ink Splash",
       "ability": "Releases a forward ink wave, deals 100 Magical Damage to enemies along the path, each piece hit increases damage by 30, accompanied with 1x Ink Touch effect. Ink Touch: Target skill attack on any Ink Touched pieces would be imposed on all other directional Ink Touched pieces",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47b13cf",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/740afb2bd83e86d5e74ff52ccec720ce.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/f9fa2cd93aae6ecc7c09a42a8dce863b.png"
     },
     {
       "id": "pirate-captain",
@@ -1542,7 +1672,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Ghostly ship",
       "ability": "Summon a ghostly ship smashes the target area, causing 1 seconds of stunning and 150 damages.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad4ce",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/1a77828ea5148f10dded44f397a2104b.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/2a06ce624479b9b34f46d34dc05ce693.png"
     },
     {
       "id": "razorclaw",
@@ -1565,7 +1697,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Summon Spirit Bear",
       "ability": "Summon a spirit bear with its attack has a 20% chance to entangle an enemy unit for 3 seconds. Summoned (Spirit Bear) Magic Resistance 10",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad362",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/1e2228024c836d419bc1498ebc728e21.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/d60b6b5a1c66df92bf67f02bbb3b0836.png"
     },
     {
       "id": "shining-assassin",
@@ -1590,7 +1724,9 @@ window.AUTO_CHESS_REFERENCE = {
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad1f0",
       "source": "Official Dragonest Chess Wiki; Steam March 2026 patch override",
       "patchNote": "March 2026 patch makes this piece's splash damage count as skill damage.",
-      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756"
+      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/ea1678e598e05f6d941c80b094f2f592.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/d19a7fd63e67858c618cbf1de37a03b4.png"
     },
     {
       "id": "siren",
@@ -1613,7 +1749,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Abyssal Gaze",
       "ability": "During 3 seconds, any enemy units in 4 radius looking at Siren will have their attack speed slowed for 30%. If 2 seconds of total time is accumulated looking at Siren, that piece will turn to stone for 2 seconds.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad3b4",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/16a01f15b7ff900bd404f7a6c6adca31.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/5014f95146522f10a51754342af2184e.png"
     },
     {
       "id": "soul-reaper",
@@ -1636,7 +1774,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Heartstopper Pulse",
       "ability": "Deal 100 magical damages to enemy units and 100 heal to allied units in 3 radius.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad5c1",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/1128f0bb2838b18dfdc184a5cc0cde61.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/11f22a9c5e316b89cfdc106016c392bd.png"
     },
     {
       "id": "spider-queen",
@@ -1659,7 +1799,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Weave Web",
       "ability": "Weave a web that lasts 4 seconds. The enemies on the web cannot move and 40% of their Base attack can be evaded. If the enemy dies during the effect, a small spider will be summoned.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e7bef0c026b",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/5c9ff8f27528adce027524d4b1866268.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/6c24b1e8387a2fc935b11a96eb7a2dce.png"
     },
     {
       "id": "storm-shaman",
@@ -1682,7 +1824,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Static Storm",
       "ability": "Creates a damaging static storm that also silence enemy units in the area for 2 seconds. Dealing as maximum as 150 magical damages per second.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad3db",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/edfdc3369b21db84b92ac2c48724c8b6.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/318794b59868821fc08f2c1f92ac6894.png"
     },
     {
       "id": "thorn-predator",
@@ -1705,7 +1849,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Thorn Shell",
       "ability": "The Predator activates a Thorn Shell which can reflect and disable the damage received (each attacker can only be applied once), and stun the attacker for 1 seconds. The Thorn Shell lasts for 4 seconds.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e7beff4feee",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/322a147b230a082b619996526d040a27.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/424f42f785d9ac4bbde41dfee928cb06.png"
     },
     {
       "id": "tortola-elder",
@@ -1728,7 +1874,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Kamehameha",
       "ability": "Channels for at most 3 seconds then release a pulsing wave, dealing at most 300 magical damages to enemy units in its path.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad51f",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/7df0f03ae7a842d2c7699757caa9884b.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/41db02be41d923465565c56e9f816372.png"
     },
     {
       "id": "venomancer",
@@ -1752,7 +1900,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Chemical Rage",
       "ability": "Generates acid mist for 15 seconds that reduces the enemy Armor by 7 if affected by the mist. Meanwhile, enters a chemically induced rage that reduces basic attack cooldown to 0.7, and restores HP by 50 every second for 60 seconds.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad404",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/c52fb370961bcb346f4f26d01a74d6a9.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/3c12bdd47773e94975a50aeb38dc60ac.png"
     },
     {
       "id": "dark-spirit",
@@ -1775,7 +1925,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Black Hole",
       "ability": "Deals pure damage equals to 4% of the max HP per second for enemy pieces within 3 grids. It lasts for 8 seconds.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad2c1",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/201e3db9cc27c29d4291b9cd73da10ad.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/2849056d80447dcebcae364b46866cc6.png"
     },
     {
       "id": "devastator",
@@ -1798,7 +1950,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Delayed Action Bomb",
       "ability": "Plant an explosive that will detonate after 3 seconds and deal 500 physical damages to enemy units in 4 radius.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad269",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/3ab6efb2f77fa0c73148eebcc744bafc.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/98d5be9df9bcc54b377703354bacf58d.png"
     },
     {
       "id": "frostblaze-dragon",
@@ -1821,7 +1975,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Icebound Wall",
       "ability": "Builds an Icebound wall on your right, dealing 200 magical damage to enemy passing through the wall and reducing their attack speed by 30% for 3 seconds. All pieces won't target enemies on the other side of the wall.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e5991b4bd56",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/0b92a837cd939616c04921183b6e84e1.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/3f39bf7f05597732e5ea9e4a777570d2.png"
     },
     {
       "id": "god-of-thunder",
@@ -1844,7 +2000,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Zeus' Punishment",
       "ability": "Summons thunder to punish at least 1 enemy piece, and has a 50% chance of dealing 15% of the target piece's remaining HP +250 Magical damage equals to it.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47aec44",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/ebc76ebd76e41191addc33c34237a90d.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/046aaefd77098c8d39632a97f397e133.png"
     },
     {
       "id": "helicopter",
@@ -1867,7 +2025,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Call Down",
       "ability": "Call down 2 aerial missiles strike enemy units in 4 radius. Each of them deals 200 magical damages",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47acac7",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/bf4331fd08ba9a04e9f804212acbdc32.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/cea35acf6f4c124277ba889b379b8241.png"
     },
     {
       "id": "rogue-guard",
@@ -1892,7 +2052,9 @@ window.AUTO_CHESS_REFERENCE = {
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47afeed",
       "source": "Official Dragonest Chess Wiki; Steam March 2026 patch override",
       "patchNote": "March 2026 patch makes this piece's splash damage count as skill damage.",
-      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756"
+      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/9ec1d3ced915f4da743cbecf945f3a4a.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/6772aaf59a97ee8995a0a4d6e4111237.png"
     },
     {
       "id": "sacred-lancer",
@@ -1915,7 +2077,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Cursed Lance",
       "ability": "Feeds her Lance with blood, sacrificing 15 HP at each base attack, and multiple attacks will stack additional 20 Magic damage per second to the target, lasts 8 seconds; for each loss of 10% HP, increases 10% ATK speed, 10% Magic resistance and 0.5% HP regeneration per second.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e8432f6fa43",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/2b4003c942295b208f341afab8672d21.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/a1c73e31810109ced79f3c3efe0160c2.png"
     },
     {
       "id": "strange-egg",
@@ -1938,7 +2102,9 @@ window.AUTO_CHESS_REFERENCE = {
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47abc41",
       "source": "Official Dragonest Chess Wiki; Steam March 2026 patch override",
       "patchNote": "March 2026 patch added a 3-star form and damage-sharing Battlecry behavior.",
-      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756"
+      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/63fae28c72ed7c18ae7fc466f513c249.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/a4204b9f148d4e2f3fd943aac9cfaead.png"
     },
     {
       "id": "the-scryer",
@@ -1961,7 +2127,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Raven Arcane",
       "ability": "Active: Casts an ability based on the highest activated tier Class/Race Synergy of the enemy's lineup (with at least 3 chess pieces). Passive: Regenerates 10 Mana per second. When the first enemy's Mana is full, Silence it for 3 seconds. Mage/Shaman/Divinity: Electromagnetic Pulse, Warrior/Cave Clan/Goblin: Darkfeathered Servants, Mech/Warlock/Marine: Blood Surge, Hunter/Assassin/Glacier: Sonic Attack, Knight/Human/Egersis: Bolt of Lightning, Beast/Feathered/Demon: Earth's Fury, Druid/Spirit/Dragon: Whirlwind Attack",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e69444fe2ce",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/11092be1d36cb732220e87683bd7cf4b.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/dfac35b42855900a427938573fe95b7d.png"
     },
     {
       "id": "tsunami-stalker",
@@ -1984,7 +2152,9 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Ravaging Tentacles",
       "ability": "Slam the ground, causing the tentacles to erupt in all directions and in at most 3 radius, dealing 100 magical damages and stunning enemy units for 2 seconds.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad311",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/ac4480c18f8a03f0444d3b713a90c739.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/3e017b25914872696a6fe3fdc85b07cd.png"
     }
   ],
   "items": [
@@ -2002,7 +2172,8 @@ window.AUTO_CHESS_REFERENCE = {
         "Resistance Cloak"
       ],
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/eb7f3c2115a1cc5776d64459d9aef985.png"
     },
     {
       "id": "antique-longsword",
@@ -2015,7 +2186,8 @@ window.AUTO_CHESS_REFERENCE = {
       "effect": "Drop condition adjusted: only drops randomly to other players when the wearer is defeated on their home field and takes player damage.",
       "recipe": "",
       "sourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756",
-      "source": "Steam March 2026 patch"
+      "source": "Steam March 2026 patch",
+      "imageUrl": ""
     },
     {
       "id": "axe-of-fury",
@@ -2031,7 +2203,8 @@ window.AUTO_CHESS_REFERENCE = {
         "Ghost Blade"
       ],
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/1699f9979a2/888a7490264a75ddd366199b08c5a132.png"
     },
     {
       "id": "barbaric-cuirass",
@@ -2047,7 +2220,8 @@ window.AUTO_CHESS_REFERENCE = {
         "Wraith Shard"
       ],
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/9b8ff002f84a473c3e67e6be99dcac8f.png"
     },
     {
       "id": "blade-mail",
@@ -2063,7 +2237,8 @@ window.AUTO_CHESS_REFERENCE = {
         "Cattlehide Armor"
       ],
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/11c7f2f5ddd7b1cf48e96fca14ba74fb.png"
     },
     {
       "id": "broken-sword",
@@ -2076,7 +2251,8 @@ window.AUTO_CHESS_REFERENCE = {
       "effect": "",
       "recipe": "",
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/dev/060960143515562574356037961.png"
     },
     {
       "id": "burst-rifle",
@@ -2092,7 +2268,8 @@ window.AUTO_CHESS_REFERENCE = {
         "Lucky Coin"
       ],
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/f790499c463630f10ab7209435e722a4.png"
     },
     {
       "id": "cattlehide-armor",
@@ -2105,7 +2282,8 @@ window.AUTO_CHESS_REFERENCE = {
       "effect": "",
       "recipe": "",
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/dev/060954325515561992552753858.png"
     },
     {
       "id": "claw-wand",
@@ -2121,7 +2299,8 @@ window.AUTO_CHESS_REFERENCE = {
         "Nether Essence"
       ],
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/895d14fa4c42e2426b2d247ed9d64807.png"
     },
     {
       "id": "cloud-halberd",
@@ -2137,7 +2316,8 @@ window.AUTO_CHESS_REFERENCE = {
         "Life Crystal"
       ],
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/1699f9979a2/ab531715edb37b62f2c0dd31cc9e306e.png"
     },
     {
       "id": "crystal-sword",
@@ -2153,7 +2333,8 @@ window.AUTO_CHESS_REFERENCE = {
         "Broken Sword"
       ],
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/c5ec0b2aec9c96a3af35848ae7829ff2.png"
     },
     {
       "id": "divine-gift",
@@ -2166,7 +2347,8 @@ window.AUTO_CHESS_REFERENCE = {
       "effect": "Gain all Talents in the game. For selected Talent tiers, all other Talents of the same tier are automatically unlocked; for future tiers, choosing either Talent unlocks both.",
       "recipe": "",
       "sourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756",
-      "source": "Steam March 2026 patch"
+      "source": "Steam March 2026 patch",
+      "imageUrl": ""
     },
     {
       "id": "dracula-mask",
@@ -2179,7 +2361,8 @@ window.AUTO_CHESS_REFERENCE = {
       "effect": "",
       "recipe": "",
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/dev/060954414215562001427848341.png"
     },
     {
       "id": "dragon-blood-axe",
@@ -2192,7 +2375,8 @@ window.AUTO_CHESS_REFERENCE = {
       "effect": "",
       "recipe": "",
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/e45acbdc1b2b79311bdfc76f43ef8e23.png"
     },
     {
       "id": "dragonbone-ballista",
@@ -2208,7 +2392,8 @@ window.AUTO_CHESS_REFERENCE = {
         "Ghost Blade"
       ],
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/1699f9979a2/ad9ded061c1b1be0ea0c2ec86ced2803.png"
     },
     {
       "id": "dragonbone-shield",
@@ -2224,7 +2409,8 @@ window.AUTO_CHESS_REFERENCE = {
         "Cattlehide Armor"
       ],
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/fd45b969e9c16dfe4ed9d843b336e7c8.png"
     },
     {
       "id": "dragonthorn-bracer",
@@ -2238,7 +2424,8 @@ window.AUTO_CHESS_REFERENCE = {
       "effect": "",
       "recipe": "",
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/988c20ce81b1ee7f5c79e68c239e5e4d.png"
     },
     {
       "id": "egersis-pact",
@@ -2251,7 +2438,8 @@ window.AUTO_CHESS_REFERENCE = {
       "effect": "",
       "recipe": "",
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/176422910898312.png"
     },
     {
       "id": "exp-book",
@@ -2264,7 +2452,8 @@ window.AUTO_CHESS_REFERENCE = {
       "effect": "Get 2 EXP for your chess player (only 1 EXP in Quick mode)",
       "recipe": "",
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/cf9fc2075b73b705c38055d5c618961a.png"
     },
     {
       "id": "flicker-staff",
@@ -2281,7 +2470,8 @@ window.AUTO_CHESS_REFERENCE = {
         "Nether Essence"
       ],
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/719fdc073a7aa4ae8eb1d269d3c854a2.png"
     },
     {
       "id": "four-leaf-clover",
@@ -2294,7 +2484,8 @@ window.AUTO_CHESS_REFERENCE = {
       "effect": "After the March 2026 adjustment, Feathered and Assassin synergy effects can benefit from item bonuses.",
       "recipe": "",
       "sourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756",
-      "source": "Steam March 2026 patch"
+      "source": "Steam March 2026 patch",
+      "imageUrl": ""
     },
     {
       "id": "frantic-mask",
@@ -2310,7 +2501,8 @@ window.AUTO_CHESS_REFERENCE = {
         "Wooden Club"
       ],
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/b9a32ecf6443b0b74d6b2af41c488a83.png"
     },
     {
       "id": "ghost-blade",
@@ -2323,7 +2515,8 @@ window.AUTO_CHESS_REFERENCE = {
       "effect": "",
       "recipe": "",
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/9bc0c28c89a2069b52aa35fb745e628b.png"
     },
     {
       "id": "golden-heart-of-mech",
@@ -2336,7 +2529,8 @@ window.AUTO_CHESS_REFERENCE = {
       "effect": "Use it to immediately refresh the store once, and 5 Legendary Pieces will show up",
       "recipe": "",
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/cf62dfae6d6b7d1f129633ae5fb8c088.png"
     },
     {
       "id": "green-essence",
@@ -2349,7 +2543,8 @@ window.AUTO_CHESS_REFERENCE = {
       "effect": "Use it to recover 1-5 HP for your chess player",
       "recipe": "",
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/2d79e88bddc1d4b93c86611c992b364e.png"
     },
     {
       "id": "halberd-of-judgement",
@@ -2365,7 +2560,8 @@ window.AUTO_CHESS_REFERENCE = {
         "Dragon Blood Axe"
       ],
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/519613b9eab5473140bc428d0c930a04.png"
     },
     {
       "id": "heart-of-mech",
@@ -2378,7 +2574,8 @@ window.AUTO_CHESS_REFERENCE = {
       "effect": "Use it to immediately refresh the store once",
       "recipe": "",
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/24750140abf7466bc9a472660d1fd7df.png"
     },
     {
       "id": "heart-of-tarrasque",
@@ -2394,7 +2591,8 @@ window.AUTO_CHESS_REFERENCE = {
         "Dragonthorn Bracer"
       ],
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/1699f9979a2/6ab3fa08c59ba9cf60b19ab7d8309a90.png"
     },
     {
       "id": "heaven-s-gift",
@@ -2410,7 +2608,8 @@ window.AUTO_CHESS_REFERENCE = {
         "Dragon Blood Axe"
       ],
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/2c4cff5e22b8f76c3f5b7928358ec4d5.png"
     },
     {
       "id": "ice-platemail",
@@ -2426,7 +2625,8 @@ window.AUTO_CHESS_REFERENCE = {
         "Cattlehide Armor"
       ],
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/a6b39fdf26204d96a8d29ca88d1be92d.png"
     },
     {
       "id": "icearmor",
@@ -2442,7 +2642,8 @@ window.AUTO_CHESS_REFERENCE = {
         "Ice Platemail"
       ],
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/1699f9979a2/bb874cf048c9cab2242736f31973ffb0.png"
     },
     {
       "id": "infused-mask",
@@ -2458,7 +2659,8 @@ window.AUTO_CHESS_REFERENCE = {
         "Wraith Shard"
       ],
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/5aa9ac0c266e6010d9835c2ecdcd262d.png"
     },
     {
       "id": "jade-pipe",
@@ -2474,7 +2676,8 @@ window.AUTO_CHESS_REFERENCE = {
         "Nether Essence"
       ],
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/8825d6d04b1b8e15fe4c0566393baa57.png"
     },
     {
       "id": "life-crystal",
@@ -2487,7 +2690,8 @@ window.AUTO_CHESS_REFERENCE = {
       "effect": "",
       "recipe": "",
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/dev/060960150115562575014683222.png"
     },
     {
       "id": "lucky-coin",
@@ -2500,7 +2704,8 @@ window.AUTO_CHESS_REFERENCE = {
       "effect": "",
       "recipe": "",
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/a7b7d431011f469fff7ec7015c45fbc4.png"
     },
     {
       "id": "maelstorm",
@@ -2516,7 +2721,8 @@ window.AUTO_CHESS_REFERENCE = {
         "Rune Hammer"
       ],
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/3ae3ca15e7c668533ca19a9b4d8d9eb6.png"
     },
     {
       "id": "magicka-crystal",
@@ -2529,7 +2735,8 @@ window.AUTO_CHESS_REFERENCE = {
       "effect": "",
       "recipe": "",
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/dev/060943993615560959366007835.png"
     },
     {
       "id": "magicka-pendant",
@@ -2542,7 +2749,8 @@ window.AUTO_CHESS_REFERENCE = {
       "effect": "Unique Passive: damage dealt by the equipped piece is converted to Magic damage.",
       "recipe": "",
       "sourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756",
-      "source": "Steam March 2026 patch"
+      "source": "Steam March 2026 patch",
+      "imageUrl": ""
     },
     {
       "id": "magicka-staff",
@@ -2555,7 +2763,8 @@ window.AUTO_CHESS_REFERENCE = {
       "effect": "",
       "recipe": "",
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/dev/060960167815562576783090949.png"
     },
     {
       "id": "mithril-armor",
@@ -2568,7 +2777,8 @@ window.AUTO_CHESS_REFERENCE = {
       "effect": "Improved block logic: now correctly negates all effects of targeted skills.",
       "recipe": "",
       "sourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756",
-      "source": "Steam March 2026 patch"
+      "source": "Steam March 2026 patch",
+      "imageUrl": ""
     },
     {
       "id": "mjollnir",
@@ -2584,7 +2794,8 @@ window.AUTO_CHESS_REFERENCE = {
         "Wraith Shard"
       ],
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/1699f9979a2/a4998c2ca3114fc66201c50aefa131ef.png"
     },
     {
       "id": "monkey-king-cane",
@@ -2600,7 +2811,8 @@ window.AUTO_CHESS_REFERENCE = {
         "Oblivion Staff"
       ],
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/48f284f917b71b2d8eee81580e43ce97.png"
     },
     {
       "id": "mysterial-staff",
@@ -2613,7 +2825,8 @@ window.AUTO_CHESS_REFERENCE = {
       "effect": "",
       "recipe": "",
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/d1dde7ab9fd209ded9e3f92d89d16dc4.png"
     },
     {
       "id": "nether-essence",
@@ -2626,7 +2839,8 @@ window.AUTO_CHESS_REFERENCE = {
       "effect": "",
       "recipe": "",
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/a20c304c61071008add9eb5e4f5912df.png"
     },
     {
       "id": "oblivion-staff",
@@ -2642,7 +2856,8 @@ window.AUTO_CHESS_REFERENCE = {
         "Rune Hammer"
       ],
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/4d23985d9aa7b130cee2206a426b66b1.png"
     },
     {
       "id": "orb-of-refresh",
@@ -2658,7 +2873,8 @@ window.AUTO_CHESS_REFERENCE = {
         "Mysterial Staff"
       ],
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/1699f9979a2/c2d98fe4ba67132de6368e527df3c21b.png"
     },
     {
       "id": "orb-of-regen",
@@ -2674,7 +2890,8 @@ window.AUTO_CHESS_REFERENCE = {
         "Magicka Crystal"
       ],
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/e5b654a831edf3b35adf221267f7bbf7.png"
     },
     {
       "id": "origin-wand",
@@ -2690,7 +2907,8 @@ window.AUTO_CHESS_REFERENCE = {
         "Mysterial Staff"
       ],
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/c107990023193f82fc12fdda57f75e3f.png"
     },
     {
       "id": "pulse-staff",
@@ -2706,7 +2924,8 @@ window.AUTO_CHESS_REFERENCE = {
         "Magicka Staff"
       ],
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/b2f4a4e2936876797efa338d744b465d.png"
     },
     {
       "id": "puppet-mask",
@@ -2722,7 +2941,8 @@ window.AUTO_CHESS_REFERENCE = {
         "Resistance Cloak"
       ],
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/c9edc864de22b54bde7a3ba86e6cf6d0.png"
     },
     {
       "id": "python-wand",
@@ -2738,7 +2958,8 @@ window.AUTO_CHESS_REFERENCE = {
         "Rune Hammer"
       ],
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/535ce59644252e9362cf0783be5851ca.png"
     },
     {
       "id": "resistance-cloak",
@@ -2751,7 +2972,8 @@ window.AUTO_CHESS_REFERENCE = {
       "effect": "",
       "recipe": "",
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/dev/060987040715565264075900852.png"
     },
     {
       "id": "rune-hammer",
@@ -2764,7 +2986,8 @@ window.AUTO_CHESS_REFERENCE = {
       "effect": "",
       "recipe": "",
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/dev/060960173715562577373058362.png"
     },
     {
       "id": "scythe-of-vyse",
@@ -2780,7 +3003,8 @@ window.AUTO_CHESS_REFERENCE = {
         "Voodoo Staff"
       ],
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/1699f9979a2/16e847414b01bbee06c031c28eec3f13.png"
     },
     {
       "id": "shadow-edge",
@@ -2796,7 +3020,8 @@ window.AUTO_CHESS_REFERENCE = {
         "Lucky Coin"
       ],
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/1699f9979a2/e22da0a1ef9f0b719c1d3ccef2b704a6.png"
     },
     {
       "id": "spilt-arrow",
@@ -2813,7 +3038,8 @@ window.AUTO_CHESS_REFERENCE = {
         "Dragon Blood Axe"
       ],
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/d6849e3bef940aa6cc6a0a323a5486ac.png"
     },
     {
       "id": "steel-platemail",
@@ -2829,7 +3055,8 @@ window.AUTO_CHESS_REFERENCE = {
         "Cattlehide Armor"
       ],
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/ef67d38a967266a3c2f4a6d4a970dd49.png"
     },
     {
       "id": "teleport-dagger",
@@ -2845,7 +3072,8 @@ window.AUTO_CHESS_REFERENCE = {
         "Magicka Crystal"
       ],
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/bf5d6dfbfb9a98cf5e575e3035248e6d.png"
     },
     {
       "id": "twin-fangs",
@@ -2858,7 +3086,8 @@ window.AUTO_CHESS_REFERENCE = {
       "effect": "Fang: when the carrier deals damage, it also damages up to 2 other enemies with the same name as the target.",
       "recipe": "",
       "sourceUrl": "https://ac.dragonest.com/en/announcement/detail/1971f3f0799",
-      "source": "Official Dragonest May 2025 patch"
+      "source": "Official Dragonest May 2025 patch",
+      "imageUrl": ""
     },
     {
       "id": "voodoo-staff",
@@ -2874,7 +3103,8 @@ window.AUTO_CHESS_REFERENCE = {
         "Magicka Staff"
       ],
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/5dc89c1346e8af5b0fa6d4bc422d4d60.png"
     },
     {
       "id": "wooden-club",
@@ -2887,7 +3117,8 @@ window.AUTO_CHESS_REFERENCE = {
       "effect": "",
       "recipe": "",
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/dev/060987038515565263853933176.png"
     },
     {
       "id": "wraith-shard",
@@ -2900,7 +3131,8 @@ window.AUTO_CHESS_REFERENCE = {
       "effect": "",
       "recipe": "",
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects"
+      "source": "Official Dragonest Item Effects",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/3fcb700e11c234ba019891eb184fc979.png"
     }
   ],
   "synergies": [
@@ -2923,7 +3155,8 @@ window.AUTO_CHESS_REFERENCE = {
       ],
       "effect": "Active when you have certain number pieces of this class on board, each level of the same synergy effect stacks\n3: All allied Assassins gain a 15% chance to exert 300% damage, and a 40% chance to deal 300% damages with their first Base attack in each round\n6: All allied Assassins gain a 20% chance to exert 350% damage, and a 60% chance to deal 350% damages with their first Base attack in each round\n9：All allied Assassins have 30% chance to deal 400% damages, and have 100% chance to deal 400% damages with their first base attack in each round",
       "sourceUrl": "https://ac.dragonest.com/en/charactor",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/72ff33f06b3919320a2b08cb062ac640.png"
     },
     {
       "id": "class-druid",
@@ -2941,7 +3174,8 @@ window.AUTO_CHESS_REFERENCE = {
       "sourceUrl": "https://ac.dragonest.com/en/charactor",
       "source": "Official Dragonest Chess Wiki; Steam March 2026 patch override",
       "patchNote": "March 2026 patch adds Druid: two identical 3-star Druids on the board upgrade into a Super Strange Egg.",
-      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756"
+      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/3317df9cc4b75d3f551eb72fa8d53629.png"
     },
     {
       "id": "class-hunter",
@@ -2962,7 +3196,8 @@ window.AUTO_CHESS_REFERENCE = {
       ],
       "effect": "Active when you have certain number pieces of this class on board, each level of the same synergy effect stacks\n3: All allied Hunters attack +35 and grants 30% chance to pierce through evasion\n6: All allied Hunters attack +80 and grants 65% chance to pierce through evasion",
       "sourceUrl": "https://ac.dragonest.com/en/charactor",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/81b087740927905d754d67e89dcab1bf.png"
     },
     {
       "id": "class-knight",
@@ -2980,7 +3215,8 @@ window.AUTO_CHESS_REFERENCE = {
       ],
       "effect": "Active when you have certain number pieces of this class on board, each level of the same synergy effect stacks\n2: All allied Knights gain a 100% chance at the beginning of each round and then a 25% chance in every 3 seconds, to obtain a damage-reducing shield, which grants +75% Magic Resistance, +30 Armor. The shield lasts for 2 seconds.\n4: All allied Knights gain a 100% chance at the beginning of each round and then a 48% chance in every 2 seconds, to obtain a damage-reducing shield, which grants +75% Magic Resistance, +30 Armor. The shield lasts for 2 seconds.\n6: All allied Knights gain a 100% chance at the beginning of each round and then a 65% chance in every 2 seconds, to obtain a damage-reducing shield, which grants +75% Magic Resistance, +30 Armor. The shield lasts for 2 seconds.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/2cc51101f7d3654b24eeaa6f9ee477b8.png"
     },
     {
       "id": "class-mage",
@@ -3000,7 +3236,8 @@ window.AUTO_CHESS_REFERENCE = {
       ],
       "effect": "Active when you have certain number pieces of this class on board, each level of the same synergy effect stacks\n3: All enemy lose 40% Magical Resistence\n6: All enemy lose 90% Magical Resistence\n9: All enemy lose 130% Magical Resistence",
       "sourceUrl": "https://ac.dragonest.com/en/charactor",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/9861ffead99f3ad3461a14ab828392e7.png"
     },
     {
       "id": "class-mech",
@@ -3018,7 +3255,8 @@ window.AUTO_CHESS_REFERENCE = {
       ],
       "effect": "Active when you have certain number pieces of this class on board, each level of the same synergy effect stacks\n3: After winning a battle against another player, if at least one ally Mech survives, gets Heart of Mech x1.\n6: After winning a battle against another player, if at least one ally Mech survives, gets Golden Heart of Mech x1.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/8f85fc0479dee3cf46cf3d6a7b5f78c6.png"
     },
     {
       "id": "class-priest",
@@ -3034,7 +3272,8 @@ window.AUTO_CHESS_REFERENCE = {
       ],
       "effect": "Active when you have certain number pieces of this class on board, each level of the same synergy effect stacks\n1: When the chess player receives more than 2 damage, it'll block 20% damage for the chess player\n2: When the chessplayer receives more than 2 damage, blocks {0} damage for the chessplayer; and if the chessplayer receives more than 8 damage, gets Green Essence x1\n3:When the chess player receives more than 2 damage, blocks 20% of damage for the chess player; when the chess player receives 8 to 14 damage, gets Green Essence x1; when the chess player receives more than 15 damage, gets Red Essence x1.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/560e2a8327caf84dc03983e5b2cd0a7d.png"
     },
     {
       "id": "class-shaman",
@@ -3048,7 +3287,8 @@ window.AUTO_CHESS_REFERENCE = {
       ],
       "effect": "Active when you have certain number pieces of this class on board, each level of the same synergy effect stacks\n2: Change a random enemy unit into a penguin when battle starts for 6s\n4：At the start of a battle, hexes a random enemy into penguin for 6s. And all Shamans get a buff: when killed by an enemy piece, hexes the enemy into a random chess piece of the same cost and the same star level.Possibility to turn into a random Chess Piece which costs +1 or +2 （+1:40%,+2:60%）",
       "sourceUrl": "https://ac.dragonest.com/en/charactor",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/48125964659e8cafbd3cb33d96e61096.png"
     },
     {
       "id": "class-warlock",
@@ -3066,7 +3306,8 @@ window.AUTO_CHESS_REFERENCE = {
       ],
       "effect": "Active when you have certain number pieces of this class on board, each level of the same synergy effect stacks\n2: Grants 10% lifesteal to all allied units and its skill\n4: Grants 30% lifesteal to all allied units and its skill\n6: Grants 60% lifesteal to all allied units and its skill",
       "sourceUrl": "https://ac.dragonest.com/en/charactor",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/c6e18077bf180d9cc485c63f99bf4ff2.png"
     },
     {
       "id": "class-warrior",
@@ -3090,7 +3331,8 @@ window.AUTO_CHESS_REFERENCE = {
       ],
       "effect": "Active when you have certain number pieces of this class on board, each level of the same synergy effect stacks\n3: All allied warrior armor +5\n6: All allied warrior armor +12\n9: All allied warrior armor +18. When receiving physical or magical damage, reflects pure damage equals to the value of the recipient's Armor",
       "sourceUrl": "https://ac.dragonest.com/en/charactor",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/2bdac56aaebf15609e6a2d08c8dec5c7.png"
     },
     {
       "id": "class-witcher",
@@ -3104,7 +3346,8 @@ window.AUTO_CHESS_REFERENCE = {
       ],
       "effect": "Active when you have certain number pieces of this class on board, each level of the same synergy effect stacks\n1: If there's any Demon pieces on the enemy Chessboard, the Demon types will be increased by 1.\n2: All allied demons deem to be one，The enemy demon effect is invalid",
       "sourceUrl": "https://ac.dragonest.com/en/charactor",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/9e8655f18603c141f0a1c15c4b0555a0.png"
     },
     {
       "id": "class-wizard",
@@ -3118,7 +3361,8 @@ window.AUTO_CHESS_REFERENCE = {
       ],
       "effect": "Active when you have certain number pieces of this class on board, each level of the same synergy effect stacks\n2: Required Pieces -1 for Synergies of Race/Class that requires 4 and above Pieces\n4: 1 less chess piece is required for activating synergy with at least 4 unique chess pieces; if there's only the synergy of one race/class is activated other than the Wizard synergy, then the highest tier of this synergy will be activated immediately",
       "sourceUrl": "https://ac.dragonest.com/en/charactor",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/b70d40942e52f567b78445724b6adfaa.png"
     },
     {
       "id": "race-ancestor",
@@ -3132,7 +3376,8 @@ window.AUTO_CHESS_REFERENCE = {
       ],
       "effect": "Ancestor[2]: All Ancestor pieces steal (50 + 2% of max HP) HP every 5 seconds from the nearest enemy to heal themselves.\nAncestor[4]: All allies gain the effect: Whenever total healing received exceeds 100, nearby enemies take pure damage equal to the total healing received.\nDamage dealt has a single-instance cap of 300 and a 5-second CD.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/174858447237600.png"
     },
     {
       "id": "race-beast",
@@ -3150,7 +3395,8 @@ window.AUTO_CHESS_REFERENCE = {
       ],
       "effect": "Deploying pieces of the same class activates synergies. Only the highest synergy level for each Class is in effect at any given time\n2：All allies have +15% attack damage, including summoned units\n4：All allies have +30% attack damage, including summoned units\n6：Increases 30% ATK for all allies, including the summoned. The enemy will take 16 extra Physical Damage when attacked by an ally who benefits from the Beast Synergy, this effect can be stacked",
       "sourceUrl": "https://ac.dragonest.com/en/charactor",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/69485fb0c8a01d003e0ec684e1312f84.png"
     },
     {
       "id": "race-cave",
@@ -3166,7 +3412,8 @@ window.AUTO_CHESS_REFERENCE = {
       ],
       "effect": "Active when you have certain number pieces of this race on board, each level of the same synergy effect stacks\n2: All allies +100 max HP\n4: All allies +350 max HP\n6：All allies +350 HP. Ally HP is boosted equal to 700x the percentage of the chess player’s missing HP",
       "sourceUrl": "https://ac.dragonest.com/en/charactor",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/67417f616d0ba9b7975cb61e02d8c26f.png"
     },
     {
       "id": "race-civet",
@@ -3178,7 +3425,8 @@ window.AUTO_CHESS_REFERENCE = {
       ],
       "effect": "Creates a duplicate when a Civet piece ranks up to 3 stars. When battle starts each round, if two identical pieces exist on the board, summons a Golem copy with 100% damage ability for each couple of identical pieces.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/404e417dbc5e79e96f3724a629b53cf5.png"
     },
     {
       "id": "race-demon",
@@ -3199,7 +3447,8 @@ window.AUTO_CHESS_REFERENCE = {
       ],
       "effect": "Active when you have certain number pieces of this race on board, each level of the same synergy effect stacks\n1: Attack deals 50% extra pure damage to the target. Active when only one kind of Hunter demon on the chessboard",
       "sourceUrl": "https://ac.dragonest.com/en/charactor",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/644294a18184c290727a857cb154736d.png"
     },
     {
       "id": "race-divinity",
@@ -3215,7 +3464,8 @@ window.AUTO_CHESS_REFERENCE = {
       ],
       "effect": "Active when you have certain number pieces of this race on board, each level of the same synergy effect stacks\n2: Reduces Ability CD by 40% for all allied Divinities and other allies whose Race's synergies are not triggered.\n4: Reduces Ability CD by 60% for all allied Divinities and other allies whose Race's synergies are not triggered.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/6cc4cfe05c451dc75dced9a1500890ec.png"
     },
     {
       "id": "race-dragon",
@@ -3231,7 +3481,8 @@ window.AUTO_CHESS_REFERENCE = {
       ],
       "effect": "Active when you have certain number pieces of this race on board, each level of the same synergy effect stacks\n3: At the start of the battle, 3 allied Dragons have 100 mana. (When there are more than 3 allied Dragons on the Chessboard, those deployed on the relative left will get the effects in priority.)\n5: At the start of the battle, 5 Allies have 100 mana. (When there are more than 5 allies on the Chessboard, those deployed on the relative left will get the effects in priority.)",
       "sourceUrl": "https://ac.dragonest.com/en/charactor",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/2ee03035e72ecb190faf2f5b4c9a6872.png"
     },
     {
       "id": "race-dwarf",
@@ -3244,7 +3495,8 @@ window.AUTO_CHESS_REFERENCE = {
       ],
       "effect": "Active when you have certain number pieces of this race on board, each level of the same synergy effect stacks\n2: Increases all ranged allies' attack range by 2 grids and deals extra damage equals to the number of grids between the two sides * 5%, giving priority to the enemy with the lowest HP within the attack range.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/7fad1c4176b5d95c3d796450b07710a8.png"
     },
     {
       "id": "race-egersis",
@@ -3263,7 +3515,8 @@ window.AUTO_CHESS_REFERENCE = {
       ],
       "effect": "Active when you have certain number pieces of this race on board, each level of the same synergy effect stacks\n2: All enemy -4 armor\n4: All enemy -8 armor\n6: All enemy -12 armor,If a unit is killed by these enemies, it will continue to fight for 3.5s seconds. (it won't receive normal attacks, nor can it be chosen by allies' abilities or cast abilities during the period)",
       "sourceUrl": "https://ac.dragonest.com/en/charactor",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/ef2c6e8100d6d0364a433ce45af25e7e.png"
     },
     {
       "id": "race-feathered",
@@ -3285,7 +3538,8 @@ window.AUTO_CHESS_REFERENCE = {
       ],
       "effect": "Active when you have certain number pieces of this race on board, each level of the same synergy effect stacks\n3：All allied Feathered have 20% chance of evasion\n6：All allied Feathered gain a 40% chance to evade attacks, and other Allies gain a 20% chance to evade attacks\n9：All allied Feathered gain a 60% chance to evade attacks, and other Allies gain a 44% chance to evade attacks.Once successfully evade, the ally creates an illusion for 7s.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/972becf052237e407b4aa130ad7e0b70.png"
     },
     {
       "id": "race-glacier",
@@ -3302,7 +3556,8 @@ window.AUTO_CHESS_REFERENCE = {
       ],
       "effect": "Active when you have certain number pieces of this race on board, each level of the same synergy effect stacks\n2: All allied Glacier attack speed +20%\n4: Increase all allied pieces ATK Speed by 50%; Each attack grants them an extra stack of 8% ATK Speed bonus, up to 15 stacks",
       "sourceUrl": "https://ac.dragonest.com/en/charactor",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/62b9cfe4bce629cae6ce86f576369617.png"
     },
     {
       "id": "race-goblin",
@@ -3319,7 +3574,8 @@ window.AUTO_CHESS_REFERENCE = {
       ],
       "effect": "Active when you have certain number pieces of this race on board, each level of the same synergy effect stacks\n3: Random allied unit armor +15, HP Regeneration +15\n6: All allied armor +15, HP Regeneration +15",
       "sourceUrl": "https://ac.dragonest.com/en/charactor",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/35226075dba30e07cc30a10ca3bfeb1d.png"
     },
     {
       "id": "race-greater",
@@ -3333,7 +3589,8 @@ window.AUTO_CHESS_REFERENCE = {
       "sourceUrl": "https://ac.dragonest.com/en/charactor",
       "source": "Official Dragonest Chess Wiki; Steam March 2026 patch override",
       "patchNote": "March 2026 patch added Greater to Unknown Horror.",
-      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756"
+      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/eab516702b8d39af109382c2845e8d3d.png"
     },
     {
       "id": "race-horn",
@@ -3345,7 +3602,8 @@ window.AUTO_CHESS_REFERENCE = {
       ],
       "effect": "Horn(2): Summons a Horn Totem (HP equals to total enemy pieces*3) when battle starts;\nHorn(4): Summons a Horn Totem (HP equals to total enemy pieces*3), a Sunchaser Totem (HP equals to total enemy pieces*1), and a Skydome Totem (HP equals to total enemy pieces*1) when battle starts.\nHorn Totem: will be targeted first when within enemy attack range.\nSunchaser Totem: Causes all enemy units to have a 10% chance of taking 250 physical damage and being disarmed for 2 seconds after each normal attack.\nSkydome Totem: Causes all enemy units to have a 50% chance to take 500 magical damage and be silenced for 5 seconds after each ability cast.\nTotem cannot move, attack or restore HP. Receives only 1 melee attack damage or 2 ranged attack damage each time.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/b61f8d76b559a5b05d5cecd1ee8df873.png"
     },
     {
       "id": "race-human",
@@ -3363,7 +3621,8 @@ window.AUTO_CHESS_REFERENCE = {
       ],
       "effect": "Active when you have certain number pieces of this race on board, each level of the same synergy effect stacks\n3: After winning a battle against another player, if at least one ally Human survives, gets EXP Book x1\n6: After winning a battle against another player, if at least one ally Human survives, gets EXP Book x4",
       "sourceUrl": "https://ac.dragonest.com/en/charactor",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/61268e367c33412f5cce9bf77333d723.png"
     },
     {
       "id": "race-insectoid",
@@ -3378,7 +3637,8 @@ window.AUTO_CHESS_REFERENCE = {
       ],
       "effect": "Active when you have certain number pieces of this race on board, each level of the same synergy effect stacks\n2：When there are duplicate non-Insectoid allied pieces on the chessboard and one of them dies, summons a random insectoid piece based on the highest cost among the living duplicates.\n4：When there are duplicate non-Insectoid allied pieces on the chessboard and one of them dies, summons a random insectoid piece based on the highest cost among the living duplicates.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/e221b8f799c0a2e1f120c435bdd6eb8c.png"
     },
     {
       "id": "race-kira",
@@ -3391,7 +3651,8 @@ window.AUTO_CHESS_REFERENCE = {
       ],
       "effect": "Active when you have certain number pieces of this race on board, each level of the same synergy effect stacks\n2: If any allied melee pieces die, increases current HP by 20%, ATK by 20% for all allied Kiras, can be stacked 6 times",
       "sourceUrl": "https://ac.dragonest.com/en/charactor",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/3cc14366e5fb37f7ffe64f68d77ebff5.png"
     },
     {
       "id": "race-marine",
@@ -3406,7 +3667,8 @@ window.AUTO_CHESS_REFERENCE = {
       ],
       "effect": "Active when you have certain number pieces of this race on board, each level of the same synergy effect stacks\n2: All allies magical resistence +30%\n4: All allies magical resistence +60%",
       "sourceUrl": "https://ac.dragonest.com/en/charactor",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/af60da706792ea6b405052db376c51eb.png"
     },
     {
       "id": "race-night-demon",
@@ -3419,7 +3681,8 @@ window.AUTO_CHESS_REFERENCE = {
       ],
       "effect": "Night Demon[2]: Ally Night Demon pieces gain the effect: If there are more than 1 enemy nearby, they will lose control due to fear.\nThe effect of fear has a built-in CD of 6 seconds and cannot trigger consecutively.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/174347456654410.png"
     },
     {
       "id": "race-pandaman",
@@ -3429,7 +3692,8 @@ window.AUTO_CHESS_REFERENCE = {
       "pieces": [],
       "effect": "Active when you have certain number pieces of this class on board, each level of the same synergy effect stacks\n1：At the beginning of the round, there is a 10% chance to invite a Pandaman.\n2：At the beginning of the round, there is a 20% chance to invite a Pandaman.\n3：At the beginning of the round, there is a 20% chance to invite a Pandaman.There is a 40% chance to invite an extra Pandaman.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/7a22f8862fd7cf53c802fe0842969705.png"
     },
     {
       "id": "race-spirits",
@@ -3444,7 +3708,8 @@ window.AUTO_CHESS_REFERENCE = {
       ],
       "effect": "Active when you have certain number pieces of this race on board, each level of the same synergy effect stacks\n2: All allied Spirits have 30% chance to turn the melee attacker into stone for 4 seconds\nPetrified: No Moving, No attacking, can not use skills\n4: All allies have 50% chance to turn the melee attacker into stone for 4 seconds.\nPetrified: No Moving, No attacking, can not use skills",
       "sourceUrl": "https://ac.dragonest.com/en/charactor",
-      "source": "Official Dragonest Chess Wiki"
+      "source": "Official Dragonest Chess Wiki",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/706bd22810680a3b4205ab3376308982.png"
     },
     {
       "id": "race-watcher",
@@ -3459,7 +3724,8 @@ window.AUTO_CHESS_REFERENCE = {
       "sourceUrl": "https://ac.dragonest.com/en/charactor",
       "source": "Official Dragonest Chess Wiki; Steam March 2026 patch override",
       "patchNote": "March 2026 patch added Ronin-Nue as a Rare Watcher/Assassin.",
-      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756"
+      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/176966785660207.png"
     }
   ]
 };

@@ -120,6 +120,29 @@
     return links.length ? `<div class="source-row">${links.join("")}</div>` : "";
   }
 
+  function initials(value) {
+    return String(value || "?")
+      .split(/\s+|-/)
+      .filter(Boolean)
+      .slice(0, 2)
+      .map((part) => part[0])
+      .join("")
+      .toUpperCase();
+  }
+
+  function referenceImage(record, type) {
+    const className = `reference-image ${type} ${record.imageUrl ? "" : "fallback"}`.trim();
+    if (!record.imageUrl) {
+      return `<div class="${className}" aria-hidden="true">${escapeHtml(initials(record.name))}</div>`;
+    }
+
+    return `
+      <div class="${className}">
+        <img src="${escapeHtml(record.imageUrl)}" alt="${escapeHtml(record.name)}" loading="lazy">
+      </div>
+    `;
+  }
+
   function flattenText(value) {
     if (Array.isArray(value)) {
       return value.map(flattenText).join(" ");
@@ -487,7 +510,8 @@
     return `
       <article class="reference-card">
         <div class="reference-card-top">
-          <div>
+          ${referenceImage(piece, "piece")}
+          <div class="reference-title">
             <p class="eyebrow">${escapeHtml(displayValue(piece.quality, "Piece"))} - Cost ${escapeHtml(displayValue(piece.cost, "?"))}</p>
             <h3>${escapeHtml(piece.name)}</h3>
             ${piece.title ? `<p class="reference-subtitle">${escapeHtml(piece.title)}</p>` : ""}
@@ -516,7 +540,8 @@
     return `
       <article class="reference-card">
         <div class="reference-card-top">
-          <div>
+          ${referenceImage(item, "item")}
+          <div class="reference-title">
             <p class="eyebrow">${escapeHtml(displayValue(item.quality, "Item"))}</p>
             <h3>${escapeHtml(item.name)}</h3>
           </div>
@@ -534,7 +559,8 @@
     return `
       <article class="reference-card">
         <div class="reference-card-top">
-          <div>
+          ${referenceImage(synergy, "synergy")}
+          <div class="reference-title">
             <p class="eyebrow">${escapeHtml(synergy.type)}</p>
             <h3>${escapeHtml(synergy.name)}</h3>
             ${synergy.abilityName ? `<p class="reference-subtitle">${escapeHtml(synergy.abilityName)}</p>` : ""}

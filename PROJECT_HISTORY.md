@@ -10,6 +10,14 @@ This file records the meaningful changes made to the site so we can look back la
 - Added top tabs for `Builds & Counters` and `Reference Library`.
 - Kept the Pieces / Items / Synergies tabs inside the Reference Library view.
 
+### Reference images
+
+- Added official Dragonest images to reference cards:
+  - Piece card art/icons from the Chess Wiki.
+  - Item icons from Item Effects.
+  - Race and class icons from the Chess Wiki.
+- Added fallback badges for patch-only entries that do not yet have official Dragonest image records.
+
 ### GitHub Pages setup
 
 - Created the Git repository locally on branch `dev`.

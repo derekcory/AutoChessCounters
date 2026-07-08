@@ -749,7 +749,47 @@ select:focus {
   display: flex;
   gap: 10px;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: flex-start;
+}
+
+.reference-title {
+  min-width: 0;
+}
+
+.reference-image {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(217, 173, 75, 0.28);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(217, 173, 75, 0.10), transparent),
+    rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+}
+
+.reference-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.reference-image.piece {
+  width: 74px;
+  height: 96px;
+}
+
+.reference-image.item,
+.reference-image.synergy {
+  width: 62px;
+  height: 62px;
+  padding: 7px;
+}
+
+.reference-image.fallback {
+  color: var(--gold);
+  font-size: 1rem;
+  font-weight: 950;
 }
 
 .reference-card h3 {
