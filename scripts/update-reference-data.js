@@ -5,7 +5,8 @@ const SOURCES = {
   pieces: "https://ac.dragonest.com/en/charactor",
   items: "https://ac.dragonest.com/en/equipment",
   patch: "https://store.steampowered.com/news/app/1530300/view/496097685470709756",
-  latestPatch: "https://store.steampowered.com/news/app/1530300"
+  latestPatch: "https://store.steampowered.com/news/app/1530300",
+  witcherPatch: "https://ac.dragonest.com/en/announcement/detail/efb400e8120"
 };
 
 function clean(value) {
@@ -386,6 +387,17 @@ async function main() {
     watcher.patchNote = "March 2026 patch added Ronin-Nue as a Rare Watcher/Assassin.";
     watcher.source = `${watcher.source}; Steam March 2026 patch override`;
     watcher.patchSourceUrl = SOURCES.patch;
+  }
+  const witcher = synergies.find((synergy) => synergy.name === "Witcher");
+  if (witcher) {
+    witcher.effect = [
+      "Active when you have certain number pieces of this class on board, each level of the same synergy effect stacks",
+      "2: Views all ally Demons as one type, and increases the enemy Demon types by 1.",
+      "4: Views all ally Demons as one type, and increases the enemy Demon types by 1. All ally pieces get Demon Synergy and turn ability damage into 100% of pure damage."
+    ].join("\n");
+    witcher.patchNote = "Official 3.13 maintenance notes list Witcher breakpoints as Witcher[2] and Witcher[4]; the live Dragonest wiki payload still shows older 1/2 text.";
+    witcher.source = `${witcher.source}; Official 3.13 maintenance override`;
+    witcher.patchSourceUrl = SOURCES.witcherPatch;
   }
   synergies.sort((a, b) => a.type.localeCompare(b.type) || a.name.localeCompare(b.name));
 

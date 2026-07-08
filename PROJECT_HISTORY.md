@@ -41,6 +41,7 @@ This file records the meaningful changes made to the site so we can look back la
 - Confirmed the local asset table is useful for verification, but its `version.json` asset date is `2026-05-14` while the newest local patch cache is `2026-06-25`, so hotfix notes should override stale asset data.
 - Added `patch-data.js` so the patch panel can update independently from hand-written build notes.
 - Added June 25, 2026 overrides for Soul Breaker, Skull Hunter, Dwarf Sniper, Sorcerous Chain, Magic Mirror, Kira Imprint, Bloodbath Skull, Broken Sword, and Crystal Sword.
+- Audited Priest and Witcher breakpoints against official sources. Priest stayed `1/2/3` because the current Dragonest wiki payload and the official Priest(3) update support that. Witcher was overridden to `2/4` because the official Dragonest 3.13 maintenance note lists `Witcher[2]` and `Witcher[4]`, while the live wiki payload still shows older `1/2` text.
 
 ### Top-level navigation
 

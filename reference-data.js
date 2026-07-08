@@ -5,7 +5,8 @@ window.AUTO_CHESS_REFERENCE = {
       "pieces": "https://ac.dragonest.com/en/charactor",
       "items": "https://ac.dragonest.com/en/equipment",
       "patch": "https://store.steampowered.com/news/app/1530300/view/496097685470709756",
-      "latestPatch": "https://store.steampowered.com/news/app/1530300"
+      "latestPatch": "https://store.steampowered.com/news/app/1530300",
+      "witcherPatch": "https://ac.dragonest.com/en/announcement/detail/efb400e8120"
     },
     "sourceNote": "Reference data is generated from the official Dragonest Chess Wiki and Item Effects pages, including official images where available, with explicit Steam/local patch overrides for newly changed entries."
   },
@@ -3419,10 +3420,12 @@ window.AUTO_CHESS_REFERENCE = {
         "Taboo Witcher",
         "Fallen Witcher"
       ],
-      "effect": "Active when you have certain number pieces of this class on board, each level of the same synergy effect stacks\n1: If there's any Demon pieces on the enemy Chessboard, the Demon types will be increased by 1.\n2: All allied demons deem to be one，The enemy demon effect is invalid",
+      "effect": "Active when you have certain number pieces of this class on board, each level of the same synergy effect stacks\n2: Views all ally Demons as one type, and increases the enemy Demon types by 1.\n4: Views all ally Demons as one type, and increases the enemy Demon types by 1. All ally pieces get Demon Synergy and turn ability damage into 100% of pure damage.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor",
-      "source": "Official Dragonest Chess Wiki",
-      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/9e8655f18603c141f0a1c15c4b0555a0.png"
+      "source": "Official Dragonest Chess Wiki; Official 3.13 maintenance override",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/9e8655f18603c141f0a1c15c4b0555a0.png",
+      "patchNote": "Official 3.13 maintenance notes list Witcher breakpoints as Witcher[2] and Witcher[4]; the live Dragonest wiki payload still shows older 1/2 text.",
+      "patchSourceUrl": "https://ac.dragonest.com/en/announcement/detail/efb400e8120"
     },
     {
       "id": "class-wizard",

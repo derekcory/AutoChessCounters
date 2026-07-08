@@ -662,7 +662,7 @@
   function levelLabel(synergy) {
     const levels = synergyLevelOptions(synergy);
     const level = selectedCounterLevel(synergy);
-    return levels.length === 1 && level === 1 ? "Active" : `${level} pieces`;
+    return levels.length === 1 && level === 1 ? "Active" : `${level} ${level === 1 ? "piece" : "pieces"}`;
   }
 
   function selectedSynergyLabel(synergy) {
@@ -814,7 +814,7 @@
 
   function levelOptionLabel(synergy, level) {
     const levels = synergyLevelOptions(synergy);
-    return levels.length === 1 && level === 1 ? "Active" : `${level} pieces`;
+    return levels.length === 1 && level === 1 ? "Active" : `${level} ${level === 1 ? "piece" : "pieces"}`;
   }
 
   function renderSynergyChecks(type, container) {
