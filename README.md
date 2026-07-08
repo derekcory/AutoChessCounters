@@ -8,13 +8,11 @@ This is set up for GitHub Pages: no backend, no build step, and no monthly hosti
 
 Build and counter content lives in `data.js`.
 
-Pieces, items, and synergies live in `reference-data.js`. That file is generated from the official Dragonest Chess Wiki and Item Effects pages, with explicit patch overrides from the March 2026 Steam update.
+Pieces, items, and synergies live in `reference-data.js`. That file is generated from the official Dragonest Chess Wiki and Item Effects pages, with explicit patch overrides for entries changed by recent patches.
 
-The current patch data is based on the official Auto Chess Steam news post **MAINTENANCE on 26th March**, shown on Steam as the March 25, 2026 update:
+The latest patch panel lives in `patch-data.js`. It is generated from the local Steam game cache when available, then falls back to Steam news.
 
-```text
-https://store.steampowered.com/news/app/1530300/view/496097685470709756
-```
+For the full update checklist, see `UPDATE_WORKFLOW.md`.
 
 Each build has:
 
@@ -34,6 +32,31 @@ Each build has:
 The included entries are patch-informed interpretations of official patch notes, not an official tier list. Entries tagged `Reddit` or `Community Meta` are recent community signals added from r/AutoChess posts and should be verified against your own lobby experience.
 
 For a running record of major project changes, see `PROJECT_HISTORY.md`.
+
+## Update for a New Patch
+
+Run this from the repo folder:
+
+```powershell
+npm.cmd run update:all
+npm.cmd run audit:local
+npm.cmd run check
+```
+
+Use `npm.cmd` in PowerShell because this Windows setup blocks `npm.ps1` by policy.
+
+The local Auto Chess install is expected at:
+
+```text
+D:\Program Files\steamapps\common\Auto Chess
+```
+
+To point the updater at a different install:
+
+```powershell
+$env:AUTO_CHESS_INSTALL="D:\Program Files\steamapps\common\Auto Chess"
+npm.cmd run update:patch
+```
 
 ## Preview Locally
 
@@ -58,7 +81,7 @@ http://localhost:5173
 3. On GitHub, open the repo settings.
 4. Go to **Pages**.
 5. Under **Build and deployment**, choose **Deploy from a branch**.
-6. Select the `main` branch and `/root`.
+6. Select the `dev` branch and `/root`.
 7. Save.
 
 Your site will publish at:
@@ -75,11 +98,11 @@ Run these from this folder after creating the GitHub repository:
 git init
 git add .
 git commit -m "Initial Auto Chess reference site"
-git branch -M main
+git branch -M dev
 git remote add origin https://github.com/YOUR-USERNAME/AutoChessCounters.git
-git push -u origin main
+git push -u origin dev
 ```
 
 ## Notes
 
-This is an unofficial fan-made reference. It does not use official game art or logos.
+This is an unofficial fan-made reference.

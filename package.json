@@ -1,0 +1,12 @@
+{
+  "name": "autochesscounters",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "audit:local": "node scripts/audit-local-game-data.js",
+    "check": "node --check app.js && node --check data.js && node --check reference-data.js && node --check patch-data.js",
+    "update:all": "node scripts/update-reference-data.js && node scripts/update-patch-data.js",
+    "update:patch": "node scripts/update-patch-data.js",
+    "update:reference": "node scripts/update-reference-data.js"
+  }
+}

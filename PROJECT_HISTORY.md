@@ -4,6 +4,22 @@ This file records the meaningful changes made to the site so we can look back la
 
 ## July 8, 2026
 
+### Patch update workflow
+
+- Added `package.json` scripts for repeatable updates:
+  - `npm.cmd run update:reference`
+  - `npm.cmd run update:patch`
+  - `npm.cmd run update:all`
+  - `npm.cmd run audit:local`
+  - `npm.cmd run check`
+- Added `scripts/update-reference-data.js` to regenerate the reference library from Dragonest pages plus explicit patch overrides.
+- Added `scripts/update-patch-data.js` to regenerate `patch-data.js` from the local Steam game cache, falling back to Steam news.
+- Added `scripts/audit-local-game-data.js` to inspect the installed game files at `D:\Program Files\steamapps\common\Auto Chess`.
+- Found real local game config in `ACPhoenix_Data\StreamingAssets\Config\battleConfig\ACGameLib.bin`.
+- Confirmed the local asset table is useful for verification, but its `version.json` asset date is `2026-05-14` while the newest local patch cache is `2026-06-25`, so hotfix notes should override stale asset data.
+- Added `patch-data.js` so the patch panel can update independently from hand-written build notes.
+- Added June 25, 2026 overrides for Soul Breaker, Skull Hunter, Dwarf Sniper, Sorcerous Chain, Magic Mirror, Kira Imprint, Bloodbath Skull, Broken Sword, and Crystal Sword.
+
 ### Top-level navigation
 
 - Moved the reference library out of the bottom of the build page.
@@ -54,13 +70,13 @@ This file records the meaningful changes made to the site so we can look back la
 ## Maintenance Notes
 
 - Edit build recommendations in `data.js`.
-- Treat `reference-data.js` as generated reference data from official sources plus explicit patch overrides.
+- Treat `reference-data.js` and `patch-data.js` as generated files.
 - After changes, run:
 
 ```powershell
-node --check app.js
-node --check data.js
-node --check reference-data.js
+npm.cmd run update:all
+npm.cmd run audit:local
+npm.cmd run check
 ```
 
 - Publish updates with:

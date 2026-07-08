@@ -1,7 +1,7 @@
 window.AUTO_CHESS_DATA = {
   meta: {
     updatedLabel: "2026-07-08",
-    sourceNote: "Unofficial fan reference. Build rankings are patch-informed interpretations; patch facts are summarized from the official Auto Chess Steam news post MAINTENANCE on 26th March, shown on Steam as the March 25, 2026 update. Community-tagged builds come from recent r/AutoChess discussion and should be treated as meta signals to verify in your own lobbies.",
+    sourceNote: "Unofficial fan reference. Build rankings are patch-informed interpretations. Reference data is generated from official Dragonest pages, explicit patch overrides, Steam news, and the local Steam game cache when available. Community-tagged builds come from recent r/AutoChess discussion and should be treated as meta signals to verify in your own lobbies.",
     patchNotes: {
       title: "MAINTENANCE on 26th March",
       date: "2026-03-25 Steam / 2026-03-26 UTC+8",

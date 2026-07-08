@@ -2,6 +2,7 @@
   const data = window.AUTO_CHESS_DATA;
   const builds = data.builds;
   const reference = window.AUTO_CHESS_REFERENCE || { pieces: [], items: [], synergies: [], meta: {} };
+  const patchData = window.AUTO_CHESS_PATCH_DATA || null;
   const state = {
     activeView: "builds",
     query: "",
@@ -207,13 +208,14 @@
   }
 
   function renderPatchNotes() {
-    const notes = data.meta.patchNotes;
+    const notes = patchData || data.meta.patchNotes;
     if (!notes) {
       return;
     }
 
     elements.patchTitle.textContent = `${notes.title} - ${notes.date}`;
-    elements.patchSourceLink.href = notes.sourceUrl;
+    elements.patchSourceLink.href = notes.sourceUrl || "#";
+    elements.patchSourceLink.textContent = notes.sourceLabel || "Official notes";
     elements.footerSourceNote.textContent = data.meta.sourceNote;
     elements.patchHighlights.innerHTML = notes.highlights
       .map((section) => `
@@ -550,6 +552,7 @@
         ${item.attributes ? referenceCopy("Attributes", item.attributes) : ""}
         ${item.effect ? referenceCopy("Effect", item.effect) : ""}
         ${item.recipe ? referenceCopy("Recipe", item.recipe) : ""}
+        ${item.patchNote ? `<div class="note-block compact-note">${escapeHtml(item.patchNote)}</div>` : ""}
         ${sourceLinks(item)}
       </article>
     `;

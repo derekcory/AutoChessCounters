@@ -4,9 +4,10 @@ window.AUTO_CHESS_REFERENCE = {
     "sources": {
       "pieces": "https://ac.dragonest.com/en/charactor",
       "items": "https://ac.dragonest.com/en/equipment",
-      "patch": "https://store.steampowered.com/news/app/1530300/view/496097685470709756"
+      "patch": "https://store.steampowered.com/news/app/1530300/view/496097685470709756",
+      "latestPatch": "https://store.steampowered.com/news/app/1530300"
     },
-    "sourceNote": "Reference data is generated from the official Dragonest Chess Wiki and Item Effects pages, including official piece, item, and synergy images where available, with March 2026 Steam patch overrides for newly changed entries."
+    "sourceNote": "Reference data is generated from the official Dragonest Chess Wiki and Item Effects pages, including official images where available, with explicit Steam/local patch overrides for newly changed entries."
   },
   "pieces": [
     {
@@ -228,11 +229,13 @@ window.AUTO_CHESS_REFERENCE = {
       "range": "1",
       "magicResist": "",
       "abilityName": "Paralysis Shuriken",
-      "ability": "Hurls a shuriken at a random enemy unit, dealing 300 magical damages and stunning for 0.1 seconds.",
+      "ability": "Hurls a shuriken at the enemy unit with the lowest HP, dealing magical damage and stunning them. Damage scales by star level: 300 / 500 / 700.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad7a7",
-      "source": "Official Dragonest Chess Wiki",
+      "source": "Official Dragonest Chess Wiki; Local Steam cache June 2026 patch override",
       "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/cebd762fded03ffb8fd297c0bfc455d8.png",
-      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/edb48454585d6bc01f97c238dcb8a100.png"
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/edb48454585d6bc01f97c238dcb8a100.png",
+      "patchNote": "June 25, 2026 patch retargeted Paralysis Shuriken from a random enemy to the enemy with the lowest HP.",
+      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300"
     },
     {
       "id": "stone-spirit",
@@ -382,10 +385,10 @@ window.AUTO_CHESS_REFERENCE = {
       "ability": "Grabs a random enemy piece, immobilizing it and dealing continuous pure damage.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/100baa36cabb",
       "source": "Official Dragonest Chess Wiki; Steam March 2026 patch override",
-      "patchNote": "March 2026 patch added the Greater synergy to Unknown Horror.",
-      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756",
       "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/176422850423440.png",
-      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/176422837143317.png"
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/176422837143317.png",
+      "patchNote": "March 2026 patch added the Greater synergy to Unknown Horror.",
+      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756"
     },
     {
       "id": "winter-chiropteran",
@@ -501,7 +504,7 @@ window.AUTO_CHESS_REFERENCE = {
         "Hunter"
       ],
       "hp": "450",
-      "attack": "70",
+      "attack": "60-70 / 120-140 / 240-280",
       "armor": "5",
       "attackSpeed": "1",
       "range": "5",
@@ -509,9 +512,11 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Headshot",
       "ability": "Locks onto an target piece and, after 0.5 seconds of aiming, fire a shot that deals 400 magical damages to target.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47aca9f",
-      "source": "Official Dragonest Chess Wiki",
+      "source": "Official Dragonest Chess Wiki; Local Steam cache June 2026 patch override",
       "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/4d79cf63bc3a13e271df1dd1fde67949.png",
-      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/ba21ae5881970e8ddd3ea3523a90a6f0.png"
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/ba21ae5881970e8ddd3ea3523a90a6f0.png",
+      "patchNote": "June 25, 2026 patch reduced Dwarf Sniper ATK from 65-75 / 130-150 / 260-300.",
+      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300"
     },
     {
       "id": "flame-wizard",
@@ -701,7 +706,7 @@ window.AUTO_CHESS_REFERENCE = {
         "Hunter"
       ],
       "hp": "650",
-      "attack": "65",
+      "attack": "65-75 / 130-150 / 260-300",
       "armor": "5",
       "attackSpeed": "1",
       "range": "2",
@@ -709,9 +714,11 @@ window.AUTO_CHESS_REFERENCE = {
       "abilityName": "Porcupette",
       "ability": "Summons a Porcupette, who deals physical damage with base attacks",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad548",
-      "source": "Official Dragonest Chess Wiki",
+      "source": "Official Dragonest Chess Wiki; Local Steam cache June 2026 patch override",
       "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/b2af2f9b94e2cb48f2f762059726edb1.png",
-      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/4a14298e46f408e6aa55e9e56852c940.png"
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/4a14298e46f408e6aa55e9e56852c940.png",
+      "patchNote": "June 25, 2026 patch increased Skull Hunter ATK from 60-70 / 120-140 / 240-280.",
+      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300"
     },
     {
       "id": "soul-devourer",
@@ -1136,10 +1143,10 @@ window.AUTO_CHESS_REFERENCE = {
       "ability": "Slash a crack ahead with the axe, pulling enemy units within range toward the crack after 3 seconds and stunning them for 2 seconds while dealing damage equals to their maximum HP 10%+100 (50% is magical damage, 50% is physical damage).",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/edde7225351",
       "source": "Official Dragonest Chess Wiki; Steam March 2026 patch override",
-      "patchNote": "March 2026 patch changed Khan from Legendary to Rare and reduced its damage profile.",
-      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756",
       "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/8be8acbb0a4911c6ac9a3183b3ce6901.png",
-      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/ffea72322f2c72908f4c6229979b1421.png"
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/ffea72322f2c72908f4c6229979b1421.png",
+      "patchNote": "March 2026 patch changed Khan from Legendary to Rare and reduced its damage profile.",
+      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756"
     },
     {
       "id": "lord-of-sand",
@@ -1214,10 +1221,10 @@ window.AUTO_CHESS_REFERENCE = {
       "ability": "Grants nearby allies a chance to cast abilities an additional time and gain Rage, increasing ATK Speed. Trigger chance: 30% / 35% / 40%. ATK Speed increase: 20% / 30% / 40%. Rage duration: 10 seconds.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ab944",
       "source": "Official Dragonest Chess Wiki; Steam March 2026 patch override",
-      "patchNote": "March 2026 patch reworked Ogre Mage from Common filler into a Rare aura piece.",
-      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756",
       "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/23acae57369f6cdf9e2bd6fb5887d949.png",
-      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/79aafb879dfc31e5344618021dc42675.png"
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/79aafb879dfc31e5344618021dc42675.png",
+      "patchNote": "March 2026 patch reworked Ogre Mage from Common filler into a Rare aura piece.",
+      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756"
     },
     {
       "id": "penitent-bishop",
@@ -1621,10 +1628,10 @@ window.AUTO_CHESS_REFERENCE = {
       "ability": "Transforms into a powerful dragon form, granting additional 2 grids of attack range and 100 attack damages. Normal attack deals consitent magical damage.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad38a",
       "source": "Official Dragonest Chess Wiki; Steam March 2026 patch override",
-      "patchNote": "March 2026 patch makes this piece's splash damage count as skill damage.",
-      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756",
       "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/ae69e8bb4d38ec60b1ee7337a95b59ee.png",
-      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/e55240db0a72196ae8ba2720b5b4bdae.png"
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/e55240db0a72196ae8ba2720b5b4bdae.png",
+      "patchNote": "March 2026 patch makes this piece's splash damage count as skill damage.",
+      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756"
     },
     {
       "id": "grimtouch",
@@ -1723,10 +1730,10 @@ window.AUTO_CHESS_REFERENCE = {
       "ability": "Gain 5 times of avoidance effects and 40 bonus to damage, last for 6 seconds.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad1f0",
       "source": "Official Dragonest Chess Wiki; Steam March 2026 patch override",
-      "patchNote": "March 2026 patch makes this piece's splash damage count as skill damage.",
-      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756",
       "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/ea1678e598e05f6d941c80b094f2f592.png",
-      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/d19a7fd63e67858c618cbf1de37a03b4.png"
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/d19a7fd63e67858c618cbf1de37a03b4.png",
+      "patchNote": "March 2026 patch makes this piece's splash damage count as skill damage.",
+      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756"
     },
     {
       "id": "siren",
@@ -2051,10 +2058,10 @@ window.AUTO_CHESS_REFERENCE = {
       "ability": "Passive: Deals 50% splash physical damage to enemies within 2.5 grids. Active: All ally Demon pieces' attack increases by 150 for 60 seconds. Also increases its own ATK which equals to number of allied pieces with Demon synergy*35.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47afeed",
       "source": "Official Dragonest Chess Wiki; Steam March 2026 patch override",
-      "patchNote": "March 2026 patch makes this piece's splash damage count as skill damage.",
-      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756",
       "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/9ec1d3ced915f4da743cbecf945f3a4a.png",
-      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/6772aaf59a97ee8995a0a4d6e4111237.png"
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/6772aaf59a97ee8995a0a4d6e4111237.png",
+      "patchNote": "March 2026 patch makes this piece's splash damage count as skill damage.",
+      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756"
     },
     {
       "id": "sacred-lancer",
@@ -2101,10 +2108,10 @@ window.AUTO_CHESS_REFERENCE = {
       "ability": "Battlecry: links with nearby allies, granting damage reduction. Linked units periodically share a percentage of their current HP. A new 3-star form was added in the March 2026 patch.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47abc41",
       "source": "Official Dragonest Chess Wiki; Steam March 2026 patch override",
-      "patchNote": "March 2026 patch added a 3-star form and damage-sharing Battlecry behavior.",
-      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756",
       "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/63fae28c72ed7c18ae7fc466f513c249.png",
-      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/a4204b9f148d4e2f3fd943aac9cfaead.png"
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/a4204b9f148d4e2f3fd943aac9cfaead.png",
+      "patchNote": "March 2026 patch added a 3-star form and damage-sharing Battlecry behavior.",
+      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756"
     },
     {
       "id": "the-scryer",
@@ -2241,18 +2248,36 @@ window.AUTO_CHESS_REFERENCE = {
       "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/11c7f2f5ddd7b1cf48e96fca14ba74fb.png"
     },
     {
+      "id": "bloodbath-skull",
+      "quality": "Patch item",
+      "categories": [
+        "Lifesteal"
+      ],
+      "attributes": "",
+      "effect": "Bloodbath attack lifesteal reduced from +150% to +100%.",
+      "recipe": "",
+      "sourceUrl": "https://store.steampowered.com/news/app/1530300",
+      "source": "Local Steam cache June 2026 patch",
+      "imageUrl": "",
+      "name": "Bloodbath Skull",
+      "patchNote": "Added from the June 25, 2026 local Steam cache patch notes."
+    },
+    {
       "id": "broken-sword",
       "name": "Broken Sword",
       "quality": "Common",
       "categories": [
-        "Physic"
+        "Physic",
+        "Temporarily removed"
       ],
       "attributes": "+20 ATK",
       "effect": "",
       "recipe": "",
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects",
-      "imageUrl": "https://static.ilongyuan.cn/official_website/dev/060960143515562574356037961.png"
+      "source": "Official Dragonest Item Effects; Local Steam cache June 2026 patch override",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/dev/060960143515562574356037961.png",
+      "patchNote": "June 25, 2026 patch temporarily removed Broken Sword from item alternation.",
+      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300"
     },
     {
       "id": "burst-rifle",
@@ -2324,17 +2349,20 @@ window.AUTO_CHESS_REFERENCE = {
       "name": "Crystal Sword",
       "quality": "Legendary",
       "categories": [
-        "Physic"
+        "Physic",
+        "Returned"
       ],
       "attributes": "+20 ATK",
-      "effect": "Passive: Have a 15% chance to deal 1.5 times of damage while base attack",
+      "effect": "Unique Passive - Furious Attack: the wearer's basic attacks have a 20% chance to deal 200% damage.",
       "recipe": [
         "Broken Sword",
         "Broken Sword"
       ],
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
-      "source": "Official Dragonest Item Effects",
-      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/c5ec0b2aec9c96a3af35848ae7829ff2.png"
+      "source": "Official Dragonest Item Effects; Local Steam cache June 2026 patch override",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/c5ec0b2aec9c96a3af35848ae7829ff2.png",
+      "patchNote": "June 25, 2026 patch returned Crystal Sword and updated Furious Attack.",
+      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300"
     },
     {
       "id": "divine-gift",
@@ -2680,6 +2708,22 @@ window.AUTO_CHESS_REFERENCE = {
       "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/8825d6d04b1b8e15fe4c0566393baa57.png"
     },
     {
+      "id": "kira-imprint",
+      "quality": "Patch item",
+      "categories": [
+        "Defense",
+        "Kira"
+      ],
+      "attributes": "Magic Resistance +25%",
+      "effect": "June 25, 2026 patch added Magic Resistance +25%.",
+      "recipe": "",
+      "sourceUrl": "https://store.steampowered.com/news/app/1530300",
+      "source": "Local Steam cache June 2026 patch",
+      "imageUrl": "",
+      "name": "Kira Imprint",
+      "patchNote": "Added from the June 25, 2026 local Steam cache patch notes."
+    },
+    {
       "id": "life-crystal",
       "name": "Life Crystal",
       "quality": "Common",
@@ -2723,6 +2767,21 @@ window.AUTO_CHESS_REFERENCE = {
       "sourceUrl": "https://ac.dragonest.com/en/equipment",
       "source": "Official Dragonest Item Effects",
       "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/3ae3ca15e7c668533ca19a9b4d8d9eb6.png"
+    },
+    {
+      "id": "magic-mirror",
+      "quality": "Patch item",
+      "categories": [
+        "Utility"
+      ],
+      "attributes": "",
+      "effect": "Inner Demon cooldown increased from 15s to 30s.",
+      "recipe": "",
+      "sourceUrl": "https://store.steampowered.com/news/app/1530300",
+      "source": "Local Steam cache June 2026 patch",
+      "imageUrl": "",
+      "name": "Magic Mirror",
+      "patchNote": "Added from the June 25, 2026 local Steam cache patch notes."
     },
     {
       "id": "magicka-crystal",
@@ -3024,6 +3083,22 @@ window.AUTO_CHESS_REFERENCE = {
       "imageUrl": "https://static.ilongyuan.cn/official_website/1699f9979a2/e22da0a1ef9f0b719c1d3ccef2b704a6.png"
     },
     {
+      "id": "sorcerous-chain",
+      "quality": "Patch item",
+      "categories": [
+        "Attack Speed",
+        "Magic"
+      ],
+      "attributes": "Attack Speed +30%",
+      "effect": "June 25, 2026 patch removed Magic Damage +30% and added Attack Speed +30%.",
+      "recipe": "",
+      "sourceUrl": "https://store.steampowered.com/news/app/1530300",
+      "source": "Local Steam cache June 2026 patch",
+      "imageUrl": "",
+      "name": "Sorcerous Chain",
+      "patchNote": "Added from the June 25, 2026 local Steam cache patch notes."
+    },
+    {
       "id": "spilt-arrow",
       "name": "Spilt Arrow",
       "quality": "Legendary",
@@ -3173,9 +3248,9 @@ window.AUTO_CHESS_REFERENCE = {
       "effect": "Active when you have certain number pieces of this class on board, each level of the same synergy effect stacks\n2: Every 2 1-star Druid on the board could combined to one 2-star Druid\n4: Every 2 2-star Druid on the board could combined to one 3-star Druid",
       "sourceUrl": "https://ac.dragonest.com/en/charactor",
       "source": "Official Dragonest Chess Wiki; Steam March 2026 patch override",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/3317df9cc4b75d3f551eb72fa8d53629.png",
       "patchNote": "March 2026 patch adds Druid: two identical 3-star Druids on the board upgrade into a Super Strange Egg.",
-      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756",
-      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/3317df9cc4b75d3f551eb72fa8d53629.png"
+      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756"
     },
     {
       "id": "class-hunter",
@@ -3588,9 +3663,9 @@ window.AUTO_CHESS_REFERENCE = {
       "effect": "When only the Greater Synergy is in effect, all allied pieces will be immune to all control effects. Normal attacks have a 25% chance to cast 2s Spatial Imprisonment and cause 50 physical damage to enemy units.\nSpatial Imprisonment: Cannot move, turn, attack, or cast abilities.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor",
       "source": "Official Dragonest Chess Wiki; Steam March 2026 patch override",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/eab516702b8d39af109382c2845e8d3d.png",
       "patchNote": "March 2026 patch added Greater to Unknown Horror.",
-      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756",
-      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/eab516702b8d39af109382c2845e8d3d.png"
+      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756"
     },
     {
       "id": "race-horn",
@@ -3723,9 +3798,9 @@ window.AUTO_CHESS_REFERENCE = {
       "effect": "All allies gain the effect: Unit-targeted or Item abilities cast on enemies can affect +1 additional targets.",
       "sourceUrl": "https://ac.dragonest.com/en/charactor",
       "source": "Official Dragonest Chess Wiki; Steam March 2026 patch override",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/176966785660207.png",
       "patchNote": "March 2026 patch added Ronin-Nue as a Rare Watcher/Assassin.",
-      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756",
-      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/176966785660207.png"
+      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756"
     }
   ]
 };

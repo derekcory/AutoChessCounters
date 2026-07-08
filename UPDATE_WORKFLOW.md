@@ -1,0 +1,40 @@
+# Auto Chess Patch Update Workflow
+
+Use this when a new Auto Chess patch drops.
+
+## Quick Update
+
+From this repo folder:
+
+```powershell
+npm.cmd run update:all
+npm.cmd run audit:local
+npm.cmd run check
+git status --short
+git add .
+git commit -m "Update Auto Chess patch data"
+git push
+```
+
+GitHub Pages publishes from the `dev` branch.
+
+## What the Scripts Do
+
+- `update:reference` regenerates `reference-data.js` from official Dragonest piece/item/synergy pages, then applies explicit patch overrides.
+- `update:patch` regenerates `patch-data.js` from the local Steam cache at `D:\Program Files\steamapps\common\Auto Chess\Cache\Pb`. If that cache is unavailable, it falls back to Steam news.
+- `audit:local` parses `ACGameLib.bin` from the local install and reports real local game config counts, sample piece records, sample equipment records, local asset version, and newest cached patch date.
+- `check` syntax-checks the static JavaScript files.
+
+## Local Game Data Notes
+
+The install contains real game config at:
+
+```text
+D:\Program Files\steamapps\common\Auto Chess\ACPhoenix_Data\StreamingAssets\Config\battleConfig\ACGameLib.bin
+```
+
+That file can be parsed into records with piece stats, equipment values, skills, and internal IDs. It is useful for verification, but do not assume it is always the freshest source. On July 8, 2026, the local asset table reported `2026-05-14`, while the local patch cache contained the newer `2026-06-25` update. For hotfixes, patch notes can be newer than the packaged asset table.
+
+## When Manual Edits Are Still Needed
+
+The updater can refresh factual reference data and the latest patch panel. Build rankings, counters, tier placement, and meta advice in `data.js` still need human judgment after reading the patch and community discussion.
