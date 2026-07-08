@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Auto Chess Builds and Counters</title>
-    <link rel="stylesheet" href="styles.css?v=dashboard-20260708">
+    <link rel="stylesheet" href="styles.css?v=counter-advisor-20260708">
   </head>
   <body>
     <div class="app-shell">
@@ -41,6 +41,7 @@
       <main class="main-layout">
         <nav class="view-tabs" aria-label="Main sections">
           <button class="view-tab active" type="button" data-view="builds">Builds & Counters</button>
+          <button class="view-tab" type="button" data-view="advisor">Counter Advisor</button>
           <button class="view-tab" type="button" data-view="patch">Patch Review</button>
           <button class="view-tab" type="button" data-view="reference">Reference Library</button>
         </nav>
@@ -103,6 +104,41 @@
               </label>
             </div>
             <div class="counter-grid" id="counterResults"></div>
+          </section>
+        </section>
+
+        <section class="view-section" id="counterAdvisorView" aria-label="Counter advisor" hidden>
+          <section class="advisor-panel" aria-label="In-game counter advisor">
+            <div class="advisor-heading">
+              <div>
+                <p class="eyebrow">Counter advisor</p>
+                <h2>Enemy Synergy Picker</h2>
+              </div>
+              <div class="advisor-actions">
+                <span id="counterSelectedCount">0 selected</span>
+                <button class="mini-action ghost" id="counterClearButton" type="button">Clear</button>
+              </div>
+            </div>
+
+            <div class="advisor-layout">
+              <section class="advisor-picker" aria-label="Enemy synergies">
+                <div class="advisor-section-heading">
+                  <h2>Classes</h2>
+                </div>
+                <div class="synergy-check-grid" id="counterClassList"></div>
+
+                <div class="advisor-section-heading">
+                  <h2>Races</h2>
+                </div>
+                <div class="synergy-check-grid" id="counterRaceList"></div>
+              </section>
+
+              <section class="advisor-output" aria-live="polite">
+                <div class="advisor-summary" id="counterThreatProfile"></div>
+                <div class="advisor-results" id="counterRecommendationResults"></div>
+                <div class="advisor-breakdown" id="counterSynergyBreakdown"></div>
+              </section>
+            </div>
           </section>
         </section>
 
@@ -192,9 +228,9 @@
       </footer>
     </div>
 
-    <script src="data.js?v=dashboard-20260708"></script>
-    <script src="reference-data.js?v=dashboard-20260708"></script>
-    <script src="patch-data.js?v=dashboard-20260708"></script>
-    <script src="app.js?v=dashboard-20260708"></script>
+    <script src="data.js?v=counter-advisor-20260708"></script>
+    <script src="reference-data.js?v=counter-advisor-20260708"></script>
+    <script src="patch-data.js?v=counter-advisor-20260708"></script>
+    <script src="app.js?v=counter-advisor-20260708"></script>
   </body>
 </html>

@@ -149,7 +149,7 @@ h3 {
 
 .view-tabs {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 6px;
   min-height: 48px;
   padding: 5px;
@@ -192,6 +192,7 @@ h3 {
 .build-panel,
 .detail-panel,
 .counter-panel,
+.advisor-panel,
 .dashboard-panel,
 .reference-panel {
   border: 1px solid var(--border);
@@ -674,6 +675,215 @@ select:focus {
     var(--surface-2);
 }
 
+.advisor-panel {
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+}
+
+.advisor-heading,
+.advisor-actions,
+.advisor-section-heading,
+.recommendation-top {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.advisor-actions {
+  align-items: center;
+}
+
+.advisor-actions span,
+.advisor-section-heading span {
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.advisor-layout {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.72fr) minmax(0, 1.28fr);
+  gap: 14px;
+  align-items: start;
+}
+
+.advisor-picker,
+.advisor-output {
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+}
+
+.advisor-picker {
+  position: sticky;
+  top: 12px;
+  max-height: calc(100vh - 32px);
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.synergy-check-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.synergy-check {
+  display: grid;
+  grid-template-columns: 18px 34px minmax(0, 1fr);
+  gap: 8px;
+  align-items: center;
+  min-height: 48px;
+  padding: 7px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--soft);
+  background: var(--surface-2);
+}
+
+.synergy-check:hover {
+  border-color: rgba(217, 173, 75, 0.5);
+  background: var(--surface-3);
+}
+
+.synergy-check.active {
+  border-color: rgba(217, 173, 75, 0.72);
+  background: rgba(217, 173, 75, 0.10);
+}
+
+.synergy-check input {
+  width: 18px;
+  min-height: 18px;
+  accent-color: var(--gold);
+}
+
+.synergy-check span:last-child {
+  min-width: 0;
+  font-size: 0.84rem;
+  font-weight: 850;
+  overflow-wrap: anywhere;
+}
+
+.synergy-check-icon {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(217, 173, 75, 0.28);
+  border-radius: 7px;
+  background: rgba(0, 0, 0, 0.18);
+  color: var(--gold);
+  font-size: 0.78rem;
+  font-weight: 900;
+  overflow: hidden;
+}
+
+.synergy-check-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.advisor-summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.advisor-stat,
+.advisor-recommendation,
+.synergy-breakdown-card {
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-2);
+}
+
+.advisor-stat {
+  min-height: 92px;
+  padding: 12px;
+}
+
+.advisor-stat span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.advisor-stat strong {
+  display: block;
+  margin-top: 8px;
+  color: var(--text);
+  font-size: 0.94rem;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.advisor-results,
+.advisor-breakdown,
+.advisor-recommendation-list,
+.synergy-breakdown-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.advisor-recommendation {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+}
+
+.advisor-recommendation > p,
+.synergy-breakdown-card > p,
+.advisor-explain p {
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.48;
+}
+
+.recommendation-top h3 {
+  color: var(--text);
+  font-size: 1.12rem;
+  text-transform: none;
+}
+
+.advisor-explain {
+  display: grid;
+  gap: 8px;
+}
+
+.advisor-explain.two-column {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.advisor-explain h4 {
+  margin: 0;
+  color: var(--soft);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+}
+
+.synergy-breakdown-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.synergy-breakdown-card {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  padding: 14px;
+}
+
+.synergy-breakdown-card .synergy-check-icon {
+  width: 48px;
+  height: 48px;
+}
+
 .dashboard-panel {
   display: grid;
   gap: 14px;
@@ -1103,6 +1313,10 @@ code {
   .control-bar,
   .patch-grid,
   .counter-grid,
+  .advisor-layout,
+  .advisor-summary,
+  .advisor-explain.two-column,
+  .synergy-breakdown-grid,
   .dashboard-grid,
   .dashboard-summary,
   .section-review-grid,
@@ -1123,6 +1337,13 @@ code {
 
   .build-list {
     max-height: none;
+  }
+
+  .advisor-picker {
+    position: static;
+    max-height: none;
+    padding-right: 0;
+    overflow: visible;
   }
 
   .compact {
@@ -1173,7 +1394,13 @@ code {
   }
 
   .patch-heading,
-  .dashboard-heading {
+  .dashboard-heading,
+  .advisor-heading,
+  .recommendation-top {
     display: grid;
+  }
+
+  .advisor-actions {
+    justify-content: start;
   }
 }

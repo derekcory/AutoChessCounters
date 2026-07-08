@@ -4,6 +4,15 @@ This file records the meaningful changes made to the site so we can look back la
 
 ## July 8, 2026
 
+### Counter advisor
+
+- Added a top-level `Counter Advisor` tab for in-game enemy synergy selection.
+- Added Class and Race checkbox groups sourced from the reference synergy data.
+- Added a rule-based counter engine so any combination of selected synergies can produce ranked build recommendations.
+- Added threat profile summary tiles, detailed counter explanation cards, and per-synergy breakdown cards.
+- Added `Open Build` actions from counter recommendations into the full build detail view.
+- Added specific combo handling for common paired threats such as `Knight + Mage`, `Dragon + Mage`, `Hunter + Dwarf`, `Insectoid + Civet`, and `Cave + Divinity`.
+
 ### Patch review dashboard
 
 - Added a top-level `Patch Review` tab.

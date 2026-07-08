@@ -11,6 +11,7 @@
     difficulty: "All",
     selectedId: builds[0]?.id || "",
     enemyId: builds[0]?.id || "",
+    counterSynergies: [],
     referenceType: "pieces",
     referenceQuery: "",
     referencePrimary: "All",
@@ -21,6 +22,7 @@
     searchInput: document.getElementById("searchInput"),
     viewTabs: document.querySelectorAll(".view-tab"),
     buildsView: document.getElementById("buildsView"),
+    counterAdvisorView: document.getElementById("counterAdvisorView"),
     patchDashboardView: document.getElementById("patchDashboardView"),
     referenceView: document.getElementById("referenceView"),
     tierFilters: document.getElementById("tierFilters"),
@@ -31,6 +33,13 @@
     resultCount: document.getElementById("resultCount"),
     enemySelect: document.getElementById("enemySelect"),
     counterResults: document.getElementById("counterResults"),
+    counterClassList: document.getElementById("counterClassList"),
+    counterRaceList: document.getElementById("counterRaceList"),
+    counterSelectedCount: document.getElementById("counterSelectedCount"),
+    counterClearButton: document.getElementById("counterClearButton"),
+    counterThreatProfile: document.getElementById("counterThreatProfile"),
+    counterRecommendationResults: document.getElementById("counterRecommendationResults"),
+    counterSynergyBreakdown: document.getElementById("counterSynergyBreakdown"),
     patchTitle: document.getElementById("patchTitle"),
     patchSourceLink: document.getElementById("patchSourceLink"),
     patchHighlights: document.getElementById("patchHighlights"),
@@ -183,6 +192,633 @@
     ].join(" ").toLowerCase();
   }
 
+  const COUNTER_TRAIT_TERMS = {
+    "backline-access": ["assassin", "jump", "backline", "ronin nue", "shining assassin", "target the hunter", "targeted"],
+    "magic-damage": ["magicka", "mage", "magic", "caster", "spell", "tortola", "dragon"],
+    "armor-shred": ["egersis", "armor reduction", "armor shred", "shred armor"],
+    "aoe-control": ["aoe", "splash", "storm shaman", "tortola", "devastator", "clear summons", "spell splash", "cluster"],
+    "tempo-pressure": ["tempo", "pressure", "hunter", "mid game", "level 7", "level 8", "punish"],
+    "damage-sharing": ["strange egg", "damage sharing", "linked", "super egg", "druid"],
+    "frontline-armor": ["warrior", "armor", "frontline", "tank", "mithril"],
+    "summon-bait": ["summon", "war horn", "insect", "duplicate", "bait", "expendable"],
+    "silence-control": ["silence", "disable", "control", "hex", "stun", "storm shaman", "taboo witcher"],
+    "late-control": ["legendary", "limit break", "tsunami", "devastator", "control density"],
+    "evasion": ["feathered", "evasion", "feather"],
+    "ranged-carry": ["hunter", "dwarf sniper", "cannon granny", "ranged"],
+    "sustain": ["lifesteal", "sustain", "soul reaper", "warlock"]
+  };
+
+  const COUNTER_TRAIT_LABELS = {
+    "backline-access": "backline access",
+    "magic-damage": "magic damage",
+    "armor-shred": "armor shred",
+    "aoe-control": "wide AoE/control",
+    "tempo-pressure": "tempo pressure",
+    "damage-sharing": "damage sharing",
+    "frontline-armor": "frontline armor",
+    "summon-bait": "summons and bait units",
+    "silence-control": "silence/control",
+    "late-control": "late-game control",
+    "evasion": "evasion",
+    "ranged-carry": "protected ranged damage",
+    "sustain": "sustain"
+  };
+
+  const SYNERGY_COUNTER_RULES = {
+    Assassin: {
+      profile: ["Backline burst", "Physical crits", "Carry access"],
+      threat: "Assassins skip normal front-to-back trading and try to erase carries before they cast.",
+      answers: ["Use corner bait and sacrificial backliners", "Protect the carry with armor, links, or a second threat", "Punish the jump with control or AoE"],
+      counterTraits: ["frontline-armor", "damage-sharing", "aoe-control", "summon-bait"],
+      buildScores: { "warrior-frontline": 9, "druid-super-egg": 8, "watcher-control": 5, "summon-war-horn": 5, "magicka-dragon": 3 }
+    },
+    Druid: {
+      profile: ["Fast upgrades", "Damage sharing", "Late scaling"],
+      threat: "Druid boards hit upgraded front lines early and can become hard to burst once Strange Egg links are online.",
+      answers: ["Pressure before the upgraded board stabilizes", "Use AoE so linked units take damage together", "Pick magic conversion or control instead of only attacking armor"],
+      counterTraits: ["tempo-pressure", "aoe-control", "magic-damage", "backline-access"],
+      buildScores: { "magicka-dragon": 9, "watcher-assassin": 7, "egersis-hunter": 6, "ogre-rage-casters": 5, "limit-break-legendary": 4 }
+    },
+    Hunter: {
+      profile: ["Ranged focus fire", "Physical tempo", "Backline carry"],
+      threat: "Hunters convert stable front lines into fast ranged focus fire and can pierce evasion.",
+      answers: ["Jump or disable the carry line", "Use damage sharing against focus fire", "Deny clean corners with bait"],
+      counterTraits: ["backline-access", "damage-sharing", "summon-bait", "frontline-armor"],
+      buildScores: { "watcher-assassin": 9, "druid-super-egg": 7, "warrior-frontline": 5, "summon-war-horn": 5, "insect-midgame-swarm": 4 }
+    },
+    Knight: {
+      profile: ["Shield windows", "Armor", "Magic resistance"],
+      threat: "Knight shields make basic front-to-back damage inefficient while the carry keeps firing.",
+      answers: ["Use armor reduction or magic conversion when shields are down", "Jump the carry before the shield cycle stabilizes", "Avoid slow fights into a protected ranged carry"],
+      counterTraits: ["armor-shred", "backline-access", "magic-damage", "tempo-pressure"],
+      buildScores: { "egersis-hunter": 9, "watcher-assassin": 7, "magicka-dragon": 6, "ogre-rage-casters": 4, "limit-break-legendary": 4 }
+    },
+    Mage: {
+      profile: ["Magic burst", "Resistance shred", "AoE punish"],
+      threat: "Mage strips magic resistance and turns clumped boards into one-spell losses.",
+      answers: ["Spread important units", "Jump or silence The Source and primary casters", "Win the first cast cycle with tempo or control"],
+      counterTraits: ["backline-access", "silence-control", "tempo-pressure", "late-control"],
+      buildScores: { "watcher-assassin": 9, "egersis-hunter": 7, "limit-break-legendary": 6, "ogre-rage-casters": 4, "druid-super-egg": 3 }
+    },
+    Mech: {
+      profile: ["Early armor", "Economy value", "Stabilizing front line"],
+      threat: "Mech boards can survive early trades and convert wins into extra economy.",
+      answers: ["Use magic or spell damage over armor checks", "Break the streak before the economy compounds", "Do not let low-health Mechs escape the round"],
+      counterTraits: ["magic-damage", "tempo-pressure", "aoe-control"],
+      buildScores: { "magicka-dragon": 8, "ogre-rage-casters": 6, "egersis-hunter": 5, "watcher-assassin": 4 }
+    },
+    Priest: {
+      profile: ["Player damage reduction", "Loss streak value", "Greed window"],
+      threat: "Priest reduces punishment while the player buys time for a greedier board.",
+      answers: ["Pressure their board quality, not just their HP", "Deny streak setup with mid-game tempo", "Force spending before late talents matter"],
+      counterTraits: ["tempo-pressure", "backline-access", "late-control"],
+      buildScores: { "egersis-hunter": 8, "watcher-assassin": 6, "magicka-dragon": 5, "limit-break-legendary": 4 }
+    },
+    Shaman: {
+      profile: ["Opening hex", "Random disable", "Disruption"],
+      threat: "Shaman can remove one important unit from the fight before your first plan executes.",
+      answers: ["Avoid relying on one solo carry", "Use summons or secondary threats to absorb random disable", "Win with board depth and control layering"],
+      counterTraits: ["summon-bait", "late-control", "damage-sharing", "backline-access"],
+      buildScores: { "summon-war-horn": 7, "insect-midgame-swarm": 7, "limit-break-legendary": 6, "druid-super-egg": 5, "watcher-assassin": 4 }
+    },
+    Warlock: {
+      profile: ["Lifesteal", "Long fights", "Sustain"],
+      threat: "Warlock turns chip damage into recovery and rewards fights that drag on.",
+      answers: ["Burst or disable the healing core", "Focus damage so lifesteal cannot stabilize multiple units", "Use high damage tempo before sustain is assembled"],
+      counterTraits: ["backline-access", "tempo-pressure", "magic-damage", "silence-control"],
+      buildScores: { "watcher-assassin": 8, "egersis-hunter": 7, "magicka-dragon": 6, "ogre-rage-casters": 5 }
+    },
+    Warrior: {
+      profile: ["Armor stacking", "Stable frontline", "Physical resistance"],
+      threat: "Warrior armor blunts physical tempo and lets carries or control pieces play behind a durable wall.",
+      answers: ["Bypass armor with magic conversion", "Shred armor with Egersis pressure", "Disable the carry instead of only attacking the tank line"],
+      counterTraits: ["magic-damage", "armor-shred", "backline-access", "silence-control"],
+      buildScores: { "magicka-dragon": 9, "egersis-hunter": 8, "ogre-rage-casters": 6, "watcher-assassin": 5 }
+    },
+    Witcher: {
+      profile: ["Demon denial", "Carry disruption", "Pure-damage control"],
+      threat: "Witcher turns Demon plans awkward and can convert a single carry into a liability.",
+      answers: ["Do not rely on Demon value", "Use non-Demon ranged or spell damage", "Layer multiple threats so one counter piece does not decide the round"],
+      counterTraits: ["ranged-carry", "magic-damage", "late-control", "summon-bait"],
+      buildScores: { "egersis-hunter": 7, "magicka-dragon": 6, "limit-break-legendary": 5, "summon-war-horn": 4 }
+    },
+    Wizard: {
+      profile: ["Synergy shortcut", "High-tier breakpoint", "Flexible cap"],
+      threat: "Wizard lets expensive synergies arrive early or hit maximum value with fewer pieces.",
+      answers: ["Target the Wizard enabler", "Scout for the one synergy being amplified", "Pressure before the shortcut becomes a capped board"],
+      counterTraits: ["backline-access", "tempo-pressure", "silence-control", "late-control"],
+      buildScores: { "watcher-assassin": 8, "egersis-hunter": 6, "ogre-rage-casters": 5, "limit-break-legendary": 5 }
+    },
+    Ancestor: {
+      profile: ["Healing", "Pure damage", "Nearby punishment"],
+      threat: "Ancestor rewards healing cycles and can turn repeated healing into nearby pure damage.",
+      answers: ["Burst key units before healing thresholds repeat", "Spread to reduce nearby pure-damage value", "Disable healers and support pieces"],
+      counterTraits: ["backline-access", "tempo-pressure", "silence-control", "aoe-control"],
+      buildScores: { "watcher-assassin": 7, "egersis-hunter": 6, "ogre-rage-casters": 5, "magicka-dragon": 5 }
+    },
+    Beast: {
+      profile: ["Summons", "Physical scaling", "Board flood"],
+      threat: "Beast increases team damage and often pairs with summons that clog targeting.",
+      answers: ["Clear summons with AoE", "Armor up or damage-share through physical pressure", "Kill the real carry before Beast stacks matter"],
+      counterTraits: ["aoe-control", "frontline-armor", "backline-access", "damage-sharing"],
+      buildScores: { "warrior-frontline": 8, "magicka-dragon": 7, "ogre-rage-casters": 6, "watcher-control": 5, "druid-super-egg": 4 }
+    },
+    Cave: {
+      profile: ["Raw HP", "Durable frontline", "Comeback scaling"],
+      threat: "Cave adds enough health that low-burst boards can run out of damage.",
+      answers: ["Use magic conversion or armor shred instead of slow physical trades", "Pressure support pieces behind the HP wall", "Bring sustained damage rather than one small burst"],
+      counterTraits: ["magic-damage", "armor-shred", "backline-access", "tempo-pressure"],
+      buildScores: { "magicka-dragon": 8, "egersis-hunter": 7, "watcher-assassin": 5, "ogre-rage-casters": 5 }
+    },
+    Civet: {
+      profile: ["Duplicate pieces", "Extra bodies", "Rank-up pressure"],
+      threat: "Civet creates duplicate pressure that can make single-target damage waste time.",
+      answers: ["Use AoE to clear copies", "Focus the surviving duplicate that enables repeated value", "Avoid overcommitting single-target disables into expendable bodies"],
+      counterTraits: ["aoe-control", "magic-damage", "silence-control", "frontline-armor"],
+      buildScores: { "magicka-dragon": 8, "ogre-rage-casters": 7, "warrior-frontline": 5, "watcher-control": 4 }
+    },
+    Demon: {
+      profile: ["Pure damage", "Single carry spike", "Armor bypass"],
+      threat: "Demon pure damage punishes boards that rely only on armor or one tank to survive.",
+      answers: ["Disable or bait the Demon carry", "Use damage sharing instead of only armor", "Force the Demon player to split item value"],
+      counterTraits: ["backline-access", "damage-sharing", "summon-bait", "silence-control"],
+      buildScores: { "watcher-assassin": 8, "druid-super-egg": 7, "summon-war-horn": 5, "warrior-frontline": 4 }
+    },
+    Divinity: {
+      profile: ["Cooldown engine", "Repeated casts", "Control tempo"],
+      threat: "Divinity shortens cooldowns and lets key spells repeat before ordinary boards can reset.",
+      answers: ["Jump The Source and cooldown pieces", "Silence or stun the first cast cycle", "Pressure before the engine has enough front line"],
+      counterTraits: ["backline-access", "silence-control", "tempo-pressure", "late-control"],
+      buildScores: { "watcher-assassin": 9, "egersis-hunter": 6, "ogre-rage-casters": 5, "limit-break-legendary": 5 }
+    },
+    Dragon: {
+      profile: ["Instant mana", "First-cast burst", "Splash damage"],
+      threat: "Dragon starts fights with mana, so the opening spell cycle arrives before slow boards are ready.",
+      answers: ["Spread against first casts", "Jump or silence the caster receiving mana", "Use tempo to kill support before Dragon value repeats"],
+      counterTraits: ["backline-access", "silence-control", "tempo-pressure", "late-control"],
+      buildScores: { "watcher-assassin": 8, "egersis-hunter": 6, "limit-break-legendary": 5, "ogre-rage-casters": 4 }
+    },
+    Dwarf: {
+      profile: ["Long range", "Protected carry", "Backline damage"],
+      threat: "Dwarf carries play from extreme range and can keep firing while the front line stalls.",
+      answers: ["Use Assassin or Watcher access to reach the carry", "Place bait to pull targeting away", "Apply control before the ranged carry free-fires"],
+      counterTraits: ["backline-access", "summon-bait", "silence-control", "frontline-armor"],
+      buildScores: { "watcher-assassin": 9, "watcher-control": 7, "warrior-frontline": 5, "feather-clover": 4 }
+    },
+    Egersis: {
+      profile: ["Armor reduction", "Physical burst", "Frontline shredding"],
+      threat: "Egersis makes armor plans worse and lets physical carries cut through tanks.",
+      answers: ["Use magic damage or damage sharing rather than pure armor", "Jump the Egersis damage source", "Do not let one tank absorb every hit"],
+      counterTraits: ["magic-damage", "damage-sharing", "backline-access", "summon-bait"],
+      buildScores: { "magicka-dragon": 8, "druid-super-egg": 7, "watcher-assassin": 6, "ogre-rage-casters": 4 }
+    },
+    Feathered: {
+      profile: ["Evasion", "Physical dodge", "Stall"],
+      threat: "Feathered dodges physical attacks and makes accuracy-dependent carries unreliable.",
+      answers: ["Use magic damage, spells, or Hunter pierce", "Control the evasion carry", "Avoid relying on a single physical carry without answers"],
+      counterTraits: ["magic-damage", "aoe-control", "ranged-carry", "silence-control"],
+      buildScores: { "magicka-dragon": 9, "ogre-rage-casters": 7, "egersis-hunter": 6, "watcher-control": 5 }
+    },
+    Glacier: {
+      profile: ["Attack speed", "Sustained DPS", "Carry ramp"],
+      threat: "Glacier accelerates physical carries and can overwhelm boards that lack early control.",
+      answers: ["Disable the main attack-speed carry", "Use armor or damage sharing during the ramp", "Burst support before lifesteal or attack speed stacks win"],
+      counterTraits: ["silence-control", "frontline-armor", "damage-sharing", "backline-access"],
+      buildScores: { "watcher-assassin": 7, "warrior-frontline": 6, "druid-super-egg": 5, "ogre-rage-casters": 5 }
+    },
+    Goblin: {
+      profile: ["Armor", "Regeneration", "Early tempo"],
+      threat: "Goblin can overperform early with defensive stats and force you into bad HP trades.",
+      answers: ["Use magic or spell damage", "Match tempo before the defensive rolls stack", "Do not feed streak economy"],
+      counterTraits: ["magic-damage", "tempo-pressure", "armor-shred", "aoe-control"],
+      buildScores: { "magicka-dragon": 8, "egersis-hunter": 6, "ogre-rage-casters": 6, "watcher-assassin": 4 }
+    },
+    Greater: {
+      profile: ["Synergy disruption", "Unique pieces", "Board-control pressure"],
+      threat: "Greater-style boards punish careless synergy planning and can turn a normal board into scattered value.",
+      answers: ["Lean on raw upgraded units and flexible damage", "Target the piece enabling the disruption", "Keep pivots open instead of overcommitting one synergy"],
+      counterTraits: ["tempo-pressure", "backline-access", "late-control", "ranged-carry"],
+      buildScores: { "egersis-hunter": 6, "watcher-assassin": 6, "limit-break-legendary": 5, "knight-cannon-granny": 4 }
+    },
+    Horn: {
+      profile: ["Damage reduction", "Durable carries", "Stall"],
+      threat: "Horn-style mitigation makes shallow burst worse and gives carries more time to act.",
+      answers: ["Use sustained damage or armor reduction", "Disable the protected carry", "Avoid dumping all damage into a shielded target"],
+      counterTraits: ["armor-shred", "silence-control", "ranged-carry", "magic-damage"],
+      buildScores: { "egersis-hunter": 8, "watcher-assassin": 6, "magicka-dragon": 5, "knight-cannon-granny": 4 }
+    },
+    Human: {
+      profile: ["Silence", "Mana denial", "Caster disruption"],
+      threat: "Human silence can stop your first cast and ruin single-caster plans.",
+      answers: ["Use multiple threats instead of one caster", "Jump or disable Human supports", "Rely on attacks, summons, or board depth when silence is likely"],
+      counterTraits: ["summon-bait", "ranged-carry", "backline-access", "late-control"],
+      buildScores: { "summon-war-horn": 7, "insect-midgame-swarm": 6, "watcher-assassin": 6, "egersis-hunter": 5, "limit-break-legendary": 4 }
+    },
+    Insectoid: {
+      profile: ["Swarm bodies", "Target dilution", "Mid-game pressure"],
+      threat: "Insectoid floods the fight with bodies and makes single-target damage spend time on the wrong unit.",
+      answers: ["Use AoE to clear spawned bodies", "Kill the surviving duplicate or real carry", "Bring sustain so chip damage becomes recovery"],
+      counterTraits: ["aoe-control", "magic-damage", "frontline-armor", "sustain"],
+      buildScores: { "magicka-dragon": 9, "ogre-rage-casters": 8, "warrior-frontline": 5, "druid-super-egg": 4 }
+    },
+    Kira: {
+      profile: ["Item scaling", "High HP", "Carry steroid"],
+      threat: "Kira lines can turn one itemized unit into a huge stat problem.",
+      answers: ["Disable or jump the item holder", "Shred or bypass the oversized health pool", "Use bait so the carry wastes time"],
+      counterTraits: ["backline-access", "armor-shred", "magic-damage", "summon-bait"],
+      buildScores: { "watcher-assassin": 8, "egersis-hunter": 7, "magicka-dragon": 6, "watcher-control": 5 }
+    },
+    Marine: {
+      profile: ["Magic resistance", "Anti-caster", "Durability"],
+      threat: "Marine makes pure magic plans much less reliable.",
+      answers: ["Switch to physical damage or armor reduction", "Jump key carries instead of racing spell damage", "Use control and ranged damage rather than only burst spells"],
+      counterTraits: ["armor-shred", "backline-access", "ranged-carry", "frontline-armor"],
+      buildScores: { "egersis-hunter": 9, "watcher-assassin": 7, "knight-cannon-granny": 6, "beast-shining-assassin": 5, "warrior-frontline": 4 }
+    },
+    "Night Demon": {
+      profile: ["Single threat", "Burst pressure", "Pure damage"],
+      threat: "Night Demon pressure often concentrates value into a dangerous carry or burst unit.",
+      answers: ["Bait and disable the carry", "Use damage sharing so one target is not deleted", "Keep a second damage source alive"],
+      counterTraits: ["backline-access", "damage-sharing", "summon-bait", "silence-control"],
+      buildScores: { "watcher-assassin": 8, "druid-super-egg": 7, "summon-war-horn": 5, "warrior-frontline": 4 }
+    },
+    Pandaman: {
+      profile: ["High-roll pieces", "Flexible splash", "Greed"],
+      threat: "Pandaman boards can spike from unexpected units and punish slow scouting.",
+      answers: ["Pressure before the high-roll board connects", "Scout every round for the real carry", "Use flexible counters instead of narrow tech"],
+      counterTraits: ["tempo-pressure", "backline-access", "late-control"],
+      buildScores: { "egersis-hunter": 7, "watcher-assassin": 6, "limit-break-legendary": 5, "ogre-rage-casters": 4 }
+    },
+    Spirits: {
+      profile: ["Petrify", "Melee punishment", "Control"],
+      threat: "Spirits punish melee-heavy boards and can freeze physical attackers in place.",
+      answers: ["Use ranged or spell damage", "Spread melee units so petrify does not chain value", "Disable Spirit pieces before they control the fight"],
+      counterTraits: ["ranged-carry", "magic-damage", "silence-control", "backline-access"],
+      buildScores: { "magicka-dragon": 8, "egersis-hunter": 7, "ogre-rage-casters": 6, "watcher-assassin": 5 }
+    },
+    Watcher: {
+      profile: ["Extra targets", "Targeted disables", "Carry pickoff"],
+      threat: "Watcher turns unit-targeted effects into broader disruption and punishes boards with only one safe carry.",
+      answers: ["Use expendable units to absorb targeted effects", "Spread important pieces", "Prefer summons, links, or wide boards over one protected carry"],
+      counterTraits: ["summon-bait", "damage-sharing", "frontline-armor", "evasion"],
+      buildScores: { "druid-super-egg": 8, "summon-war-horn": 8, "insect-midgame-swarm": 6, "feather-clover": 5, "warrior-frontline": 4 }
+    }
+  };
+
+  const COUNTER_COMBO_RULES = [
+    {
+      label: "Knight + Mage",
+      matches: (names) => names.has("Knight") && names.has("Mage"),
+      explanation: "Knight shields slow ordinary damage while Mage punishes clumps, so the best answer is carry access, armor shred, and spread control rather than one defensive stack.",
+      buildScores: { "watcher-assassin": 8, "egersis-hunter": 7, "limit-break-legendary": 4, "ogre-rage-casters": 3 }
+    },
+    {
+      label: "Dragon + Mage",
+      matches: (names) => names.has("Dragon") && names.has("Mage"),
+      explanation: "Dragon gives the Mage board an immediate first cast, so deny the opening cycle with jump, silence, or tempo pressure.",
+      buildScores: { "watcher-assassin": 8, "egersis-hunter": 6, "limit-break-legendary": 5 }
+    },
+    {
+      label: "Hunter + Dwarf",
+      matches: (names) => names.has("Hunter") && names.has("Dwarf"),
+      explanation: "Long-range Hunter damage needs carry access or heavy bait; do not let the backline free-fire behind a disposable front line.",
+      buildScores: { "watcher-assassin": 8, "watcher-control": 6, "druid-super-egg": 5, "warrior-frontline": 4 }
+    },
+    {
+      label: "Insectoid + Civet",
+      matches: (names) => names.has("Insectoid") && names.has("Civet"),
+      explanation: "Both synergies add extra bodies, so single-target damage falls off unless you clear copies quickly.",
+      buildScores: { "magicka-dragon": 8, "ogre-rage-casters": 7, "warrior-frontline": 4 }
+    },
+    {
+      label: "Cave + Divinity",
+      matches: (names) => names.has("Cave") && names.has("Divinity"),
+      explanation: "Cave buys time for the Divinity cooldown engine, so you need either early pressure or direct access to The Source and control pieces.",
+      buildScores: { "watcher-assassin": 7, "egersis-hunter": 6, "magicka-dragon": 5 }
+    },
+    {
+      label: "Beast + Assassin",
+      matches: (names) => names.has("Beast") && names.has("Assassin"),
+      explanation: "Beast summons distract targeting while Assassins threaten the carry, so armor, bait, and AoE matter more than a fragile backline race.",
+      buildScores: { "warrior-frontline": 8, "druid-super-egg": 6, "magicka-dragon": 5, "watcher-control": 4 }
+    },
+    {
+      label: "Warrior + Beast",
+      matches: (names) => names.has("Warrior") && names.has("Beast"),
+      explanation: "Armor plus team damage creates a long physical fight; counter with magic conversion, armor shred, or strong AoE.",
+      buildScores: { "magicka-dragon": 8, "egersis-hunter": 7, "ogre-rage-casters": 5 }
+    }
+  ];
+
+  function traitLabel(trait) {
+    return COUNTER_TRAIT_LABELS[trait] || trait;
+  }
+
+  function buildHasCounterTrait(build, trait) {
+    const terms = COUNTER_TRAIT_TERMS[trait] || [];
+    const searchText = normalizeForMatch(buildSearchText(build));
+    return terms.some((term) => searchText.includes(normalizeForMatch(term)));
+  }
+
+  function selectedCounterSynergies() {
+    const selected = new Set(state.counterSynergies);
+    return reference.synergies.filter((synergy) => selected.has(synergy.id));
+  }
+
+  function counterRuleFor(synergy) {
+    const rule = SYNERGY_COUNTER_RULES[synergy.name] || {};
+    return {
+      profile: rule.profile || [`${synergy.type} pressure`],
+      threat: rule.threat || `${synergy.name} changes the fight shape enough that scouting and flexible positioning matter.`,
+      answers: rule.answers || ["Scout the carry", "Keep positioning flexible", "Use the build's listed counter plan"],
+      counterTraits: rule.counterTraits || ["tempo-pressure", "backline-access"],
+      buildScores: rule.buildScores || {}
+    };
+  }
+
+  function activeCounterCombos(selectedSynergies) {
+    const names = new Set(selectedSynergies.map((synergy) => synergy.name));
+    return COUNTER_COMBO_RULES.filter((combo) => combo.matches(names));
+  }
+
+  function effectPreview(value) {
+    const text = String(value || "").replace(/\s+/g, " ").trim();
+    return text.length > 260 ? `${text.slice(0, 257)}...` : text;
+  }
+
+  function counterFitTone(fit) {
+    if (fit >= 86) {
+      return "bad";
+    }
+    if (fit >= 74) {
+      return "warn";
+    }
+    return "good";
+  }
+
+  function recommendationPriority(fit) {
+    if (fit >= 86) {
+      return "High";
+    }
+    if (fit >= 74) {
+      return "Good";
+    }
+    return "Watch";
+  }
+
+  function buildCounterRecommendations(selectedSynergies) {
+    const rules = selectedSynergies.map((synergy) => ({ synergy, rule: counterRuleFor(synergy) }));
+    const combos = activeCounterCombos(selectedSynergies);
+    const raw = builds
+      .map((build) => {
+        let score = Math.max(0, build.score - 70) / 8;
+        const reasons = [];
+        const matchedTraits = new Set();
+
+        for (const item of rules) {
+          const directScore = item.rule.buildScores[build.id] || 0;
+          const traitMatches = item.rule.counterTraits.filter((trait) => buildHasCounterTrait(build, trait));
+          const traitScore = Math.min(4, traitMatches.length * 1.2);
+          const total = directScore + traitScore;
+          if (total <= 0) {
+            continue;
+          }
+
+          score += total;
+          traitMatches.forEach((trait) => matchedTraits.add(trait));
+          reasons.push({
+            title: item.synergy.name,
+            text: `${item.rule.threat} Counter priority: ${item.rule.answers.slice(0, 2).join("; ")}.`
+          });
+        }
+
+        for (const combo of combos) {
+          const comboScore = combo.buildScores[build.id] || 0;
+          if (comboScore > 0) {
+            score += comboScore;
+            reasons.push({ title: combo.label, text: combo.explanation });
+          }
+        }
+
+        if (!reasons.length) {
+          return null;
+        }
+
+        return { build, score, reasons, traits: [...matchedTraits] };
+      })
+      .filter(Boolean)
+      .sort((a, b) => b.score - a.score || b.build.score - a.build.score);
+
+    const topScore = raw[0]?.score || 1;
+    return raw.map((item) => ({
+      ...item,
+      fit: Math.min(99, Math.round(58 + (item.score / topScore) * 39))
+    }));
+  }
+
+  function synergyCheckImage(synergy) {
+    if (!synergy.imageUrl) {
+      return `<span class="synergy-check-icon fallback" aria-hidden="true">${escapeHtml(initials(synergy.name))}</span>`;
+    }
+
+    return `
+      <span class="synergy-check-icon" aria-hidden="true">
+        <img src="${escapeHtml(synergy.imageUrl)}" alt="">
+      </span>
+    `;
+  }
+
+  function renderSynergyChecks(type, container) {
+    const selected = new Set(state.counterSynergies);
+    const synergies = reference.synergies.filter((synergy) => synergy.type === type);
+    container.innerHTML = synergies
+      .map((synergy) => {
+        const checked = selected.has(synergy.id) ? "checked" : "";
+        return `
+          <label class="synergy-check ${checked ? "active" : ""}">
+            <input type="checkbox" value="${escapeHtml(synergy.id)}" data-counter-synergy="${escapeHtml(synergy.id)}" ${checked}>
+            ${synergyCheckImage(synergy)}
+            <span>${escapeHtml(synergy.name)}</span>
+          </label>
+        `;
+      })
+      .join("");
+
+    container.querySelectorAll("[data-counter-synergy]").forEach((input) => {
+      input.addEventListener("change", () => {
+        const next = new Set(state.counterSynergies);
+        if (input.checked) {
+          next.add(input.value);
+        } else {
+          next.delete(input.value);
+        }
+        state.counterSynergies = [...next];
+        renderCounterAdvisor();
+      });
+    });
+  }
+
+  function renderThreatProfile(selectedSynergies, recommendations) {
+    if (!selectedSynergies.length) {
+      elements.counterThreatProfile.innerHTML = `<div class="empty-state compact-empty">No enemy synergies selected.</div>`;
+      return;
+    }
+
+    const rules = selectedSynergies.map(counterRuleFor);
+    const profile = unique(rules.flatMap((rule) => rule.profile)).slice(0, 8);
+    const answers = unique(rules.flatMap((rule) => rule.answers)).slice(0, 6);
+    const best = recommendations[0]?.build.name || "No recommendation";
+
+    elements.counterThreatProfile.innerHTML = `
+      <section class="advisor-stat">
+        <span>Selected</span>
+        <strong>${escapeHtml(selectedSynergies.map((synergy) => synergy.name).join(" + "))}</strong>
+      </section>
+      <section class="advisor-stat">
+        <span>Threat profile</span>
+        <strong>${escapeHtml(profile.join(", "))}</strong>
+      </section>
+      <section class="advisor-stat">
+        <span>Best counter</span>
+        <strong>${escapeHtml(best)}</strong>
+      </section>
+      <section class="advisor-stat">
+        <span>Counter priorities</span>
+        <strong>${escapeHtml(answers.join(", "))}</strong>
+      </section>
+    `;
+  }
+
+  function renderCounterRecommendationCard(item) {
+    const build = item.build;
+    const reasons = item.reasons.slice(0, 4);
+    const playPattern = [...build.counterPlan, ...build.positioning].slice(0, 4);
+    const itemPlan = build.items.slice(0, 3);
+    const watchOut = build.weakInto.slice(0, 3);
+    const traits = item.traits.length ? item.traits.map(traitLabel) : ["direct rule match"];
+
+    return `
+      <article class="advisor-recommendation">
+        <div class="recommendation-top">
+          <div>
+            <p class="eyebrow">${escapeHtml(build.tier)} Tier - ${escapeHtml(build.style)}</p>
+            <h3>${escapeHtml(build.name)}</h3>
+          </div>
+          <span class="review-priority ${counterFitTone(item.fit)}">${recommendationPriority(item.fit)} ${item.fit}%</span>
+        </div>
+
+        <p>${escapeHtml(build.winCondition)}</p>
+        <div class="chip-row">${traits.slice(0, 5).map((trait) => chip(trait)).join("")}</div>
+
+        <section class="advisor-explain">
+          <h4>Why It Counters This</h4>
+          ${list(reasons.map((reason) => `${reason.title}: ${reason.text}`), true)}
+        </section>
+
+        <section class="advisor-explain two-column">
+          <div>
+            <h4>Play Pattern</h4>
+            ${list(playPattern, true)}
+          </div>
+          <div>
+            <h4>Items To Look For</h4>
+            ${list(itemPlan, true)}
+          </div>
+        </section>
+
+        <section class="advisor-explain">
+          <h4>Watch Outs</h4>
+          ${chipRow(watchOut, "bad")}
+        </section>
+
+        <button class="mini-action" type="button" data-advisor-build="${escapeHtml(build.id)}">Open Build</button>
+      </article>
+    `;
+  }
+
+  function renderCounterRecommendations(selectedSynergies) {
+    if (!selectedSynergies.length) {
+      elements.counterRecommendationResults.innerHTML = "";
+      return [];
+    }
+
+    const recommendations = buildCounterRecommendations(selectedSynergies).slice(0, 6);
+    elements.counterRecommendationResults.innerHTML = recommendations.length
+      ? `
+        <div class="advisor-section-heading">
+          <h2>Counter Recommendations</h2>
+          <span>${recommendations.length} shown</span>
+        </div>
+        <div class="advisor-recommendation-list">
+          ${recommendations.map(renderCounterRecommendationCard).join("")}
+        </div>
+      `
+      : `<div class="empty-state compact-empty">No counter recommendations matched this selection.</div>`;
+
+    elements.counterRecommendationResults.querySelectorAll("[data-advisor-build]").forEach((button) => {
+      button.addEventListener("click", () => {
+        state.activeView = "builds";
+        state.query = "";
+        state.tier = "All";
+        state.style = "All";
+        state.difficulty = "All";
+        state.selectedId = button.dataset.advisorBuild;
+        elements.searchInput.value = "";
+        renderFilters();
+        render();
+      });
+    });
+
+    return recommendations;
+  }
+
+  function renderCounterBreakdown(selectedSynergies) {
+    if (!selectedSynergies.length) {
+      elements.counterSynergyBreakdown.innerHTML = "";
+      return;
+    }
+
+    elements.counterSynergyBreakdown.innerHTML = `
+      <div class="advisor-section-heading">
+        <h2>Synergy Breakdown</h2>
+      </div>
+      <div class="synergy-breakdown-grid">
+        ${selectedSynergies
+          .map((synergy) => {
+            const rule = counterRuleFor(synergy);
+            return `
+              <article class="synergy-breakdown-card">
+                <div class="reference-card-top">
+                  ${synergyCheckImage(synergy)}
+                  <div class="reference-title">
+                    <p class="eyebrow">${escapeHtml(synergy.type)}</p>
+                    <h3>${escapeHtml(synergy.name)}</h3>
+                  </div>
+                </div>
+                <p>${escapeHtml(effectPreview(synergy.effect))}</p>
+                <section class="advisor-explain">
+                  <h4>Counter Read</h4>
+                  <p>${escapeHtml(rule.threat)}</p>
+                  <div class="chip-row">${rule.answers.slice(0, 4).map((answer) => chip(answer)).join("")}</div>
+                </section>
+              </article>
+            `;
+          })
+          .join("")}
+      </div>
+    `;
+  }
+
+  function renderCounterAdvisor() {
+    renderSynergyChecks("Class", elements.counterClassList);
+    renderSynergyChecks("Race", elements.counterRaceList);
+    const selectedSynergies = selectedCounterSynergies();
+    elements.counterSelectedCount.textContent = `${selectedSynergies.length} selected`;
+    const recommendations = renderCounterRecommendations(selectedSynergies);
+    renderThreatProfile(selectedSynergies, recommendations);
+    renderCounterBreakdown(selectedSynergies);
+  }
+
   function filteredBuilds() {
     const query = state.query.trim().toLowerCase();
     return builds.filter((build) => {
@@ -210,12 +846,15 @@
     });
 
     const buildsActive = state.activeView === "builds";
+    const advisorActive = state.activeView === "advisor";
     const patchActive = state.activeView === "patch";
     const referenceActive = state.activeView === "reference";
     elements.buildsView.hidden = !buildsActive;
+    elements.counterAdvisorView.hidden = !advisorActive;
     elements.patchDashboardView.hidden = !patchActive;
     elements.referenceView.hidden = !referenceActive;
     elements.buildsView.classList.toggle("active", buildsActive);
+    elements.counterAdvisorView.classList.toggle("active", advisorActive);
     elements.patchDashboardView.classList.toggle("active", patchActive);
     elements.referenceView.classList.toggle("active", referenceActive);
   }
@@ -924,6 +1563,7 @@
       elements.detailPanel.innerHTML = `<div class="empty-state">Try a different search or filter.</div>`;
     }
     renderCounterFinder();
+    renderCounterAdvisor();
   }
 
   function bindEvents() {
@@ -955,6 +1595,11 @@
       renderCounterFinder();
     });
 
+    elements.counterClearButton.addEventListener("click", () => {
+      state.counterSynergies = [];
+      renderCounterAdvisor();
+    });
+
     elements.referenceSearchInput.addEventListener("input", (event) => {
       state.referenceQuery = event.target.value;
       renderReferenceLibrary();
@@ -977,6 +1622,7 @@
     renderPatchDashboard();
     renderFilters();
     renderReferenceLibrary();
+    renderCounterAdvisor();
     renderActiveView();
     bindEvents();
     render();
