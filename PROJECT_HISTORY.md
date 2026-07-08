@@ -16,6 +16,7 @@ This file records the meaningful changes made to the site so we can look back la
 - Added a game-stage toggle for `Early`, `Mid`, `Late`, and `Final` so recommendation scoring can favor tempo, stable mid-game counters, late-board tech, or final-opponent positioning.
 - Updated counter explanations to include the selected synergy breakpoint text and stage-specific reasoning.
 - Added rule-based positioning templates and piece buy plans to Counter Advisor recommendations, using selected enemy synergies, build cores, reference-piece costs, and matchup tech rules.
+- Added advisor confidence scoring so recommendations show whether they are strongly supported by direct matchup rules, exact combo rules, trait matches, selected-synergy coverage, and stage fit.
 
 ### Patch review dashboard
 
@@ -45,6 +46,7 @@ This file records the meaningful changes made to the site so we can look back la
 - Added June 25, 2026 overrides for Soul Breaker, Skull Hunter, Dwarf Sniper, Sorcerous Chain, Magic Mirror, Kira Imprint, Bloodbath Skull, Broken Sword, and Crystal Sword.
 - Audited Priest and Witcher breakpoints against official sources. Priest stayed `1/2/3` because the current Dragonest wiki payload and the official Priest(3) update support that. Witcher was overridden to `2/4` because the official Dragonest 3.13 maintenance note lists `Witcher[2]` and `Witcher[4]`, while the live wiki payload still shows older `1/2` text.
 - Corrected Taboo Witcher from stale wiki `Common / 1` data to `Epic / 4` using the official App Store v2.31.2 release note and local May 2026 asset-table stats.
+- Replaced `update:all` with a one-command patch-day workflow that regenerates data, audits local game files, syntax-checks generated scripts, and writes `PATCH_UPDATE_REPORT.md`.
 
 ### Top-level navigation
 
@@ -101,8 +103,6 @@ This file records the meaningful changes made to the site so we can look back la
 
 ```powershell
 npm.cmd run update:all
-npm.cmd run audit:local
-npm.cmd run check
 ```
 
 - Publish updates with:

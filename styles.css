@@ -911,6 +911,48 @@ select:focus {
   text-transform: none;
 }
 
+.recommendation-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: flex-end;
+}
+
+.advisor-confidence-pill,
+.confidence-badge {
+  display: inline-grid;
+  min-height: 28px;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0 10px;
+  color: var(--soft);
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.advisor-confidence-pill.good,
+.confidence-badge.good {
+  border-color: rgba(89, 183, 111, 0.5);
+  color: #b8e8c4;
+  background: rgba(89, 183, 111, 0.08);
+}
+
+.advisor-confidence-pill.warn,
+.confidence-badge.warn {
+  border-color: rgba(217, 173, 75, 0.58);
+  color: #f2d59a;
+  background: rgba(217, 173, 75, 0.08);
+}
+
+.advisor-confidence-pill.bad,
+.confidence-badge.bad {
+  border-color: rgba(224, 112, 102, 0.58);
+  color: #f1b3ad;
+  background: rgba(224, 112, 102, 0.08);
+}
+
 .advisor-explain {
   display: grid;
   gap: 8px;
@@ -942,11 +984,80 @@ select:focus {
 }
 
 .positioning-module,
-.buy-plan-module {
+.buy-plan-module,
+.confidence-module {
   padding: 12px;
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 8px;
   background: rgba(0, 0, 0, 0.12);
+}
+
+.confidence-header {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.confidence-header strong {
+  color: var(--text);
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.confidence-meter {
+  height: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.confidence-meter span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--green);
+}
+
+.confidence-module.warn .confidence-meter span {
+  background: var(--gold);
+}
+
+.confidence-module.bad .confidence-meter span {
+  background: var(--red);
+}
+
+.confidence-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 7px;
+}
+
+.confidence-grid div {
+  min-width: 0;
+  min-height: 54px;
+  padding: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.confidence-grid span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.66rem;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.confidence-grid strong {
+  display: block;
+  margin-top: 5px;
+  color: var(--soft);
+  font-size: 0.78rem;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
 }
 
 .positioning-layout {
@@ -1581,6 +1692,7 @@ code {
   .advisor-explain.two-column,
   .positioning-layout,
   .buy-plan-grid,
+  .confidence-grid,
   .synergy-breakdown-grid,
   .dashboard-grid,
   .dashboard-summary,
@@ -1666,6 +1778,10 @@ code {
   }
 
   .advisor-actions {
+    justify-content: start;
+  }
+
+  .recommendation-badges {
     justify-content: start;
   }
 }

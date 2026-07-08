@@ -711,22 +711,88 @@
 
   function counterFitTone(fit) {
     if (fit >= 86) {
-      return "bad";
+      return "good";
     }
     if (fit >= 74) {
       return "warn";
     }
-    return "good";
+    return "bad";
   }
 
   function recommendationPriority(fit) {
     if (fit >= 86) {
-      return "High";
+      return "Strong";
     }
     if (fit >= 74) {
-      return "Good";
+      return "Playable";
     }
-    return "Watch";
+    return "Situational";
+  }
+
+  function clamp(value, min, max) {
+    return Math.max(min, Math.min(max, value));
+  }
+
+  function advisorConfidence(item, fit) {
+    const evidence = item.evidence || {};
+    const selectedCount = Math.max(1, Number(evidence.selectedCount) || 1);
+    const coveredSynergies = Number(evidence.coveredSynergies) || 0;
+    const coverageRatio = clamp(coveredSynergies / selectedCount, 0, 1);
+    const directScoreTotal = Number(evidence.directScoreTotal) || 0;
+    const traitMatchCount = Number(evidence.traitMatchCount) || 0;
+    const comboMatches = asArray(evidence.comboMatches);
+    const comboScoreTotal = Number(evidence.comboScoreTotal) || 0;
+    const stageAdjustment = Number(evidence.stageAdjustment) || 0;
+    let score = 38;
+
+    score += coverageRatio * 24;
+    score += Math.min(18, directScoreTotal * 1.25);
+    score += Math.min(12, traitMatchCount * 3);
+    score += comboMatches.length ? Math.min(12, 6 + comboScoreTotal * 0.35) : 0;
+    score += clamp(stageAdjustment, -6, 8);
+    score += Math.max(0, fit - 72) * 0.22;
+
+    if (selectedCount >= 3 && coverageRatio < 0.67) {
+      score -= 8;
+    }
+    if (selectedCount >= 5 && !comboMatches.length) {
+      score -= 3;
+    }
+
+    const percent = Math.round(clamp(score, 35, 98));
+    const label = percent >= 86
+      ? "Very High Confidence"
+      : percent >= 74
+        ? "High Confidence"
+        : percent >= 62
+          ? "Medium Confidence"
+          : "Low Confidence";
+    const tone = percent >= 74 ? "good" : percent >= 62 ? "warn" : "bad";
+    const notes = [
+      `${coveredSynergies} of ${selectedCount} selected synergies have direct or trait-based evidence for this build.`,
+      directScoreTotal > 0
+        ? "The build has explicit matchup scoring against at least one selected enemy synergy."
+        : "This is mostly a trait-based read, so scout the exact carry and items before hard-committing.",
+      comboMatches.length
+        ? `Exact combo rule matched: ${comboMatches.join(", ")}.`
+        : "No exact combo rule matched; the advisor synthesized the recommendation from individual synergy threats.",
+      stageAdjustment >= 2
+        ? "The selected game stage improves the recommendation because its timing and traits fit the current scouting window."
+        : stageAdjustment <= -2
+          ? "The selected game stage lowers confidence because this build is less natural at that timing."
+          : "The selected game stage is neutral for this recommendation."
+    ];
+
+    return {
+      percent,
+      label,
+      tone,
+      coverageLabel: `${Math.round(coverageRatio * 100)}% coverage`,
+      comboLabel: comboMatches.length ? `${comboMatches.length} combo rule` : "No combo rule",
+      traitLabel: `${traitMatchCount} trait match${traitMatchCount === 1 ? "" : "es"}`,
+      stageLabel: stageAdjustment > 0 ? `+${stageAdjustment} stage fit` : `${stageAdjustment} stage fit`,
+      notes
+    };
   }
 
   function normalizedEffectText(value) {
@@ -1067,6 +1133,11 @@
         let score = Math.max(0, build.score - 70) / 8;
         const reasons = [];
         const matchedTraits = new Set();
+        let coveredSynergies = 0;
+        let directScoreTotal = 0;
+        let traitMatchCount = 0;
+        let comboScoreTotal = 0;
+        const comboMatches = [];
 
         for (const item of rules) {
           const directScore = item.rule.buildScores[build.id] || 0;
@@ -1078,6 +1149,9 @@
           }
 
           score += total;
+          coveredSynergies += 1;
+          directScoreTotal += directScore;
+          traitMatchCount += traitMatches.length;
           traitMatches.forEach((trait) => matchedTraits.add(trait));
           reasons.push({
             title: `${item.synergy.name} - ${levelLabel(item.synergy)}`,
@@ -1089,6 +1163,8 @@
           const comboScore = combo.buildScores[build.id] || 0;
           if (comboScore > 0) {
             score += comboScore * averageLevelWeight;
+            comboScoreTotal += comboScore;
+            comboMatches.push(combo.label);
             reasons.push({ title: combo.label, text: combo.explanation });
           }
         }
@@ -1107,7 +1183,22 @@
           });
         }
 
-        return { build, score, reasons, traits: [...matchedTraits], stageAdjustment };
+        return {
+          build,
+          score,
+          reasons,
+          traits: [...matchedTraits],
+          stageAdjustment,
+          evidence: {
+            selectedCount: selectedSynergies.length,
+            coveredSynergies,
+            directScoreTotal,
+            traitMatchCount,
+            comboScoreTotal,
+            comboMatches,
+            stageAdjustment
+          }
+        };
       })
       .filter(Boolean)
       .sort((a, b) => b.score - a.score || b.build.score - a.build.score);
@@ -1115,7 +1206,8 @@
     const topScore = raw[0]?.score || 1;
     return raw.map((item) => ({
       ...item,
-      fit: Math.min(99, Math.round(58 + (item.score / topScore) * 39))
+      fit: Math.min(99, Math.round(58 + (item.score / topScore) * 39)),
+      confidence: advisorConfidence(item, Math.min(99, Math.round(58 + (item.score / topScore) * 39)))
     }));
   }
 
@@ -1335,6 +1427,43 @@
     `;
   }
 
+  function renderAdvisorConfidence(confidence) {
+    return `
+      <section class="advisor-explain confidence-module ${escapeHtml(confidence.tone)}">
+        <div class="module-heading">
+          <h4>Advisor Confidence</h4>
+          <span>Rule evidence</span>
+        </div>
+        <div class="confidence-header">
+          <span class="confidence-badge ${escapeHtml(confidence.tone)}">${escapeHtml(confidence.label)}</span>
+          <strong>${escapeHtml(confidence.percent)}%</strong>
+        </div>
+        <div class="confidence-meter" aria-label="${escapeHtml(`${confidence.percent}% confidence`)}">
+          <span style="width: ${escapeHtml(confidence.percent)}%"></span>
+        </div>
+        <div class="confidence-grid">
+          <div>
+            <span>Coverage</span>
+            <strong>${escapeHtml(confidence.coverageLabel)}</strong>
+          </div>
+          <div>
+            <span>Traits</span>
+            <strong>${escapeHtml(confidence.traitLabel)}</strong>
+          </div>
+          <div>
+            <span>Combo</span>
+            <strong>${escapeHtml(confidence.comboLabel)}</strong>
+          </div>
+          <div>
+            <span>Stage</span>
+            <strong>${escapeHtml(confidence.stageLabel)}</strong>
+          </div>
+        </div>
+        ${list(confidence.notes, true)}
+      </section>
+    `;
+  }
+
   function renderCounterRecommendationCard(item, selectedSynergies) {
     const build = item.build;
     const reasons = item.reasons.slice(0, 4);
@@ -1354,7 +1483,10 @@
             <p class="eyebrow">${escapeHtml(build.tier)} Tier - ${escapeHtml(build.style)}</p>
             <h3>${escapeHtml(build.name)}</h3>
           </div>
-          <span class="review-priority ${counterFitTone(item.fit)}">${recommendationPriority(item.fit)} ${item.fit}%</span>
+          <div class="recommendation-badges">
+            <span class="review-priority ${counterFitTone(item.fit)}">${recommendationPriority(item.fit)} Fit ${item.fit}%</span>
+            <span class="advisor-confidence-pill ${escapeHtml(item.confidence.tone)}">${escapeHtml(item.confidence.label)}</span>
+          </div>
         </div>
 
         <p>${escapeHtml(build.winCondition)}</p>
@@ -1362,6 +1494,8 @@
           ${chip(`${stage.label} stage`, stageTone)}
           ${traits.slice(0, 5).map((trait) => chip(trait)).join("")}
         </div>
+
+        ${renderAdvisorConfidence(item.confidence)}
 
         <section class="advisor-explain">
           <h4>Why It Counters This</h4>

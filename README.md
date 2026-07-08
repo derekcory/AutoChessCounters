@@ -39,11 +39,11 @@ Run this from the repo folder:
 
 ```powershell
 npm.cmd run update:all
-npm.cmd run audit:local
-npm.cmd run check
 ```
 
 Use `npm.cmd` in PowerShell because this Windows setup blocks `npm.ps1` by policy.
+
+That command refreshes generated reference data, refreshes the latest patch panel, audits local game files when available, syntax-checks the site scripts, and writes `PATCH_UPDATE_REPORT.md`.
 
 The local Auto Chess install is expected at:
 
@@ -55,7 +55,7 @@ To point the updater at a different install:
 
 ```powershell
 $env:AUTO_CHESS_INSTALL="D:\Program Files\steamapps\common\Auto Chess"
-npm.cmd run update:patch
+npm.cmd run update:all
 ```
 
 ## Preview Locally

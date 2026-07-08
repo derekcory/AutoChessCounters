@@ -8,8 +8,6 @@ From this repo folder:
 
 ```powershell
 npm.cmd run update:all
-npm.cmd run audit:local
-npm.cmd run check
 git status --short
 git add .
 git commit -m "Update Auto Chess patch data"
@@ -18,10 +16,14 @@ git push
 
 GitHub Pages publishes from the `dev` branch.
 
+`npm.cmd run update:all` is the main patch-day command. It refreshes generated reference data, refreshes the latest patch panel, audits the local game files when available, syntax-checks the site scripts, and writes `PATCH_UPDATE_REPORT.md`.
+
 ## What the Scripts Do
 
 - `update:reference` regenerates `reference-data.js` from official Dragonest piece/item/synergy pages, then applies explicit patch overrides.
 - `update:patch` regenerates `patch-data.js` from the local Steam cache at `D:\Program Files\steamapps\common\Auto Chess\Cache\Pb`. If that cache is unavailable, it falls back to Steam news.
+- `update:data` runs only the reference and patch data generators.
+- `update:all` runs the full patch-day workflow and writes `PATCH_UPDATE_REPORT.md`.
 - `audit:local` parses `ACGameLib.bin` from the local install and reports real local game config counts, sample piece records, sample equipment records, local asset version, and newest cached patch date.
 - `check` syntax-checks the static JavaScript files.
 
@@ -38,3 +40,5 @@ That file can be parsed into records with piece stats, equipment values, skills,
 ## When Manual Edits Are Still Needed
 
 The updater can refresh factual reference data and the latest patch panel. Build rankings, counters, tier placement, and meta advice in `data.js` still need human judgment after reading the patch and community discussion.
+
+After `npm.cmd run update:all`, open `PATCH_UPDATE_REPORT.md` first. It summarizes the patch source, reference counts, local data freshness, and manual review checklist for the patch.
