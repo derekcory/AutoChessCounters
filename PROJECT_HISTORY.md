@@ -19,6 +19,7 @@ This file records the meaningful changes made to the site so we can look back la
 ### Patch review dashboard
 
 - Added a top-level `Patch Review` tab.
+- Moved the `Latest official patch` notes panel from `Builds & Counters` into the `Patch Review` tab so patch content lives with the review workflow.
 - Added dashboard summary tiles for the active patch, section count, patch line count, affected reference records, and high-priority build reviews.
 - Added an affected-reference list generated from patch text matched against pieces, items, and synergies.
 - Added a build review queue generated from affected references and patch-rule keywords.
