@@ -703,6 +703,47 @@ select:focus {
   text-transform: uppercase;
 }
 
+.advisor-stage-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 460px);
+  gap: 12px;
+  align-items: end;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-2);
+}
+
+.stage-toggle {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 5px;
+  min-height: 42px;
+  padding: 4px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.14);
+}
+
+.stage-toggle button {
+  border: 0;
+  border-radius: 6px;
+  color: var(--muted);
+  background: transparent;
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.stage-toggle button:hover {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.stage-toggle button.active {
+  color: #11140f;
+  background: var(--cyan);
+}
+
 .advisor-layout {
   display: grid;
   grid-template-columns: minmax(300px, 0.72fr) minmax(0, 1.28fr);
@@ -760,11 +801,29 @@ select:focus {
   accent-color: var(--gold);
 }
 
-.synergy-check span:last-child {
+.synergy-check-name {
   min-width: 0;
   font-size: 0.84rem;
   font-weight: 850;
   overflow-wrap: anywhere;
+}
+
+.synergy-level-select {
+  grid-column: 2 / -1;
+  min-height: 34px;
+  padding: 0 28px 0 10px;
+  color: var(--soft);
+  background: rgba(0, 0, 0, 0.16);
+  font-size: 0.78rem;
+  font-weight: 850;
+}
+
+.synergy-check:not(.active) .synergy-level-select {
+  display: none;
+}
+
+.synergy-level-select:disabled {
+  opacity: 0.5;
 }
 
 .synergy-check-icon {
@@ -1313,6 +1372,7 @@ code {
   .control-bar,
   .patch-grid,
   .counter-grid,
+  .advisor-stage-panel,
   .advisor-layout,
   .advisor-summary,
   .advisor-explain.two-column,

@@ -12,6 +12,8 @@
     selectedId: builds[0]?.id || "",
     enemyId: builds[0]?.id || "",
     counterSynergies: [],
+    counterLevels: {},
+    counterStage: "Mid",
     referenceType: "pieces",
     referenceQuery: "",
     referencePrimary: "All",
@@ -35,6 +37,7 @@
     counterResults: document.getElementById("counterResults"),
     counterClassList: document.getElementById("counterClassList"),
     counterRaceList: document.getElementById("counterRaceList"),
+    counterStageControl: document.getElementById("counterStageControl"),
     counterSelectedCount: document.getElementById("counterSelectedCount"),
     counterClearButton: document.getElementById("counterClearButton"),
     counterThreatProfile: document.getElementById("counterThreatProfile"),
@@ -223,6 +226,49 @@
     "ranged-carry": "protected ranged damage",
     "sustain": "sustain"
   };
+
+  const COUNTER_STAGE_OPTIONS = [
+    {
+      id: "Early",
+      label: "Early",
+      description: "Preserve HP, punish greed, and prefer counters that work before expensive pieces are online.",
+      traitScores: { "tempo-pressure": 4, "frontline-armor": 2, "ranged-carry": 2, "summon-bait": 1, "late-control": -3, "damage-sharing": -1 },
+      timingScores: [
+        { terms: ["mid game", "level 7", "level 8", "tempo"], score: 2 },
+        { terms: ["round 25", "round 35", "level 16", "legendary"], score: -4 }
+      ]
+    },
+    {
+      id: "Mid",
+      label: "Mid",
+      description: "Fight strongest board, answer visible carries, and keep pivot options open.",
+      traitScores: { "tempo-pressure": 2, "backline-access": 2, "aoe-control": 1, "frontline-armor": 1, "late-control": -1 },
+      timingScores: [
+        { terms: ["mid game", "level 7", "level 8", "item dependent"], score: 3 },
+        { terms: ["round 35", "level 16"], score: -2 }
+      ]
+    },
+    {
+      id: "Late",
+      label: "Late",
+      description: "Tech against completed synergies, prioritize control, and protect your win condition.",
+      traitScores: { "late-control": 4, "damage-sharing": 2, "magic-damage": 2, "silence-control": 2, "tempo-pressure": -1 },
+      timingScores: [
+        { terms: ["round 25", "round 35", "level 8", "level 9", "legendary", "item dependent"], score: 3 },
+        { terms: ["mid game"], score: -1 }
+      ]
+    },
+    {
+      id: "Final",
+      label: "Final",
+      description: "Counter the remaining opponent directly with positioning, control, and late-board tech.",
+      traitScores: { "late-control": 4, "backline-access": 2, "silence-control": 2, "aoe-control": 2, "summon-bait": 1, "tempo-pressure": -2 },
+      timingScores: [
+        { terms: ["round 35", "level 16", "legendary", "level 8", "level 9"], score: 4 },
+        { terms: ["easy", "tempo"], score: -1 }
+      ]
+    }
+  ];
 
   const SYNERGY_COUNTER_RULES = {
     Assassin: {
@@ -566,9 +612,123 @@
     return "Watch";
   }
 
+  function normalizedEffectText(value) {
+    return String(value || "")
+      .replace(/\uFF1A/g, ":")
+      .replace(/\u00ef\u00bc\u0161/g, ":");
+  }
+
+  function synergyLevelOptions(synergy) {
+    const levels = new Set();
+    const text = normalizedEffectText(synergy.effect);
+    const pattern = /(?:^|[\s[])(\d{1,2})\s*(?=[:\]])/g;
+    let match = pattern.exec(text);
+    while (match) {
+      levels.add(Number(match[1]));
+      match = pattern.exec(text);
+    }
+
+    if (!levels.size) {
+      levels.add(1);
+    }
+
+    return [...levels].sort((a, b) => a - b);
+  }
+
+  function selectedCounterLevel(synergy) {
+    const levels = synergyLevelOptions(synergy);
+    const selected = Number(state.counterLevels[synergy.id]);
+    return levels.includes(selected) ? selected : levels[0];
+  }
+
+  function levelIndexRatio(synergy) {
+    const levels = synergyLevelOptions(synergy);
+    if (levels.length <= 1) {
+      return 0;
+    }
+
+    const index = Math.max(0, levels.indexOf(selectedCounterLevel(synergy)));
+    return index / (levels.length - 1);
+  }
+
+  function levelWeight(synergy) {
+    if (synergyLevelOptions(synergy).length <= 1) {
+      return 1;
+    }
+
+    return 0.86 + levelIndexRatio(synergy) * 0.5;
+  }
+
+  function levelLabel(synergy) {
+    const levels = synergyLevelOptions(synergy);
+    const level = selectedCounterLevel(synergy);
+    return levels.length === 1 && level === 1 ? "Active" : `${level} pieces`;
+  }
+
+  function selectedSynergyLabel(synergy) {
+    const levels = synergyLevelOptions(synergy);
+    return levels.length === 1 && selectedCounterLevel(synergy) === 1 ? synergy.name : `${synergy.name} ${selectedCounterLevel(synergy)}`;
+  }
+
+  function selectedLevelEffect(synergy) {
+    const text = normalizedEffectText(synergy.effect);
+    const level = selectedCounterLevel(synergy);
+    const lines = text
+      .split(/\n+/)
+      .map((line) => line.trim())
+      .filter(Boolean);
+    const levelPattern = new RegExp(`(?:^|\\[)${level}\\s*(?:[:\\]])`);
+    const match = lines.find((line) => levelPattern.test(line));
+    return effectPreview(match || text);
+  }
+
+  function stageConfig() {
+    return COUNTER_STAGE_OPTIONS.find((stage) => stage.id === state.counterStage) || COUNTER_STAGE_OPTIONS[1];
+  }
+
+  function stageBuildScore(build, matchedTraits) {
+    const stage = stageConfig();
+    const searchText = normalizeForMatch([
+      build.name,
+      build.style,
+      build.timing,
+      build.difficulty,
+      ...build.tags,
+      build.winCondition
+    ].join(" "));
+    let score = 0;
+
+    for (const trait of matchedTraits) {
+      score += stage.traitScores[trait] || 0;
+    }
+
+    for (const rule of stage.timingScores) {
+      if (rule.terms.some((term) => searchText.includes(normalizeForMatch(term)))) {
+        score += rule.score;
+      }
+    }
+
+    return score;
+  }
+
+  function levelStageText(synergy) {
+    const ratio = levelIndexRatio(synergy);
+    if (ratio >= 0.95) {
+      return `${levelLabel(synergy)} is the highest listed breakpoint, so this threat is weighted as a capped-board problem.`;
+    }
+    if (ratio >= 0.45) {
+      return `${levelLabel(synergy)} is a meaningful mid-tier breakpoint, so the counter needs to answer the synergy directly.`;
+    }
+    return `${levelLabel(synergy)} is an early breakpoint, so tempo and clean positioning can still beat it before the board caps.`;
+  }
+
   function buildCounterRecommendations(selectedSynergies) {
     const rules = selectedSynergies.map((synergy) => ({ synergy, rule: counterRuleFor(synergy) }));
     const combos = activeCounterCombos(selectedSynergies);
+    const stage = stageConfig();
+    const averageLevelWeight = selectedSynergies.length
+      ? selectedSynergies.reduce((total, synergy) => total + levelWeight(synergy), 0) / selectedSynergies.length
+      : 1;
     const raw = builds
       .map((build) => {
         let score = Math.max(0, build.score - 70) / 8;
@@ -579,7 +739,7 @@
           const directScore = item.rule.buildScores[build.id] || 0;
           const traitMatches = item.rule.counterTraits.filter((trait) => buildHasCounterTrait(build, trait));
           const traitScore = Math.min(4, traitMatches.length * 1.2);
-          const total = directScore + traitScore;
+          const total = (directScore + traitScore) * levelWeight(item.synergy);
           if (total <= 0) {
             continue;
           }
@@ -587,15 +747,15 @@
           score += total;
           traitMatches.forEach((trait) => matchedTraits.add(trait));
           reasons.push({
-            title: item.synergy.name,
-            text: `${item.rule.threat} Counter priority: ${item.rule.answers.slice(0, 2).join("; ")}.`
+            title: `${item.synergy.name} - ${levelLabel(item.synergy)}`,
+            text: `${item.rule.threat} Current level read: ${selectedLevelEffect(item.synergy)} ${levelStageText(item.synergy)} Counter priority: ${item.rule.answers.slice(0, 2).join("; ")}.`
           });
         }
 
         for (const combo of combos) {
           const comboScore = combo.buildScores[build.id] || 0;
           if (comboScore > 0) {
-            score += comboScore;
+            score += comboScore * averageLevelWeight;
             reasons.push({ title: combo.label, text: combo.explanation });
           }
         }
@@ -604,7 +764,17 @@
           return null;
         }
 
-        return { build, score, reasons, traits: [...matchedTraits] };
+        const stageAdjustment = stageBuildScore(build, matchedTraits);
+        score = Math.max(0.1, score + stageAdjustment);
+        if (Math.abs(stageAdjustment) >= 2) {
+          const fitText = stageAdjustment > 0 ? "fits" : "is less natural for";
+          reasons.push({
+            title: `${stage.label} stage`,
+            text: `${stage.description} This build ${fitText} the selected stage based on timing, traits, and how quickly it can answer the enemy board.`
+          });
+        }
+
+        return { build, score, reasons, traits: [...matchedTraits], stageAdjustment };
       })
       .filter(Boolean)
       .sort((a, b) => b.score - a.score || b.build.score - a.build.score);
@@ -628,17 +798,47 @@
     `;
   }
 
+  function renderCounterStageControl() {
+    elements.counterStageControl.innerHTML = COUNTER_STAGE_OPTIONS.map((stage) => {
+      const active = stage.id === state.counterStage ? "active" : "";
+      return `<button class="${active}" type="button" data-counter-stage="${escapeHtml(stage.id)}">${escapeHtml(stage.label)}</button>`;
+    }).join("");
+
+    elements.counterStageControl.querySelectorAll("[data-counter-stage]").forEach((button) => {
+      button.addEventListener("click", () => {
+        state.counterStage = button.dataset.counterStage || "Mid";
+        renderCounterAdvisor();
+      });
+    });
+  }
+
+  function levelOptionLabel(synergy, level) {
+    const levels = synergyLevelOptions(synergy);
+    return levels.length === 1 && level === 1 ? "Active" : `${level} pieces`;
+  }
+
   function renderSynergyChecks(type, container) {
     const selected = new Set(state.counterSynergies);
     const synergies = reference.synergies.filter((synergy) => synergy.type === type);
     container.innerHTML = synergies
       .map((synergy) => {
         const checked = selected.has(synergy.id) ? "checked" : "";
+        const disabled = checked ? "" : "disabled";
+        const currentLevel = selectedCounterLevel(synergy);
+        const levelOptions = synergyLevelOptions(synergy)
+          .map((level) => {
+            const selectedOption = level === currentLevel ? "selected" : "";
+            return `<option value="${level}" ${selectedOption}>${escapeHtml(levelOptionLabel(synergy, level))}</option>`;
+          })
+          .join("");
         return `
           <label class="synergy-check ${checked ? "active" : ""}">
             <input type="checkbox" value="${escapeHtml(synergy.id)}" data-counter-synergy="${escapeHtml(synergy.id)}" ${checked}>
             ${synergyCheckImage(synergy)}
-            <span>${escapeHtml(synergy.name)}</span>
+            <span class="synergy-check-name">${escapeHtml(synergy.name)}</span>
+            <select class="synergy-level-select" data-counter-level="${escapeHtml(synergy.id)}" aria-label="${escapeHtml(synergy.name)} level" ${disabled}>
+              ${levelOptions}
+            </select>
           </label>
         `;
       })
@@ -649,10 +849,27 @@
         const next = new Set(state.counterSynergies);
         if (input.checked) {
           next.add(input.value);
+          if (!state.counterLevels[input.value]) {
+            const synergy = reference.synergies.find((item) => item.id === input.value);
+            if (synergy) {
+              state.counterLevels[input.value] = synergyLevelOptions(synergy)[0];
+            }
+          }
         } else {
           next.delete(input.value);
+          delete state.counterLevels[input.value];
         }
         state.counterSynergies = [...next];
+        renderCounterAdvisor();
+      });
+    });
+
+    container.querySelectorAll("[data-counter-level]").forEach((select) => {
+      select.addEventListener("click", (event) => {
+        event.stopPropagation();
+      });
+      select.addEventListener("change", () => {
+        state.counterLevels[select.dataset.counterLevel] = Number(select.value);
         renderCounterAdvisor();
       });
     });
@@ -668,11 +885,16 @@
     const profile = unique(rules.flatMap((rule) => rule.profile)).slice(0, 8);
     const answers = unique(rules.flatMap((rule) => rule.answers)).slice(0, 6);
     const best = recommendations[0]?.build.name || "No recommendation";
+    const stage = stageConfig();
 
     elements.counterThreatProfile.innerHTML = `
       <section class="advisor-stat">
         <span>Selected</span>
-        <strong>${escapeHtml(selectedSynergies.map((synergy) => synergy.name).join(" + "))}</strong>
+        <strong>${escapeHtml(selectedSynergies.map(selectedSynergyLabel).join(" + "))}</strong>
+      </section>
+      <section class="advisor-stat">
+        <span>Stage</span>
+        <strong>${escapeHtml(stage.label)} - ${escapeHtml(stage.description)}</strong>
       </section>
       <section class="advisor-stat">
         <span>Threat profile</span>
@@ -684,7 +906,7 @@
       </section>
       <section class="advisor-stat">
         <span>Counter priorities</span>
-        <strong>${escapeHtml(answers.join(", "))}</strong>
+        <strong>${escapeHtml([stage.description, ...answers].join(", "))}</strong>
       </section>
     `;
   }
@@ -696,6 +918,8 @@
     const itemPlan = build.items.slice(0, 3);
     const watchOut = build.weakInto.slice(0, 3);
     const traits = item.traits.length ? item.traits.map(traitLabel) : ["direct rule match"];
+    const stage = stageConfig();
+    const stageTone = item.stageAdjustment >= 2 ? "good" : item.stageAdjustment <= -2 ? "warn" : "";
 
     return `
       <article class="advisor-recommendation">
@@ -708,7 +932,10 @@
         </div>
 
         <p>${escapeHtml(build.winCondition)}</p>
-        <div class="chip-row">${traits.slice(0, 5).map((trait) => chip(trait)).join("")}</div>
+        <div class="chip-row">
+          ${chip(`${stage.label} stage`, stageTone)}
+          ${traits.slice(0, 5).map((trait) => chip(trait)).join("")}
+        </div>
 
         <section class="advisor-explain">
           <h4>Why It Counters This</h4>
@@ -791,14 +1018,14 @@
                 <div class="reference-card-top">
                   ${synergyCheckImage(synergy)}
                   <div class="reference-title">
-                    <p class="eyebrow">${escapeHtml(synergy.type)}</p>
+                    <p class="eyebrow">${escapeHtml(synergy.type)} - ${escapeHtml(levelLabel(synergy))}</p>
                     <h3>${escapeHtml(synergy.name)}</h3>
                   </div>
                 </div>
-                <p>${escapeHtml(effectPreview(synergy.effect))}</p>
+                <p>${escapeHtml(selectedLevelEffect(synergy))}</p>
                 <section class="advisor-explain">
                   <h4>Counter Read</h4>
-                  <p>${escapeHtml(rule.threat)}</p>
+                  <p>${escapeHtml(`${rule.threat} ${levelStageText(synergy)}`)}</p>
                   <div class="chip-row">${rule.answers.slice(0, 4).map((answer) => chip(answer)).join("")}</div>
                 </section>
               </article>
@@ -810,6 +1037,7 @@
   }
 
   function renderCounterAdvisor() {
+    renderCounterStageControl();
     renderSynergyChecks("Class", elements.counterClassList);
     renderSynergyChecks("Race", elements.counterRaceList);
     const selectedSynergies = selectedCounterSynergies();
@@ -1597,6 +1825,7 @@
 
     elements.counterClearButton.addEventListener("click", () => {
       state.counterSynergies = [];
+      state.counterLevels = {};
       renderCounterAdvisor();
     });
 
