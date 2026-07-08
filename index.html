@@ -39,93 +39,102 @@
       </header>
 
       <main class="main-layout">
-        <section class="control-bar" aria-label="Build filters">
-          <label class="search-field">
-            <span>Search</span>
-            <input id="searchInput" type="search" placeholder="Mage, Hunter, Marine, items..." autocomplete="off">
-          </label>
+        <nav class="view-tabs" aria-label="Main sections">
+          <button class="view-tab active" type="button" data-view="builds">Builds & Counters</button>
+          <button class="view-tab" type="button" data-view="reference">Reference Library</button>
+        </nav>
 
-          <div class="filter-group" aria-label="Tier filter">
-            <span class="filter-label">Tier</span>
-            <div class="segmented" id="tierFilters"></div>
-          </div>
-
-          <label class="select-field">
-            <span>Style</span>
-            <select id="styleFilter"></select>
-          </label>
-
-          <label class="select-field">
-            <span>Difficulty</span>
-            <select id="difficultyFilter"></select>
-          </label>
-        </section>
-
-        <section class="patch-panel" aria-label="Latest official patch">
-          <div class="patch-heading">
-            <div>
-              <p class="eyebrow">Latest official patch</p>
-              <h2 id="patchTitle">Official Patch Notes</h2>
-            </div>
-            <a class="source-link" id="patchSourceLink" href="#" target="_blank" rel="noreferrer">Official notes</a>
-          </div>
-          <div class="patch-grid" id="patchHighlights"></div>
-        </section>
-
-        <section class="content-grid">
-          <aside class="build-panel" aria-label="Build library">
-            <div class="panel-heading">
-              <h2>Build Library</h2>
-              <span id="resultCount">0 shown</span>
-            </div>
-            <div class="build-list" id="buildList"></div>
-          </aside>
-
-          <section class="detail-panel" id="detailPanel" aria-live="polite"></section>
-        </section>
-
-        <section class="counter-panel" aria-label="Counter finder">
-          <div class="counter-heading">
-            <div>
-              <p class="eyebrow">Counter finder</p>
-              <h2>When the Lobby Is Playing...</h2>
-            </div>
-            <label class="select-field compact">
-              <span>Enemy comp</span>
-              <select id="enemySelect"></select>
+        <section class="view-section active" id="buildsView" aria-label="Builds and counters">
+          <section class="control-bar" aria-label="Build filters">
+            <label class="search-field">
+              <span>Search</span>
+              <input id="searchInput" type="search" placeholder="Mage, Hunter, Marine, items..." autocomplete="off">
             </label>
-          </div>
-          <div class="counter-grid" id="counterResults"></div>
-        </section>
 
-        <section class="reference-panel" aria-label="Reference library">
-          <div class="reference-heading">
-            <div>
-              <p class="eyebrow">Reference library</p>
-              <h2>Pieces, Items, and Synergies</h2>
+            <div class="filter-group" aria-label="Tier filter">
+              <span class="filter-label">Tier</span>
+              <div class="segmented" id="tierFilters"></div>
             </div>
-            <label class="search-field compact-search">
-              <span>Reference search</span>
-              <input id="referenceSearchInput" type="search" placeholder="Ronin, Mage, Pulse Staff..." autocomplete="off">
-            </label>
-          </div>
 
-          <div class="reference-tabs" id="referenceTabs" aria-label="Reference type"></div>
-
-          <div class="reference-toolbar">
             <label class="select-field">
-              <span id="referencePrimaryLabel">Quality</span>
-              <select id="referencePrimaryFilter"></select>
+              <span>Style</span>
+              <select id="styleFilter"></select>
             </label>
-            <label class="select-field">
-              <span id="referenceSecondaryLabel">Race/Class</span>
-              <select id="referenceSecondaryFilter"></select>
-            </label>
-            <div class="reference-count" id="referenceSummary">0 shown</div>
-          </div>
 
-          <div class="reference-list" id="referenceList"></div>
-          <p class="reference-source" id="referenceSourceNote"></p>
+            <label class="select-field">
+              <span>Difficulty</span>
+              <select id="difficultyFilter"></select>
+            </label>
+          </section>
+
+          <section class="patch-panel" aria-label="Latest official patch">
+            <div class="patch-heading">
+              <div>
+                <p class="eyebrow">Latest official patch</p>
+                <h2 id="patchTitle">Official Patch Notes</h2>
+              </div>
+              <a class="source-link" id="patchSourceLink" href="#" target="_blank" rel="noreferrer">Official notes</a>
+            </div>
+            <div class="patch-grid" id="patchHighlights"></div>
+          </section>
+
+          <section class="content-grid">
+            <aside class="build-panel" aria-label="Build library">
+              <div class="panel-heading">
+                <h2>Build Library</h2>
+                <span id="resultCount">0 shown</span>
+              </div>
+              <div class="build-list" id="buildList"></div>
+            </aside>
+
+            <section class="detail-panel" id="detailPanel" aria-live="polite"></section>
+          </section>
+
+          <section class="counter-panel" aria-label="Counter finder">
+            <div class="counter-heading">
+              <div>
+                <p class="eyebrow">Counter finder</p>
+                <h2>When the Lobby Is Playing...</h2>
+              </div>
+              <label class="select-field compact">
+                <span>Enemy comp</span>
+                <select id="enemySelect"></select>
+              </label>
+            </div>
+            <div class="counter-grid" id="counterResults"></div>
+          </section>
+        </section>
+
+        <section class="view-section" id="referenceView" aria-label="Reference library" hidden>
+          <section class="reference-panel" aria-label="Reference library">
+            <div class="reference-heading">
+              <div>
+                <p class="eyebrow">Reference library</p>
+                <h2>Pieces, Items, and Synergies</h2>
+              </div>
+              <label class="search-field compact-search">
+                <span>Reference search</span>
+                <input id="referenceSearchInput" type="search" placeholder="Ronin, Mage, Pulse Staff..." autocomplete="off">
+              </label>
+            </div>
+
+            <div class="reference-tabs" id="referenceTabs" aria-label="Reference type"></div>
+
+            <div class="reference-toolbar">
+              <label class="select-field">
+                <span id="referencePrimaryLabel">Quality</span>
+                <select id="referencePrimaryFilter"></select>
+              </label>
+              <label class="select-field">
+                <span id="referenceSecondaryLabel">Race/Class</span>
+                <select id="referenceSecondaryFilter"></select>
+              </label>
+              <div class="reference-count" id="referenceSummary">0 shown</div>
+            </div>
+
+            <div class="reference-list" id="referenceList"></div>
+            <p class="reference-source" id="referenceSourceNote"></p>
+          </section>
         </section>
       </main>
 

@@ -3,6 +3,7 @@
   const builds = data.builds;
   const reference = window.AUTO_CHESS_REFERENCE || { pieces: [], items: [], synergies: [], meta: {} };
   const state = {
+    activeView: "builds",
     query: "",
     tier: "All",
     style: "All",
@@ -17,6 +18,9 @@
 
   const elements = {
     searchInput: document.getElementById("searchInput"),
+    viewTabs: document.querySelectorAll(".view-tab"),
+    buildsView: document.getElementById("buildsView"),
+    referenceView: document.getElementById("referenceView"),
     tierFilters: document.getElementById("tierFilters"),
     styleFilter: document.getElementById("styleFilter"),
     difficultyFilter: document.getElementById("difficultyFilter"),
@@ -163,6 +167,20 @@
     elements.statItems.textContent = reference.items.length;
     elements.statSynergies.textContent = reference.synergies.length;
     elements.statUpdated.textContent = data.meta.updatedLabel;
+  }
+
+  function renderActiveView() {
+    elements.viewTabs.forEach((button) => {
+      const active = button.dataset.view === state.activeView;
+      button.classList.toggle("active", active);
+      button.setAttribute("aria-current", active ? "page" : "false");
+    });
+
+    const referenceActive = state.activeView === "reference";
+    elements.buildsView.hidden = referenceActive;
+    elements.referenceView.hidden = !referenceActive;
+    elements.buildsView.classList.toggle("active", !referenceActive);
+    elements.referenceView.classList.toggle("active", referenceActive);
   }
 
   function renderPatchNotes() {
@@ -554,6 +572,7 @@
   }
 
   function render() {
+    renderActiveView();
     renderTierFilters();
     const hasResults = renderBuildList();
     if (hasResults) {
@@ -565,6 +584,13 @@
   }
 
   function bindEvents() {
+    elements.viewTabs.forEach((button) => {
+      button.addEventListener("click", () => {
+        state.activeView = button.dataset.view || "builds";
+        renderActiveView();
+      });
+    });
+
     elements.searchInput.addEventListener("input", (event) => {
       state.query = event.target.value;
       render();
@@ -607,6 +633,7 @@
     renderPatchNotes();
     renderFilters();
     renderReferenceLibrary();
+    renderActiveView();
     bindEvents();
     render();
   }

@@ -4,6 +4,12 @@ This file records the meaningful changes made to the site so we can look back la
 
 ## July 8, 2026
 
+### Top-level navigation
+
+- Moved the reference library out of the bottom of the build page.
+- Added top tabs for `Builds & Counters` and `Reference Library`.
+- Kept the Pieces / Items / Synergies tabs inside the Reference Library view.
+
 ### GitHub Pages setup
 
 - Created the Git repository locally on branch `dev`.
