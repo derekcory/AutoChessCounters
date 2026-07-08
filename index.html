@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Auto Chess Builds and Counters</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand-block">
+          <p class="eyebrow">Unofficial Auto Chess reference</p>
+          <h1>Builds and Counters</h1>
+          <p class="subhead">Build notes, counter lines, item priorities, and pivots for quick in-game checks.</p>
+        </div>
+        <div class="meta-strip" aria-label="Reference statistics">
+          <div>
+            <span>Builds</span>
+            <strong id="stat-builds">0</strong>
+          </div>
+          <div>
+            <span>Counters</span>
+            <strong id="stat-counters">0</strong>
+          </div>
+          <div>
+            <span>Data</span>
+            <strong id="stat-updated">2026-03-25</strong>
+          </div>
+        </div>
+      </header>
+
+      <main class="main-layout">
+        <section class="control-bar" aria-label="Build filters">
+          <label class="search-field">
+            <span>Search</span>
+            <input id="searchInput" type="search" placeholder="Mage, Hunter, Marine, items..." autocomplete="off">
+          </label>
+
+          <div class="filter-group" aria-label="Tier filter">
+            <span class="filter-label">Tier</span>
+            <div class="segmented" id="tierFilters"></div>
+          </div>
+
+          <label class="select-field">
+            <span>Style</span>
+            <select id="styleFilter"></select>
+          </label>
+
+          <label class="select-field">
+            <span>Difficulty</span>
+            <select id="difficultyFilter"></select>
+          </label>
+        </section>
+
+        <section class="patch-panel" aria-label="Latest official patch">
+          <div class="patch-heading">
+            <div>
+              <p class="eyebrow">Latest official patch</p>
+              <h2 id="patchTitle">Official Patch Notes</h2>
+            </div>
+            <a class="source-link" id="patchSourceLink" href="#" target="_blank" rel="noreferrer">Official notes</a>
+          </div>
+          <div class="patch-grid" id="patchHighlights"></div>
+        </section>
+
+        <section class="content-grid">
+          <aside class="build-panel" aria-label="Build library">
+            <div class="panel-heading">
+              <h2>Build Library</h2>
+              <span id="resultCount">0 shown</span>
+            </div>
+            <div class="build-list" id="buildList"></div>
+          </aside>
+
+          <section class="detail-panel" id="detailPanel" aria-live="polite"></section>
+        </section>
+
+        <section class="counter-panel" aria-label="Counter finder">
+          <div class="counter-heading">
+            <div>
+              <p class="eyebrow">Counter finder</p>
+              <h2>When the Lobby Is Playing...</h2>
+            </div>
+            <label class="select-field compact">
+              <span>Enemy comp</span>
+              <select id="enemySelect"></select>
+            </label>
+          </div>
+          <div class="counter-grid" id="counterResults"></div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <span id="footerSourceNote">Unofficial fan reference. Patch notes are summarized from the official Auto Chess website.</span>
+      </footer>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
