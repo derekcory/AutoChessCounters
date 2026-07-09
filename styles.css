@@ -244,6 +244,16 @@ select {
   padding: 0 36px 0 12px;
 }
 
+select option {
+  color: var(--text);
+  background: var(--surface-2);
+}
+
+select option:checked {
+  color: #11140f;
+  background: var(--gold);
+}
+
 input:focus,
 select:focus {
   border-color: var(--cyan);
@@ -812,10 +822,16 @@ select:focus {
   grid-column: 2 / -1;
   min-height: 34px;
   padding: 0 28px 0 10px;
-  color: var(--soft);
-  background: rgba(0, 0, 0, 0.16);
+  border-color: rgba(217, 173, 75, 0.38);
+  color: var(--text);
+  background: var(--surface-2);
   font-size: 0.78rem;
   font-weight: 850;
+}
+
+.synergy-level-select option {
+  color: var(--text);
+  background: var(--surface-2);
 }
 
 .synergy-check:not(.active) .synergy-level-select {
