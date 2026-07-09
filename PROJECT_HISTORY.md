@@ -22,6 +22,7 @@ This file records the meaningful changes made to the site so we can look back la
 - Added another seven sourced counter templates: `9 Feathered Wizard`, `9 Assassin Horn`, `9 Warrior Rogue Guard`, `Divinity Warlock`, `9 Egersis Pact`, `Shaman Mage Horn`, and `Human Knight Marine`.
 - Added advisor support for those builds, including exact rules for `Human + Mage`, `Feathered + Wizard`, `Greater + Warrior`, `Shaman + Mage`, and `Warrior + Horn`.
 - Moved the quick `Counter finder` build lookup from the bottom of `Builds & Counters` into the `Counter Advisor` tab so all counter tools live together.
+- Upgraded Counter Advisor positioning templates into piece-aware board diagrams with compact piece initials, enemy/your-side labels, and suggested slot cards explaining where each core piece or flexible unit should go.
 
 ### Patch review dashboard
 

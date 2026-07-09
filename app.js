@@ -625,13 +625,13 @@
   ];
 
   const POSITION_ROLE_INFO = {
-    frontline: { short: "T", label: "Tank/frontline" },
-    carry: { short: "C", label: "Carry" },
-    utility: { short: "U", label: "Control/support" },
-    bait: { short: "B", label: "Bait" },
-    jumper: { short: "J", label: "Backline access" },
-    aoe: { short: "A", label: "AoE/control" },
-    avoid: { short: "X", label: "Avoid clumping" }
+    frontline: { short: "T", label: "Tank/frontline", fallback: "Best tank" },
+    carry: { short: "C", label: "Carry", fallback: "Main carry" },
+    utility: { short: "U", label: "Control/support", fallback: "Control piece" },
+    bait: { short: "B", label: "Bait", fallback: "Bait unit" },
+    jumper: { short: "J", label: "Backline access", fallback: "Jumper" },
+    aoe: { short: "A", label: "AoE/control", fallback: "AoE control" },
+    avoid: { short: "X", label: "Avoid clumping", fallback: "Keep open" }
   };
 
   const POSITION_PRIORITY = {
@@ -642,6 +642,15 @@
     frontline: 5,
     jumper: 6,
     carry: 7
+  };
+
+  const POSITION_ROLE_BUCKETS = {
+    frontline: ["frontline"],
+    carry: ["carry", "aoe", "jumper", "utility"],
+    utility: ["utility", "aoe", "frontline"],
+    bait: ["bait", "frontline", "utility"],
+    jumper: ["jumper", "carry", "utility"],
+    aoe: ["aoe", "utility", "carry"]
   };
 
   const TECH_PIECES_BY_SYNERGY = {
@@ -1055,6 +1064,140 @@
     };
   }
 
+  function boardCode(value, role) {
+    const text = displayValue(value, "").replace(/[^a-z0-9\s-]/gi, " ").trim();
+    if (!text) {
+      return POSITION_ROLE_INFO[role]?.short || "";
+    }
+
+    const parts = text
+      .split(/\s+|-/)
+      .filter((part) => part && !["of", "the", "and"].includes(part.toLowerCase()));
+
+    if (!parts.length) {
+      return POSITION_ROLE_INFO[role]?.short || "";
+    }
+
+    if (parts.length === 1) {
+      return parts[0].slice(0, 2).toUpperCase();
+    }
+
+    return parts.slice(0, 2).map((part) => part[0]).join("").toUpperCase();
+  }
+
+  function positionEntryText(entry) {
+    const piece = entry.piece || pieceByName.get(normalizeForMatch(entry.name));
+    return normalizeForMatch([
+      entry.name,
+      piece?.title,
+      piece?.abilityName,
+      piece?.ability,
+      ...asArray(piece?.races),
+      ...asArray(piece?.classes)
+    ].join(" "));
+  }
+
+  function sortedPositionEntries(entries, highCostFirst) {
+    return uniquePieceEntries(entries).sort((a, b) => {
+      const aCost = Number(a.cost) || 0;
+      const bCost = Number(b.cost) || 0;
+      return highCostFirst ? bCost - aCost || a.index - b.index : aCost - bCost || a.index - b.index;
+    });
+  }
+
+  function positionRoleBuckets(build) {
+    const entries = uniquePieceEntries(concreteCoreEntries(build));
+    const carryText = normalizeForMatch([build.winCondition, build.style, build.timing, ...build.items].join(" "));
+    const roleText = (entry) => positionEntryText(entry);
+    const matches = (entry, pattern) => pattern.test(roleText(entry));
+
+    const carryPattern = /sniper|cannon|berserker|shadowcrawler|shining assassin|dragon knight|tortola|god thunder|god of thunder|doom arbiter|rogue guard|mountain|thunder spirit|ogre mage|soul reaper|ronin-nue|ranger|carry/;
+    const jumperPattern = /assassin|crawler|ronin|soul breaker|lord of sand|sandbound|jumper/;
+    const aoePattern = /storm shaman|tortola|god thunder|god of thunder|thunder spirit|devastator|tsunami|siren|pirate captain|the source|grand herald|dark spirit|soul reaper|mage|shaman|warlock|control/;
+    const utilityPattern = /the source|storm shaman|tsunami|siren|pirate captain|soul reaper|grand herald|taboo witcher|warpwood|strange egg|ogre mage|priest|warlock|shaman|wizard|marine|control|support/;
+    const frontlinePattern = /warpwood|argali|evil knight|hell knight|god of war|mountain|pirate captain|abyssal guard|rogue guard|doom arbiter|redaxe|swordman|skull hunter|khan|razorclaw|wisdom defender|mech|warrior|knight|cave|tank|front/;
+
+    const carryEntries = entries.filter((entry) => carryText.includes(normalizeForMatch(entry.name)) || matches(entry, carryPattern));
+    const jumperEntries = entries.filter((entry) => matches(entry, jumperPattern));
+    const aoeEntries = entries.filter((entry) => matches(entry, aoePattern));
+    const utilityEntries = entries.filter((entry) => matches(entry, utilityPattern));
+    const frontlineEntries = entries.filter((entry) => matches(entry, frontlinePattern));
+    const baitEntries = entries.filter((entry) => (Number(entry.cost) || 0) <= 2 || matches(entry, frontlinePattern));
+
+    return {
+      frontline: sortedPositionEntries(frontlineEntries, false),
+      carry: sortedPositionEntries(carryEntries, true),
+      utility: sortedPositionEntries(utilityEntries, true),
+      bait: sortedPositionEntries(baitEntries, false),
+      jumper: sortedPositionEntries(jumperEntries, true),
+      aoe: sortedPositionEntries(aoeEntries, true)
+    };
+  }
+
+  function takePositionEntry(buckets, role, used) {
+    const roleOrder = POSITION_ROLE_BUCKETS[role] || [role];
+    for (const bucketName of roleOrder) {
+      const entry = asArray(buckets[bucketName]).find((item) => !used.has(normalizeForMatch(item.name)));
+      if (entry) {
+        used.add(normalizeForMatch(entry.name));
+        return {
+          name: entry.name,
+          meta: pieceMeta(entry),
+          fallback: false
+        };
+      }
+    }
+
+    return {
+      name: POSITION_ROLE_INFO[role]?.fallback || "Flexible slot",
+      meta: "Flexible slot",
+      fallback: true
+    };
+  }
+
+  function assignPositionPieces(board, build) {
+    const buckets = positionRoleBuckets(build);
+    const used = new Set();
+    const slots = [];
+    const slotKeys = new Set();
+
+    board.forEach((row, rowIndex) => {
+      row.forEach((cell, columnIndex) => {
+        if (!cell.role || rowIndex < 4) {
+          return;
+        }
+
+        const info = POSITION_ROLE_INFO[cell.role];
+        if (cell.role === "avoid") {
+          cell.piece = info?.fallback || "Keep open";
+          cell.short = info?.short || "X";
+          cell.meta = "Spacing rule";
+        } else {
+          const assignment = takePositionEntry(buckets, cell.role, used);
+          cell.piece = assignment.name;
+          cell.short = assignment.fallback ? info?.short || boardCode(assignment.name, cell.role) : boardCode(assignment.name, cell.role);
+          cell.meta = assignment.meta;
+          cell.fallback = assignment.fallback;
+        }
+
+        const key = `${cell.role}-${cell.piece}-${cell.label}`;
+        if (!slotKeys.has(key)) {
+          slotKeys.add(key);
+          slots.push({
+            role: cell.role,
+            piece: cell.piece,
+            short: cell.short,
+            meta: cell.meta,
+            note: cell.label,
+            square: `R${rowIndex - 3} C${columnIndex + 1}`
+          });
+        }
+      });
+    });
+
+    return slots;
+  }
+
   function emptyPositionBoard() {
     return Array.from({ length: 8 }, () => Array.from({ length: 8 }, () => ({ role: "", label: "" })));
   }
@@ -1162,6 +1305,7 @@
 
     notes.push(...build.positioning.slice(0, 3));
 
+    const slots = assignPositionPieces(board, build);
     const roles = uniqueInOrder(board.flat().map((cell) => cell.role)).filter((role) => role && role !== "avoid");
     if (board.flat().some((cell) => cell.role === "avoid")) {
       roles.push("avoid");
@@ -1171,6 +1315,7 @@
       title: `${build.name} placement`,
       board,
       roles,
+      slots: slots.slice(0, 10),
       notes: uniqueInOrder(notes).slice(0, 6)
     };
   }
@@ -1442,13 +1587,54 @@
           const info = POSITION_ROLE_INFO[cell.role];
           const side = rowIndex < 4 ? "enemy-side" : "own-side";
           const roleClass = cell.role ? `role-${cell.role}` : "";
-          const title = info ? `${info.label}: ${cell.label}` : rowIndex < 4 ? "Enemy side" : "Open square";
-          return `<span class="board-cell ${side} ${roleClass}" title="${escapeHtml(title)}" aria-label="${escapeHtml(title)}">${info ? escapeHtml(info.short) : ""}</span>`;
+          const pieceClass = cell.piece ? "has-piece" : "";
+          const token = cell.short || info?.short || "";
+          const title = info
+            ? `${info.label}${cell.piece ? ` - ${cell.piece}` : ""}: ${cell.label}`
+            : rowIndex < 4 ? "Enemy side" : "Open square";
+          return `
+            <span class="board-cell ${side} ${roleClass} ${pieceClass}" title="${escapeHtml(title)}" aria-label="${escapeHtml(title)}">
+              ${token ? `<span class="board-token">${escapeHtml(token)}</span>` : ""}
+            </span>
+          `;
         })
       )
       .join("");
 
-    return `<div class="positioning-board" role="img" aria-label="${escapeHtml(plan.title)}">${cells}</div>`;
+    return `
+      <div class="positioning-board-wrap">
+        <span class="board-edge-label">Enemy side</span>
+        <div class="positioning-board" role="img" aria-label="${escapeHtml(plan.title)}">${cells}</div>
+        <span class="board-edge-label own">Your board</span>
+      </div>
+    `;
+  }
+
+  function renderPositionSlots(plan) {
+    if (!plan.slots?.length) {
+      return "";
+    }
+
+    return `
+      <div class="positioning-slots">
+        <h5>Suggested Slots</h5>
+        <div class="positioning-slot-list">
+          ${plan.slots.map((slot) => {
+            const info = POSITION_ROLE_INFO[slot.role];
+            return `
+              <article class="positioning-slot role-${escapeHtml(slot.role)}">
+                <span class="slot-token">${escapeHtml(slot.short || info?.short || "")}</span>
+                <div>
+                  <strong>${escapeHtml(slot.piece)}</strong>
+                  <span>${escapeHtml([info?.label, slot.square, slot.meta].filter(Boolean).join(" - "))}</span>
+                  <p>${escapeHtml(slot.note)}</p>
+                </div>
+              </article>
+            `;
+          }).join("")}
+        </div>
+      </div>
+    `;
   }
 
   function renderPositioningPlan(plan) {
@@ -1474,6 +1660,7 @@
           ${renderPositioningBoard(plan)}
           <div class="positioning-guide">
             <div class="positioning-legend">${legend}</div>
+            ${renderPositionSlots(plan)}
             ${list(plan.notes, true)}
           </div>
         </div>
