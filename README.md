@@ -45,6 +45,14 @@ Use `npm.cmd` in PowerShell because this Windows setup blocks `npm.ps1` by polic
 
 That command refreshes generated reference data, refreshes the latest patch panel, audits local game files when available, syntax-checks the site scripts, and writes `PATCH_UPDATE_REPORT.md`.
 
+To specifically compare piece costs against the installed game files:
+
+```powershell
+npm.cmd run audit:costs
+```
+
+That writes `LOCAL_COST_AUDIT.md` with the local IDs, shop buckets, and confidence level for each matched cost.
+
 The local Auto Chess install is expected at:
 
 ```text

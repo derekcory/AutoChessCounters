@@ -1,5 +1,10 @@
 const fs = require("fs");
 const vm = require("vm");
+const {
+  LOCAL_COST_OVERRIDES,
+  localCostPatchNote,
+  qualityForCost
+} = require("./local-cost-overrides");
 
 const SOURCES = {
   pieces: "https://ac.dragonest.com/en/charactor",
@@ -200,6 +205,14 @@ async function main() {
     attack: "60-70 / 120-140 / 240-280",
     patchNote: "June 25, 2026 patch reduced Dwarf Sniper ATK from 65-75 / 130-150 / 260-300."
   }, latestPatchSource);
+  const localCostSource = { url: "", label: "Local Steam game data cost audit" };
+  for (const override of LOCAL_COST_OVERRIDES) {
+    applyPieceOverride(pieces, override.name, {
+      cost: override.cost,
+      quality: qualityForCost(override.cost),
+      patchNote: localCostPatchNote(override)
+    }, localCostSource);
+  }
   if (!pieces.some((piece) => piece.name === "Ronin-Nue")) {
     pieces.push({
       id: "ronin-nue",

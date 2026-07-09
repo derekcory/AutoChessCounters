@@ -64,11 +64,13 @@ function sourceLink(label, url) {
   return url ? `[${label}](${url})` : label;
 }
 
-function writeReport({ steps, auditStep }) {
+function writeReport({ steps, auditStep, costAuditStep }) {
   const patch = loadWindowData("patch-data.js", "AUTO_CHESS_PATCH_DATA");
   const reference = loadWindowData("reference-data.js", "AUTO_CHESS_REFERENCE");
   const audit = auditStep?.ok ? parseAudit(auditStep.stdout) : null;
+  const costAudit = costAuditStep?.ok ? parseAudit(costAuditStep.stdout) : null;
   const auditWarning = auditStep?.stderr?.trim() || "";
+  const costAuditWarning = costAuditStep?.stderr?.trim() || "";
   const generatedAt = new Date().toISOString();
   const installPath = audit?.installPath || process.env.AUTO_CHESS_INSTALL || "D:/Program Files/steamapps/common/Auto Chess";
   const assetDate = audit?.assetDate || "Unknown";
@@ -95,6 +97,9 @@ function writeReport({ steps, auditStep }) {
     `- Local asset table date: ${assetDate}`,
     `- Newest local patch cache date: ${cacheDate}`,
     `- Freshness read: ${cacheStatus}`,
+    costAudit
+      ? `- Piece cost audit: ${costAudit.counts.appliedOverrides} local overrides applied, ${costAudit.counts.strongMismatches} strong name-based mismatches, ${costAudit.counts.uncertain} rows still needing manual review.`
+      : "- Piece cost audit: Not available.",
     "",
     "## Command Results",
     "",
@@ -108,6 +113,17 @@ function writeReport({ steps, auditStep }) {
       ? `- Parsed ${audit.counts.totalRecords} local config records, including ${audit.counts.pieceRecords} piece records, ${audit.counts.equipmentRecords} equipment records, and ${audit.counts.skillRecords} skill records.`
       : "- Local audit did not complete. Patch and reference data were still regenerated from available web/Steam sources.",
     auditWarning ? `- Audit warning: ${auditWarning}` : "- Audit warning: None.",
+    "",
+    "## Piece Cost Audit",
+    "",
+    costAudit
+      ? `- Matched ${costAudit.counts.matched} local rows against ${costAudit.counts.referencePieces} reference pieces.`
+      : "- Piece cost audit did not complete.",
+    costAudit
+      ? `- Applied overrides: ${costAudit.appliedOverrides.map((entry) => `${entry.name} -> ${entry.localCost}`).join(", ") || "None"}.`
+      : "- Applied overrides: Unknown.",
+    costAuditWarning ? `- Cost audit note: ${costAuditWarning}` : "- Cost audit note: None.",
+    "- See `LOCAL_COST_AUDIT.md` for the full local-ID comparison.",
     "",
     "## Manual Review Checklist",
     "",
@@ -129,6 +145,8 @@ function main() {
   steps.push(runStep("Update patch data", process.execPath, ["scripts/update-patch-data.js"]));
   const auditStep = runStep("Audit local game data", process.execPath, ["scripts/audit-local-game-data.js"], { required: false });
   steps.push(auditStep);
+  const costAuditStep = runStep("Audit piece costs", process.execPath, ["scripts/audit-piece-costs.js"], { required: false });
+  steps.push(costAuditStep);
   steps.push(runStep("Syntax check update workflow", process.execPath, [
     "--check",
     "scripts/update-site.js"
@@ -149,7 +167,7 @@ function main() {
     "--check",
     "patch-data.js"
   ]));
-  writeReport({ steps, auditStep });
+  writeReport({ steps, auditStep, costAuditStep });
 }
 
 try {

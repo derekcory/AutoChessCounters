@@ -52,6 +52,9 @@ This file records the meaningful changes made to the site so we can look back la
 - Added June 25, 2026 overrides for Soul Breaker, Skull Hunter, Dwarf Sniper, Sorcerous Chain, Magic Mirror, Kira Imprint, Bloodbath Skull, Broken Sword, and Crystal Sword.
 - Audited Priest and Witcher breakpoints against official sources. Priest stayed `1/2/3` because the current Dragonest wiki payload and the official Priest(3) update support that. Witcher was overridden to `2/4` because the official Dragonest 3.13 maintenance note lists `Witcher[2]` and `Witcher[4]`, while the live wiki payload still shows older `1/2` text.
 - Corrected Taboo Witcher from stale wiki `Common / 1` data to `Epic / 4` using the official App Store v2.31.2 release note and local May 2026 asset-table stats.
+- Added `scripts/audit-piece-costs.js` and `npm.cmd run audit:costs` to compare reference-piece costs against the local cached normal-mode shop buckets.
+- Corrected high-confidence local cost mismatches for Abyssal Guard, Argali Knight, Bobo, Desperate Doctor, Frost Knight, God of War, Khan, Penitent Bishop, Phantom Queen, Shining Archer, Storm Shaman, and Wind Ranger.
+- Added `LOCAL_COST_AUDIT.md` so each local cost correction can be traced back to a local piece ID and `phone_chsid`.
 - Replaced `update:all` with a one-command patch-day workflow that regenerates data, audits local game files, syntax-checks generated scripts, and writes `PATCH_UPDATE_REPORT.md`.
 
 ### Top-level navigation

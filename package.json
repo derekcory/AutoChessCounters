@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "audit:costs": "node scripts/audit-piece-costs.js",
     "audit:local": "node scripts/audit-local-game-data.js",
-    "check": "node --check app.js && node --check data.js && node --check reference-data.js && node --check patch-data.js && node --check scripts/update-site.js && node --check scripts/update-reference-data.js && node --check scripts/update-patch-data.js && node --check scripts/audit-local-game-data.js",
+    "check": "node --check app.js && node --check data.js && node --check reference-data.js && node --check patch-data.js && node --check scripts/update-site.js && node --check scripts/update-reference-data.js && node --check scripts/update-patch-data.js && node --check scripts/audit-local-game-data.js && node --check scripts/audit-piece-costs.js && node --check scripts/local-cost-overrides.js",
     "update:all": "node scripts/update-site.js",
     "update:data": "node scripts/update-reference-data.js && node scripts/update-patch-data.js",
     "update:patch": "node scripts/update-patch-data.js",

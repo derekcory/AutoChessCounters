@@ -1,6 +1,6 @@
 window.AUTO_CHESS_REFERENCE = {
   "meta": {
-    "updatedLabel": "2026-07-08",
+    "updatedLabel": "2026-07-09",
     "sources": {
       "pieces": "https://ac.dragonest.com/en/charactor",
       "items": "https://ac.dragonest.com/en/equipment",
@@ -12,6 +12,33 @@ window.AUTO_CHESS_REFERENCE = {
     "sourceNote": "Reference data is generated from the official Dragonest Chess Wiki and Item Effects pages, including official images where available, with explicit Steam/local patch overrides for newly changed entries."
   },
   "pieces": [
+    {
+      "id": "bobo",
+      "name": "Bobo",
+      "title": "Otter Hunter",
+      "cost": 1,
+      "quality": "Common",
+      "races": [
+        "Beast"
+      ],
+      "classes": [
+        "Hunter"
+      ],
+      "hp": "600",
+      "attack": "60",
+      "armor": "5",
+      "attackSpeed": "1.0",
+      "range": "4",
+      "magicResist": "",
+      "abilityName": "Delicious Shell",
+      "ability": "Passive: After the battle begins, any ally has a 50% chance to gain the Delicious Shell state for 5 seconds when they are born. Active: Gives random 2 allies Delicious Shell to eat (This effect will give priority to allies that have not eaten Delicious Shells.), lasting 5 seconds. Delicious Shell: When attacking, the enemy unit will get stackable Vulnerability effect (Increases damage received by 1%), and when the Vulnerability accumulates to 10 stacks, the target's recovery effect is additionally reduced by 50%.",
+      "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/f105de1774a",
+      "source": "Official Dragonest Chess Wiki; Local Steam game data cost audit",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/0e29186052338bff7cef8a70f6ae677a.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/9ec08e319bff26440523c634b8594fac.png",
+      "patchNote": "Local Steam game data cost audit maps this piece to 1 gold (Common) in normal shop config. Local ID: 130211; phone_chsid: 1095100.",
+      "patchSourceUrl": ""
+    },
     {
       "id": "defector",
       "name": "Defector",
@@ -36,6 +63,33 @@ window.AUTO_CHESS_REFERENCE = {
       "source": "Official Dragonest Chess Wiki",
       "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/4445cc256e3d04f12e2fecd6518ed4e7.png",
       "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/e528d849333ef37cdd3d4b4311474f0d.png"
+    },
+    {
+      "id": "desperate-doctor",
+      "name": "Desperate Doctor",
+      "title": "Voo'du",
+      "cost": 1,
+      "quality": "Common",
+      "races": [
+        "Glacier"
+      ],
+      "classes": [
+        "Warlock"
+      ],
+      "hp": "550",
+      "attack": "45",
+      "armor": "5",
+      "attackSpeed": "1",
+      "range": "3",
+      "magicResist": "",
+      "abilityName": "Ricocheting Cask",
+      "ability": "Launches a cask of paralyzing powder that ricochets between enemy chess pieces up to 4 times, dealing 60 damages and stunning those it hits for 1 seconds",
+      "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad291",
+      "source": "Official Dragonest Chess Wiki; Local Steam game data cost audit",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/ef9faf02429cd206d843ed553cd6a5ea.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/b8d4a061ec3a5547893d81942bd02c0d.png",
+      "patchNote": "Local Steam game data cost audit maps this piece to 1 gold (Common) in normal shop config. Local ID: 120021; phone_chsid: 1019100.",
+      "patchSourceUrl": ""
     },
     {
       "id": "egersis-ranger",
@@ -63,29 +117,31 @@ window.AUTO_CHESS_REFERENCE = {
       "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/2614f52712931cfb51d31ca9824f24ca.png"
     },
     {
-      "id": "frost-knight",
-      "name": "Frost Knight",
-      "title": "Bat'du",
+      "id": "god-of-war",
+      "name": "God of War",
+      "title": "Ares",
       "cost": 1,
       "quality": "Common",
       "races": [
-        "Glacier"
+        "Divinity"
       ],
       "classes": [
-        "Knight"
+        "Warrior"
       ],
-      "hp": "500",
-      "attack": "47.5",
-      "armor": "5",
+      "hp": "800",
+      "attack": "",
+      "armor": "6",
       "attackSpeed": "1",
-      "range": "3",
+      "range": "2",
       "magicResist": "",
-      "abilityName": "Snowbomb Blast",
-      "ability": "Slow enemy units of 2-grid radius 1 seconds of their movement and taking bonus 50 magical damagess every time Frost Knight attacks. Get to at most 4 stacks and last 20 seconds",
-      "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad240",
-      "source": "Official Dragonest Chess Wiki",
-      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/b2caa416d31bb78099aff579f58de687.png",
-      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/4b865b1351ebd6b569f5238faafe48b1.png"
+      "abilityName": "Shield Crash",
+      "ability": "Reduces Physical Damage by 30% upon receiving attack from the front, and by 15% from the side. Meanwhile, deals 300 Physical Damage to enemies within 3 grids ahead every 8 seconds.Also knocks back enemies within range for 1 grid.",
+      "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47aec6b",
+      "source": "Official Dragonest Chess Wiki; Local Steam game data cost audit",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/8ba4a8a8d4b09e540030056d621e3cf0.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/412728e871eb78110d4f9e2047cf38dc.png",
+      "patchNote": "Local Steam game data cost audit maps this piece to 1 gold (Common) in normal shop config. Local ID: 110131; phone_chsid: 1057100.",
+      "patchSourceUrl": ""
     },
     {
       "id": "hawk",
@@ -138,6 +194,34 @@ window.AUTO_CHESS_REFERENCE = {
       "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/091afc886c8c8078f1f4e320222f2073.png"
     },
     {
+      "id": "penitent-bishop",
+      "name": "Penitent Bishop",
+      "title": "Mammon",
+      "cost": 1,
+      "quality": "Common",
+      "races": [
+        "Demon",
+        "Ancestor"
+      ],
+      "classes": [
+        "Priest"
+      ],
+      "hp": "650",
+      "attack": "50-90",
+      "armor": "4",
+      "attackSpeed": "1.7",
+      "range": "3",
+      "magicResist": "10%",
+      "abilityName": "Ancestral Curse",
+      "ability": "Penitent Bishop curses the enemy it attacks. When a cursed enemy is healed, Penitent Bishop heals allies around the target by a percentage. When a cursed enemy takes damage, Penitent Bishop deals the same type of damage, scaled by a percentage, to enemies around the target. Damage & Healing Share Percentage: 30% Effect Range: 27 CD: 5",
+      "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/fff98fc739e",
+      "source": "Official Dragonest Chess Wiki; Local Steam game data cost audit",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/175904382489231.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/175904361129704.png",
+      "patchNote": "Local Steam game data cost audit maps this piece to 1 gold (Common) in normal shop config. Local ID: 130271; phone_chsid: 1111100.",
+      "patchSourceUrl": ""
+    },
+    {
       "id": "redaxe-chief",
       "name": "Redaxe Chief",
       "title": "Axe·Redaxe",
@@ -186,6 +270,33 @@ window.AUTO_CHESS_REFERENCE = {
       "source": "Official Dragonest Chess Wiki",
       "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/91d69fffa279783720d58b31aa7eb01a.png",
       "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/2fc5f72948322870a992c0839783062b.png"
+    },
+    {
+      "id": "shining-archer",
+      "name": "Shining Archer",
+      "title": "Waner",
+      "cost": 1,
+      "quality": "Common",
+      "races": [
+        "Feathered"
+      ],
+      "classes": [
+        "Hunter"
+      ],
+      "hp": "600",
+      "attack": "60",
+      "armor": "",
+      "attackSpeed": "1",
+      "range": "4",
+      "magicResist": "",
+      "abilityName": "Shooting Star",
+      "ability": "Deals 50 - 500 Magical Damage to the farthest piece, and stuns it for 1 - 5 seconds. The longer the distance, the greater the damage and the longer the stun duration.",
+      "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47afcfe",
+      "source": "Official Dragonest Chess Wiki; Local Steam game data cost audit",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/a82b496832ef9ba79b9a236bf949bc1b.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/3e9bdda30211026d16748e18ec86a50f.png",
+      "patchNote": "Local Steam game data cost audit maps this piece to 1 gold (Common) in normal shop config. Local ID: 120141; phone_chsid: 1058100.",
+      "patchSourceUrl": ""
     },
     {
       "id": "sky-breaker",
@@ -394,31 +505,6 @@ window.AUTO_CHESS_REFERENCE = {
       "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/b61515d896647f16ff2a221dcb4afc57.png"
     },
     {
-      "id": "abyssal-guard",
-      "name": "Abyssal Guard",
-      "title": "Triton",
-      "cost": 2,
-      "quality": "Uncommon",
-      "races": [
-        "Marine"
-      ],
-      "classes": [
-        "Warrior"
-      ],
-      "hp": "650",
-      "attack": "85",
-      "armor": "5",
-      "attackSpeed": "1",
-      "range": "2",
-      "magicResist": "",
-      "abilityName": "Corrosion",
-      "ability": "Randomly reduces 15 armor to an enemy unit's for 20 seconds",
-      "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad2e9",
-      "source": "Official Dragonest Chess Wiki",
-      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/cd9adb22e4cba0383af19d2d30445708.png",
-      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/bf74a0d580dcec0ec1c4fb49c79ac061.png"
-    },
-    {
       "id": "abyssalcrawler",
       "name": "Abyssalcrawler",
       "title": "Nana",
@@ -442,31 +528,6 @@ window.AUTO_CHESS_REFERENCE = {
       "source": "Official Dragonest Chess Wiki",
       "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/06f7a844a7aa71e67ca50bc0a4e73818.png",
       "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/710c1d5c2ff4dc1a3cea13ecd767e3cd.png"
-    },
-    {
-      "id": "desperate-doctor",
-      "name": "Desperate Doctor",
-      "title": "Voo'du",
-      "cost": 2,
-      "quality": "Uncommon",
-      "races": [
-        "Glacier"
-      ],
-      "classes": [
-        "Warlock"
-      ],
-      "hp": "550",
-      "attack": "45",
-      "armor": "5",
-      "attackSpeed": "1",
-      "range": "3",
-      "magicResist": "",
-      "abilityName": "Ricocheting Cask",
-      "ability": "Launches a cask of paralyzing powder that ricochets between enemy chess pieces up to 4 times, dealing 60 damages and stunning those it hits for 1 seconds",
-      "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad291",
-      "source": "Official Dragonest Chess Wiki",
-      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/ef9faf02429cd206d843ed553cd6a5ea.png",
-      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/b8d4a061ec3a5547893d81942bd02c0d.png"
     },
     {
       "id": "dwarf-sniper",
@@ -519,6 +580,33 @@ window.AUTO_CHESS_REFERENCE = {
       "source": "Official Dragonest Chess Wiki",
       "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/d0d1c89e7f9f94dbc7f8cc3ee5c576ed.png",
       "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/aade777eda74fe813a2c0cca4f5d5d67.png"
+    },
+    {
+      "id": "frost-knight",
+      "name": "Frost Knight",
+      "title": "Bat'du",
+      "cost": 2,
+      "quality": "Uncommon",
+      "races": [
+        "Glacier"
+      ],
+      "classes": [
+        "Knight"
+      ],
+      "hp": "500",
+      "attack": "47.5",
+      "armor": "5",
+      "attackSpeed": "1",
+      "range": "3",
+      "magicResist": "",
+      "abilityName": "Snowbomb Blast",
+      "ability": "Slow enemy units of 2-grid radius 1 seconds of their movement and taking bonus 50 magical damagess every time Frost Knight attacks. Get to at most 4 stacks and last 20 seconds",
+      "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad240",
+      "source": "Official Dragonest Chess Wiki; Local Steam game data cost audit",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/b2caa416d31bb78099aff579f58de687.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/4b865b1351ebd6b569f5238faafe48b1.png",
+      "patchNote": "Local Steam game data cost audit maps this piece to 2 gold (Uncommon) in normal shop config. Local ID: 110101; phone_chsid: 1009100.",
+      "patchSourceUrl": ""
     },
     {
       "id": "goddess-of-light",
@@ -596,31 +684,6 @@ window.AUTO_CHESS_REFERENCE = {
       "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/facfeb04e2d22442c7852bb1eb5ffcfc.png"
     },
     {
-      "id": "phantom-queen",
-      "name": "Phantom Queen",
-      "title": "Asmodeus",
-      "cost": 2,
-      "quality": "Uncommon",
-      "races": [
-        "Demon"
-      ],
-      "classes": [
-        "Assassin"
-      ],
-      "hp": "550",
-      "attack": "57.5",
-      "armor": "",
-      "attackSpeed": "1",
-      "range": "3",
-      "magicResist": "",
-      "abilityName": "Scream of Devil",
-      "ability": "Deals 200 magical damages to nearby enemy units within 3 grids",
-      "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad758",
-      "source": "Official Dragonest Chess Wiki",
-      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/b09d238c03b0511e06923905cd858a98.png",
-      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/c5b7f03dd639a3f6132090f6db14d77f.png"
-    },
-    {
       "id": "ripper",
       "name": "Ripper",
       "title": "Golby Wood",
@@ -644,31 +707,6 @@ window.AUTO_CHESS_REFERENCE = {
       "source": "Official Dragonest Chess Wiki",
       "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/931cfca16ee6574973732fe03f7a804d.png",
       "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/354b5bfcd7ca4c9ee3ede0e153ba02ee.png"
-    },
-    {
-      "id": "shining-archer",
-      "name": "Shining Archer",
-      "title": "Waner",
-      "cost": 2,
-      "quality": "Uncommon",
-      "races": [
-        "Feathered"
-      ],
-      "classes": [
-        "Hunter"
-      ],
-      "hp": "600",
-      "attack": "60",
-      "armor": "",
-      "attackSpeed": "1",
-      "range": "4",
-      "magicResist": "",
-      "abilityName": "Shooting Star",
-      "ability": "Deals 50 - 500 Magical Damage to the farthest piece, and stuns it for 1 - 5 seconds. The longer the distance, the greater the damage and the longer the stun duration.",
-      "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47afcfe",
-      "source": "Official Dragonest Chess Wiki",
-      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/a82b496832ef9ba79b9a236bf949bc1b.png",
-      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/3e9bdda30211026d16748e18ec86a50f.png"
     },
     {
       "id": "skull-hunter",
@@ -773,6 +811,33 @@ window.AUTO_CHESS_REFERENCE = {
       "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/5a65c8aa986d97e64a8c55ddc504db8a.png"
     },
     {
+      "id": "wind-ranger",
+      "name": "Wind Ranger",
+      "title": "Wu",
+      "cost": 2,
+      "quality": "Uncommon",
+      "races": [
+        "Feathered"
+      ],
+      "classes": [
+        "Hunter"
+      ],
+      "hp": "550",
+      "attack": "60",
+      "armor": "5",
+      "attackSpeed": "0.9",
+      "range": "5",
+      "magicResist": "",
+      "abilityName": "Powershot",
+      "ability": "Charges the bow for up to 2 seconds, dealing at most 400 damages to enemy units in the path. For each enemy that powershot hits, its damages is reduced by 10%",
+      "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad179",
+      "source": "Official Dragonest Chess Wiki; Local Steam game data cost audit",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/7fdd6c8d5b133b82b2cb2eba5a7b240d.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/aa52b082e36ce561633517f25a2e2da7.png",
+      "patchNote": "Local Steam game data cost audit maps this piece to 2 gold (Uncommon) in normal shop config. Local ID: 130041; phone_chsid: 1030100.",
+      "patchSourceUrl": ""
+    },
+    {
       "id": "wisper-seer",
       "name": "Wisper Seer",
       "title": "Bn",
@@ -798,29 +863,31 @@ window.AUTO_CHESS_REFERENCE = {
       "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/3edde7a2ff79ade7f2c276d9ba0fedde.png"
     },
     {
-      "id": "argali-knight",
-      "name": "Argali Knight",
-      "title": "Aries·Osterloh",
+      "id": "abyssal-guard",
+      "name": "Abyssal Guard",
+      "title": "Triton",
       "cost": 3,
       "quality": "Rare",
       "races": [
-        "Human"
+        "Marine"
       ],
       "classes": [
-        "Knight"
+        "Warrior"
       ],
-      "hp": "700",
-      "attack": "55",
-      "armor": "10",
+      "hp": "650",
+      "attack": "85",
+      "armor": "5",
       "attackSpeed": "1",
       "range": "2",
       "magicResist": "",
-      "abilityName": "Purification",
-      "ability": "Deals 200 healing to a friendly chess and 250 pure damages to all nearby enemy within 2 grids,",
-      "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad4a5",
-      "source": "Official Dragonest Chess Wiki",
-      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/6da86367a2f1ef4c8f73f8b7efdc811d.png",
-      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/3e1241d8b10e26fee09865b68915e89d.png"
+      "abilityName": "Corrosion",
+      "ability": "Randomly reduces 15 armor to an enemy unit's for 20 seconds",
+      "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad2e9",
+      "source": "Official Dragonest Chess Wiki; Local Steam game data cost audit",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/cd9adb22e4cba0383af19d2d30445708.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/bf74a0d580dcec0ec1c4fb49c79ac061.png",
+      "patchNote": "Local Steam game data cost audit maps this piece to 3 gold (Rare) in normal shop config. Local ID: 120091; phone_chsid: 1020100.",
+      "patchSourceUrl": ""
     },
     {
       "id": "berserker",
@@ -846,31 +913,6 @@ window.AUTO_CHESS_REFERENCE = {
       "source": "Official Dragonest Chess Wiki",
       "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/16f02a276901b837c05db2a26d003a8d.png",
       "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/25308f2f63981e4fdcb884e1b19e3777.png"
-    },
-    {
-      "id": "bobo",
-      "name": "Bobo",
-      "title": "Otter Hunter",
-      "cost": 3,
-      "quality": "Rare",
-      "races": [
-        "Beast"
-      ],
-      "classes": [
-        "Hunter"
-      ],
-      "hp": "600",
-      "attack": "60",
-      "armor": "5",
-      "attackSpeed": "1.0",
-      "range": "4",
-      "magicResist": "",
-      "abilityName": "Delicious Shell",
-      "ability": "Passive: After the battle begins, any ally has a 50% chance to gain the Delicious Shell state for 5 seconds when they are born. Active: Gives random 2 allies Delicious Shell to eat (This effect will give priority to allies that have not eaten Delicious Shells.), lasting 5 seconds. Delicious Shell: When attacking, the enemy unit will get stackable Vulnerability effect (Increases damage received by 1%), and when the Vulnerability accumulates to 10 stacks, the target's recovery effect is additionally reduced by 50%.",
-      "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/f105de1774a",
-      "source": "Official Dragonest Chess Wiki",
-      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/0e29186052338bff7cef8a70f6ae677a.png",
-      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/9ec08e319bff26440523c634b8594fac.png"
     },
     {
       "id": "eclipse-of-darkness",
@@ -1023,31 +1065,6 @@ window.AUTO_CHESS_REFERENCE = {
       "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/29718478979bda76009d05aa6806ba85.png"
     },
     {
-      "id": "god-of-war",
-      "name": "God of War",
-      "title": "Ares",
-      "cost": 3,
-      "quality": "Rare",
-      "races": [
-        "Divinity"
-      ],
-      "classes": [
-        "Warrior"
-      ],
-      "hp": "800",
-      "attack": "",
-      "armor": "6",
-      "attackSpeed": "1",
-      "range": "2",
-      "magicResist": "",
-      "abilityName": "Shield Crash",
-      "ability": "Reduces Physical Damage by 30% upon receiving attack from the front, and by 15% from the side. Meanwhile, deals 300 Physical Damage to enemies within 3 grids ahead every 8 seconds.Also knocks back enemies within range for 1 grid.",
-      "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47aec6b",
-      "source": "Official Dragonest Chess Wiki",
-      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/8ba4a8a8d4b09e540030056d621e3cf0.png",
-      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/412728e871eb78110d4f9e2047cf38dc.png"
-    },
-    {
       "id": "goddess-of-war",
       "name": "Goddess of War",
       "title": "Valkyrie",
@@ -1096,34 +1113,6 @@ window.AUTO_CHESS_REFERENCE = {
       "source": "Official Dragonest Chess Wiki",
       "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/b99328961d0542bc0d9e2ce8540798fe.png",
       "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/f14b2b5f38b6dc716de9fc006b90a6d7.png"
-    },
-    {
-      "id": "khan",
-      "name": "Khan",
-      "title": "Uriyang Modu",
-      "cost": 3,
-      "quality": "Rare",
-      "races": [
-        "Divinity",
-        "Horn"
-      ],
-      "classes": [
-        "Druid"
-      ],
-      "hp": "900 / 1800 / 3100",
-      "attack": "115",
-      "armor": "10",
-      "attackSpeed": "1.5",
-      "range": "1",
-      "magicResist": "20%",
-      "abilityName": "Earth Cracking",
-      "ability": "Slash a crack ahead with the axe, pulling enemy units within range toward the crack after 3 seconds and stunning them for 2 seconds while dealing damage equals to their maximum HP 10%+100 (50% is magical damage, 50% is physical damage).",
-      "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/edde7225351",
-      "source": "Official Dragonest Chess Wiki; Steam March 2026 patch override",
-      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/8be8acbb0a4911c6ac9a3183b3ce6901.png",
-      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/ffea72322f2c72908f4c6229979b1421.png",
-      "patchNote": "March 2026 patch changed Khan from Legendary to Rare and reduced its damage profile.",
-      "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756"
     },
     {
       "id": "lord-of-sand",
@@ -1202,32 +1191,6 @@ window.AUTO_CHESS_REFERENCE = {
       "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/79aafb879dfc31e5344618021dc42675.png",
       "patchNote": "March 2026 patch reworked Ogre Mage from Common filler into a Rare aura piece.",
       "patchSourceUrl": "https://store.steampowered.com/news/app/1530300/view/496097685470709756"
-    },
-    {
-      "id": "penitent-bishop",
-      "name": "Penitent Bishop",
-      "title": "Mammon",
-      "cost": 3,
-      "quality": "Rare",
-      "races": [
-        "Demon",
-        "Ancestor"
-      ],
-      "classes": [
-        "Priest"
-      ],
-      "hp": "650",
-      "attack": "50-90",
-      "armor": "4",
-      "attackSpeed": "1.7",
-      "range": "3",
-      "magicResist": "10%",
-      "abilityName": "Ancestral Curse",
-      "ability": "Penitent Bishop curses the enemy it attacks. When a cursed enemy is healed, Penitent Bishop heals allies around the target by a percentage. When a cursed enemy takes damage, Penitent Bishop deals the same type of damage, scaled by a percentage, to enemies around the target. Damage & Healing Share Percentage: 30% Effect Range: 27 CD: 5",
-      "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/fff98fc739e",
-      "source": "Official Dragonest Chess Wiki",
-      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/175904382489231.png",
-      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/175904361129704.png"
     },
     {
       "id": "penitent-bishop-mammon",
@@ -1508,31 +1471,6 @@ window.AUTO_CHESS_REFERENCE = {
       "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/919bb1320aa5b814bc666462a27ee1e0.png"
     },
     {
-      "id": "wind-ranger",
-      "name": "Wind Ranger",
-      "title": "Wu",
-      "cost": 3,
-      "quality": "Rare",
-      "races": [
-        "Feathered"
-      ],
-      "classes": [
-        "Hunter"
-      ],
-      "hp": "550",
-      "attack": "60",
-      "armor": "5",
-      "attackSpeed": "0.9",
-      "range": "5",
-      "magicResist": "",
-      "abilityName": "Powershot",
-      "ability": "Charges the bow for up to 2 seconds, dealing at most 400 damages to enemy units in the path. For each enemy that powershot hits, its damages is reduced by 10%",
-      "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad179",
-      "source": "Official Dragonest Chess Wiki",
-      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/7fdd6c8d5b133b82b2cb2eba5a7b240d.png",
-      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/aa52b082e36ce561633517f25a2e2da7.png"
-    },
-    {
       "id": "cave-prodigy",
       "name": "Cave Prodigy",
       "title": "Shire Strikeboar",
@@ -1634,6 +1572,34 @@ window.AUTO_CHESS_REFERENCE = {
       "source": "Official Dragonest Chess Wiki",
       "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/740afb2bd83e86d5e74ff52ccec720ce.png",
       "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/f9fa2cd93aae6ecc7c09a42a8dce863b.png"
+    },
+    {
+      "id": "khan",
+      "name": "Khan",
+      "title": "Uriyang Modu",
+      "cost": 4,
+      "quality": "Epic",
+      "races": [
+        "Divinity",
+        "Horn"
+      ],
+      "classes": [
+        "Druid"
+      ],
+      "hp": "900 / 1800 / 3100",
+      "attack": "115",
+      "armor": "10",
+      "attackSpeed": "1.5",
+      "range": "1",
+      "magicResist": "20%",
+      "abilityName": "Earth Cracking",
+      "ability": "Slash a crack ahead with the axe, pulling enemy units within range toward the crack after 3 seconds and stunning them for 2 seconds while dealing damage equals to their maximum HP 10%+100 (50% is magical damage, 50% is physical damage).",
+      "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/edde7225351",
+      "source": "Official Dragonest Chess Wiki; Steam March 2026 patch override; Local Steam game data cost audit",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/8be8acbb0a4911c6ac9a3183b3ce6901.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/ffea72322f2c72908f4c6229979b1421.png",
+      "patchNote": "Local Steam game data cost audit maps this piece to 4 gold (Epic) in normal shop config. Local ID: 150161; phone_chsid: 1091100.",
+      "patchSourceUrl": ""
     },
     {
       "id": "pirate-captain",
@@ -1788,31 +1754,6 @@ window.AUTO_CHESS_REFERENCE = {
       "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/6c24b1e8387a2fc935b11a96eb7a2dce.png"
     },
     {
-      "id": "storm-shaman",
-      "name": "Storm Shaman",
-      "title": "Oost Brutalthunder",
-      "cost": 4,
-      "quality": "Epic",
-      "races": [
-        "Cave"
-      ],
-      "classes": [
-        "Shaman"
-      ],
-      "hp": "800",
-      "attack": "47.5",
-      "armor": "5",
-      "attackSpeed": "1",
-      "range": "4",
-      "magicResist": "",
-      "abilityName": "Static Storm",
-      "ability": "Creates a damaging static storm that also silence enemy units in the area for 2 seconds. Dealing as maximum as 150 magical damages per second.",
-      "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad3db",
-      "source": "Official Dragonest Chess Wiki",
-      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/edfdc3369b21db84b92ac2c48724c8b6.png",
-      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/318794b59868821fc08f2c1f92ac6894.png"
-    },
-    {
       "id": "taboo-witcher",
       "name": "Taboo Witcher",
       "title": "Dee",
@@ -1914,6 +1855,33 @@ window.AUTO_CHESS_REFERENCE = {
       "source": "Official Dragonest Chess Wiki",
       "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/c52fb370961bcb346f4f26d01a74d6a9.png",
       "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/3c12bdd47773e94975a50aeb38dc60ac.png"
+    },
+    {
+      "id": "argali-knight",
+      "name": "Argali Knight",
+      "title": "Aries·Osterloh",
+      "cost": 5,
+      "quality": "Legendary",
+      "races": [
+        "Human"
+      ],
+      "classes": [
+        "Knight"
+      ],
+      "hp": "700",
+      "attack": "55",
+      "armor": "10",
+      "attackSpeed": "1",
+      "range": "2",
+      "magicResist": "",
+      "abilityName": "Purification",
+      "ability": "Deals 200 healing to a friendly chess and 250 pure damages to all nearby enemy within 2 grids,",
+      "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad4a5",
+      "source": "Official Dragonest Chess Wiki; Local Steam game data cost audit",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/6da86367a2f1ef4c8f73f8b7efdc811d.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/3e1241d8b10e26fee09865b68915e89d.png",
+      "patchNote": "Local Steam game data cost audit maps this piece to 5 gold (Legendary) in normal shop config. Local ID: 130031; phone_chsid: 1028100.",
+      "patchSourceUrl": ""
     },
     {
       "id": "dark-spirit",
@@ -2041,6 +2009,33 @@ window.AUTO_CHESS_REFERENCE = {
       "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/cea35acf6f4c124277ba889b379b8241.png"
     },
     {
+      "id": "phantom-queen",
+      "name": "Phantom Queen",
+      "title": "Asmodeus",
+      "cost": 5,
+      "quality": "Legendary",
+      "races": [
+        "Demon"
+      ],
+      "classes": [
+        "Assassin"
+      ],
+      "hp": "550",
+      "attack": "57.5",
+      "armor": "",
+      "attackSpeed": "1",
+      "range": "3",
+      "magicResist": "",
+      "abilityName": "Scream of Devil",
+      "ability": "Deals 200 magical damages to nearby enemy units within 3 grids",
+      "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad758",
+      "source": "Official Dragonest Chess Wiki; Local Steam game data cost audit",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/b09d238c03b0511e06923905cd858a98.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/c5b7f03dd639a3f6132090f6db14d77f.png",
+      "patchNote": "Local Steam game data cost audit maps this piece to 5 gold (Legendary) in normal shop config. Local ID: 120071; phone_chsid: 1017100.",
+      "patchSourceUrl": ""
+    },
+    {
       "id": "rogue-guard",
       "name": "Rogue Guard",
       "title": "Lucifer",
@@ -2091,6 +2086,33 @@ window.AUTO_CHESS_REFERENCE = {
       "source": "Official Dragonest Chess Wiki",
       "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/2b4003c942295b208f341afab8672d21.png",
       "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/a1c73e31810109ced79f3c3efe0160c2.png"
+    },
+    {
+      "id": "storm-shaman",
+      "name": "Storm Shaman",
+      "title": "Oost Brutalthunder",
+      "cost": 5,
+      "quality": "Legendary",
+      "races": [
+        "Cave"
+      ],
+      "classes": [
+        "Shaman"
+      ],
+      "hp": "800",
+      "attack": "47.5",
+      "armor": "5",
+      "attackSpeed": "1",
+      "range": "4",
+      "magicResist": "",
+      "abilityName": "Static Storm",
+      "ability": "Creates a damaging static storm that also silence enemy units in the area for 2 seconds. Dealing as maximum as 150 magical damages per second.",
+      "sourceUrl": "https://ac.dragonest.com/en/charactor/detail/e52b47ad3db",
+      "source": "Official Dragonest Chess Wiki; Local Steam game data cost audit",
+      "imageUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/edfdc3369b21db84b92ac2c48724c8b6.png",
+      "thumbnailUrl": "https://static.ilongyuan.cn/official_website/e52b47a8c88/318794b59868821fc08f2c1f92ac6894.png",
+      "patchNote": "Local Steam game data cost audit maps this piece to 5 gold (Legendary) in normal shop config. Local ID: 140101; phone_chsid: 1047100.",
+      "patchSourceUrl": ""
     },
     {
       "id": "strange-egg",
