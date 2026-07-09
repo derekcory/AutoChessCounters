@@ -21,6 +21,7 @@ This file records the meaningful changes made to the site so we can look back la
 - Expanded Counter Advisor direct synergy scores and exact combo rules so the new builds appear for matchups such as `Mage + Divinity`, `Dragon + Mage`, `Insectoid + Civet`, `Goblin + Warlock`, `Glacier + Warlock`, and `Dragon + Witcher`.
 - Added another seven sourced counter templates: `9 Feathered Wizard`, `9 Assassin Horn`, `9 Warrior Rogue Guard`, `Divinity Warlock`, `9 Egersis Pact`, `Shaman Mage Horn`, and `Human Knight Marine`.
 - Added advisor support for those builds, including exact rules for `Human + Mage`, `Feathered + Wizard`, `Greater + Warrior`, `Shaman + Mage`, and `Warrior + Horn`.
+- Moved the quick `Counter finder` build lookup from the bottom of `Builds & Counters` into the `Counter Advisor` tab so all counter tools live together.
 
 ### Patch review dashboard
 
